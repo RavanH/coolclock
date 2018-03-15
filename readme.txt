@@ -3,7 +3,7 @@ Contributors: RavanH
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ravanhagen%40gmail%2ecom&item_name=CoolClock%20for%20WordPress&item_number=1%2e3%2e4%2e9&no_shipping=0&tax=0&charset=UTF%2d8&currency_code=EUR
 Tags: clock, analog clock, coolclock, javascript, jquery, widget, shortcode, logarithmic clock
 Requires at least: 3.2
-Tested up to: 4.7
+Tested up to: 4.9
 Stable tag: 3.3
 
 Show an analog clock on your WordPress site sidebar or in post and page content.
@@ -127,7 +127,7 @@ See more preset skin examples in [moreskins.js](http://randomibis.com/coolclock/
 
 = Can I share this fantastic custom skin I created? =
 
-If you made a nice skin and would like to share it, then send it to the script creator at simon dot baird at gmail dot com or paste the custom parameters into a [Review](http://wordpress.org/support/view/plugin-reviews/coolclock). 
+If you made a nice skin and would like to share it, then send it to the script creator at simon dot baird at gmail dot com or paste the custom parameters into a [Review](http://wordpress.org/support/view/plugin-reviews/coolclock).
 
 Thanks for sharing! :)
 
@@ -163,7 +163,7 @@ Then there are extra parameters and options availabe in the [CoolClock - Advance
 
 Example: **[coolclock** **skin="minimal" radius="63" align="left" background_image="http://i35.tinypic.com/990wtx.png" /]**
 
-Custom skins can also be used in shortcode with the Advanced extension. See more on 
+Custom skins can also be used in shortcode with the Advanced extension. See more on
 
 = I'm building my own theme. Is there a theme function available? =
 
@@ -256,4 +256,3 @@ New wrapper class and user input validation.
 
 = 0.1 =
 * First implementation of CoolClock in sidebar widget
-
