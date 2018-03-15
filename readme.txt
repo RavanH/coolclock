@@ -21,7 +21,7 @@ This plugin integrates [CoolClock - The Javascript Analog Clock](http://randomib
 - Custom skin option to create your own skin style
 - Linear or logarithmic time scale
 
-Read more on http://status301.net/wordpress-plugins/coolclock/ or see [the FAQ's](http://wordpress.org/extend/plugins/coolclock/faq/) to learn how to configure your own skin settings.
+Read more on https://status301.net/wordpress-plugins/coolclock/ or see [the FAQ's](http://wordpress.org/extend/plugins/coolclock/faq/) to learn how to configure your own skin settings.
 
 = Pro features =
 
@@ -37,14 +37,14 @@ Pro features come with the [CoolClock - Advanced extension](https://premium.stat
 
 = Translators =
 
-- **Dutch** * R.A. van Hagen http://status301.net/ (version 3.0)
-- **French** * R.A. van Hagen http://status301.net/ (version 3.0)
+- **Dutch** * R.A. van Hagen https://status301.net/ (version 3.0)
+- **French** * R.A. van Hagen https://status301.net/ (version 3.0)
 - **German** * Manfred Mrak http://www.niftyfox.ch/ (version 3.2)
 - **Serbian** * Borisa Djuraskovic - WebHostingHub http://www.webhostinghub.com/ (version 2.9.4)
 - **Slovenian** * Adijan Dervišević - http://www.adijan.eu (version 3.2)
 - **Russian** * Наталия Завьялова - http://time-impressions.ru (version 2.9.8)
 
-Please [contact me](http://status301.net/contact-en/) to submit your translation and get mentioned here :)
+Please [contact me](https://status301.net/contact-en/) to submit your translation and get mentioned here :)
 
 
 == Installation ==
