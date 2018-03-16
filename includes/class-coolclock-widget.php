@@ -166,7 +166,7 @@ class CoolClock_Widget extends WP_Widget {
 
 		// Custom skin field
 		$output .= '<p><label for="' . $this->get_field_id('custom_skin') . '">' . __('Custom skin parameters:', 'coolclock') . '</label> ';
-		$output .= '<textarea class="widefat" id="' . $this->get_field_id('custom_skin') . '" name="' . $this->get_field_name('custom_skin') . '">' . $custom_skin . '</textarea></p>';
+		$output .= '<textarea class="widefat" id="' . $this->get_field_id('custom_skin') . '" name="' . $this->get_field_name('custom_skin') . '">' . $custom_skin . '</textarea> <em>' .  __('(set Skin to Custom above)', 'coolclock') . '</em></p>';
 
 		// Radius
 		$output .= '<p><label for="' . $this->get_field_id('radius') . '">' . __('Radius:', 'coolclock') . '</label> ';
@@ -193,7 +193,7 @@ class CoolClock_Widget extends WP_Widget {
 
 		// USe GMT offset
 		$output .= '<p><label for="' . $this->get_field_id('gmtoffset') . '">' . __('GMT offset:', 'coolclock') . '</label> ';
-		$output .= '<input class="small-text" id="' . $this->get_field_id('gmtoffset') . '" name="' . $this->get_field_name('gmtoffset') . '" type="number" step="0.5" value="' . $instance['gmtoffset'] . '" /> ' . __('(leave blank for local time)', 'coolclock') . '</p>';
+		$output .= '<input class="small-text" id="' . $this->get_field_id('gmtoffset') . '" name="' . $this->get_field_name('gmtoffset') . '" type="number" step="0.5" value="' . $instance['gmtoffset'] . '" /> <em>' . __('(leave blank for local time)', 'coolclock') . '</em></p>';
 
 		// Scale
 		$output .= '<p><label for="' . $this->get_field_id('scale') . '">' . __('Scale:', 'coolclock') . '</label> ';
@@ -225,7 +225,7 @@ class CoolClock_Widget extends WP_Widget {
 
 		// Subtext
 		$output .= '<p><label for="' . $this->get_field_id('subtext') . '">' . __('Subtext:', 'coolclock') . '</label> ';
-		$output .= '<input class="widefat" id="' . $this->get_field_id('subtext') . '" name="' . $this->get_field_name('subtext') . '" type="text" value="' . $subtext . '" /> ' . __('(basic HTML allowed)', 'coolclock') . '</p>';
+		$output .= '<input class="widefat" id="' . $this->get_field_id('subtext') . '" name="' . $this->get_field_name('subtext') . '" type="text" value="' . $subtext . '" /> <em>' . __('(basic HTML allowed)', 'coolclock') . '</em></p>';
 
 		// Advanced filter
 	    	$advanced_form = '<p><strong>' . __('Background') . '</strong></p><p><a href="http://premium.status301.net/downloads/coolclock-advanced/">' . __('Available in the Advanced extension &raquo;', 'coolclock') . '</a></p>';
