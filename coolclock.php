@@ -31,7 +31,8 @@ add_action( 'plugins_loaded', array( 'CoolClock', 'textdomain' ) );
 add_action( 'widgets_init', array( 'CoolClock', 'register_widget' ) );
 
 // enqueue scripts but only if shortcode or widget has been used
-add_action( 'wp_footer', array( 'CoolClock', 'enqueue_scripts' ), 9 );
+// so it has to be done as late as the wp_footer action
+add_action( 'wp_footer', array( 'CoolClock', 'enqueue_scripts' ), 1 );
 
 /**************
  *  SHORTCODE
