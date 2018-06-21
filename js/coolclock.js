@@ -1,12 +1,12 @@
 /**
- * CoolClock 3.0.1 
+ * CoolClock 3.0.1
  *
 Copyright (c) 2010-2013, Simon Baird.
 All rights reserved.
  *
  * Applied path fix https://github.com/henrahmagix/CoolClock/commit/00d48a01b1aeadbeb0b7d167aca892de78659b76
  * Added responsive styling by RavanH (lines 136/137) 26112014
- * 
+ *
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 - Redistributions of source code must retain the above copyright notice,
@@ -314,9 +314,10 @@ CoolClock.prototype = {
 				this.radialLineAtAngle(this.tickAngle(secA),skin.secondDecoration);
 		}
 
+		/* what's extraRender and why is it here?
 		if (this.extraRender) {
 			this.extraRender(hour,min,sec);
-		}
+		}*/
 	},
 
 	// Check the time and display the clock
