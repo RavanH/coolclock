@@ -147,7 +147,8 @@ class CoolClock_Widget extends WP_Widget {
 			);
 
 		// Title
-		$output = '<p><label for="' . $this->get_field_id('title') . '">' . __('Title:') . '</label> ';
+		$output = '<style type="text/css">#available-widgets [class*=clock] .widget-title:before{content:"\f469"}</style>
+		<p><label for="' . $this->get_field_id('title') . '">' . __('Title:') . '</label> ';
 		$output .= '<input class="widefat" id="' . $this->get_field_id('title') . '" name="' . $this->get_field_name('title') . '" type="text" value="' . $title . '" /></p>';
 
 		// Clock settings
