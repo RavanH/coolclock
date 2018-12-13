@@ -23,25 +23,37 @@ class CoolClock {
 	private static $done_excanvas = false;
 
 	static $defaults = array (
-			'skin' => 'swissRail',
-			'radius' => 100,
-			'noseconds' => false,	// Hide seconds
-			'gmtoffset' => '',		// GMT offset
-			'showdigital' => '',	// Show digital time or date
-			'scale' => 'linear'		// Define type of clock linear/logarithmic/log reversed
-		);
+		'skin' => 'swissRail',
+		'radius' => 100,
+		'noseconds' => false,	// Hide seconds
+		'gmtoffset' => '',		// GMT offset
+		'showdigital' => '',	// Show digital time or date
+		'scale' => 'linear',	// Define type of clock linear/logarithmic/log reversed
+		'digitalcolor' => 'black'
+	);
 
 	static $showdigital_options = array (
-				'' => '',
-				'digital12' => 'showDigital'
-			);
+		'' => '',
+		'digital12' => 'showDigital'
+	);
 
-	static $advanced;
+	static $digitalcolor_options = array (
+		'black',
+		'#333333',
+		'#666666',
+		'gray', // #808080
+		'silver', // #C0C0C0
+		'gainsboro', // #DCDCDC
+		'whitesmoke', // #F5F5F5
+		'white'
+	);
+
+	static $advanced = false;
 
 	static $advanced_defaults = array (
-				'subtext' => '',
-				'align' => 'center'
-			);
+		'subtext' => '',
+		'align' => 'center'
+	);
 
 	static $default_skins = ['swissRail','chunkySwiss','chunkySwissOnBlack'];
 
@@ -52,10 +64,10 @@ class CoolClock {
 	static $advanced_skins_config = [];
 
 	static $clock_types = array (
-	    		'linear' => '',
-	    		'logClock' => 'logClock',
-	    		'logClockRev' => 'logClockRev'
-	    	);
+		'linear' => '',
+		'logClock' => 'logClock',
+		'logClockRev' => 'logClockRev'
+	);
 
 	/**
 	 * MAIN
@@ -95,6 +107,18 @@ class CoolClock {
 		// set type
 		if ( isset(self::$clock_types[$scale]) )
 			$output .= ':'.self::$clock_types[$scale];
+		else
+			$output .= ':';
+
+		// set font
+		if ( isset($font) )
+			$output .= ':'.$font;
+		else
+			$output .= ':';
+
+		// set font color
+		if ( isset($digitalcolor) )
+			$output .= ':'.$digitalcolor;
 		else
 			$output .= ':';
 

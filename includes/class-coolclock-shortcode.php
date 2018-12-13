@@ -19,6 +19,7 @@ class CoolClock_Shortcode {
 		noseconds -- set to true (or 1) to hide the second hand
 		gmtoffset -- a number to define a timezone relative the Greenwhich Mean Time. Do not set this parameter to default to local time.
 		showdigital -- set to 'digital12' to show the time in 12h digital format (with am/pm) too
+		fontcolor -- set to a color value to change the digital time color
 		scale -- must be one of these: 'linear' (default scale), 'logClock' or 'logClockRev'. Linear is our normal clock scale, the other two show a logarithmic time scale
 		subtext -- optional text, centered below the clock
 		align -- sets floating of the clock: 'left', 'right' or 'center'

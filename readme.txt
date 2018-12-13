@@ -191,10 +191,13 @@ Please report any other issues on the [Support page](http://wordpress.org/suppor
 
 == Upgrade Notice ==
 
-= 4.0 =
-New wrapper class and user input validation.
+= 4.1 =
+New digital text shade option.
 
 == Changelog ==
+
+= 4.1 =
+* Digital text styling
 
 = 4.0 =
 * Split up classes
