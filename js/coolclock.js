@@ -47,6 +47,7 @@ CoolClock.config = {
 	renderRadius: 100,
 	defaultSkin: "chunkySwiss",
 	defaultFont: "15px sans-serif",
+	defaultFontColor: "#333",
 
 	skins:	{
 		// There are more skins in moreskins.js
@@ -112,6 +113,7 @@ CoolClock.prototype = {
 		this.canvasId       = options.canvasId;
 		this.skinId         = options.skinId || CoolClock.config.defaultSkin;
 		this.font           = options.font || CoolClock.config.defaultFont;
+		this.fontColor      = options.fontColor || CoolClock.config.defaultFontColor;
 		this.displayRadius  = options.displayRadius || CoolClock.config.defaultRadius;
 		this.renderRadius   = options.renderRadius || CoolClock.config.renderRadius;
 		this.showSecondHand = typeof options.showSecondHand == "boolean" ? options.showSecondHand : true;
@@ -199,6 +201,7 @@ CoolClock.prototype = {
 			tSize.height = 0;
 			this.ctx.textBaseline = 'middle';
 		}
+		this.ctx.fillStyle = skin.fontColor || this.fontColor;
 		this.ctx.fillText(theText, x - tSize.width/2, y - tSize.height/2);
 		this.ctx.restore();
 	},
@@ -284,7 +287,8 @@ CoolClock.prototype = {
 			this.drawTextAt(
 				text,
 				this.renderRadius,
-				this.renderRadius+this.renderRadius/2
+				this.renderRadius+this.renderRadius/2,
+				skin
 			);
 		}
 
@@ -380,7 +384,9 @@ CoolClock.findAndCreateClocks = function() {
 				showDigital24:  fields[5]=='showDigital24',
 				showDate:       fields[5]=='showDate',
 				logClock:       fields[6]=='logClock',
-				logClockRev:    fields[6]=='logClockRev'
+				logClockRev:    fields[6]=='logClockRev',
+				font:           fields[7],
+				fontColor:      fields[8]
 			});
 		}
 	}
