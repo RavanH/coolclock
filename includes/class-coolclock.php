@@ -6,7 +6,7 @@
 
 class CoolClock {
 
-	static $plugin_version = '4.0';
+	static $plugin_version = '4.0.99';
 
 	static $script_version = '3.1.0';
 
