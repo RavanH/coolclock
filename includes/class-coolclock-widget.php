@@ -25,7 +25,7 @@ class CoolClock_Widget extends WP_Widget {
 	/** @see WP_Widget::widget -- do not rename this */
 	public function widget( $args, $instance ) {
 		extract( $args );
-		$title = apply_filters( 'widget_title', $instance['title'] );
+		$title = !empty($instance['title']) ? apply_filters( 'widget_title', $instance['title'] ) : '';
 		$number = $this->number;
 
 		// Print output
@@ -50,13 +50,13 @@ class CoolClock_Widget extends WP_Widget {
 
 		$output = CoolClock::canvas( array(
 					'skin' => $skin,
-					'radius' => $instance['radius'],
-					'noseconds' => $instance['noseconds'],
-					'gmtoffset' => $instance['gmtoffset'],
-					'showdigital' => $instance['showdigital'],
-					'scale' => $instance['scale'],
-					'align' => $instance['align'],
-					'subtext' => apply_filters('widget_text', $instance['subtext'], $instance)
+					'radius' => !empty($instance['radius']) && is_numeric($instance['radius']) ? (int) $instance['radius'] : 100,
+					'noseconds' => !empty($instance['radius']) ? $instance['noseconds'] : '',
+					'gmtoffset' => !empty($instance['gmtoffset']) ? $instance['gmtoffset'] : '',
+					'showdigital' => !empty($instance['showdigital']) ? $instance['showdigital'] : '',
+					'scale' => !empty($instance['scale']) ? $instance['scale'] : 'linear',
+					'align' => !empty($instance['align']) ? $instance['align'] : 'center',
+					'subtext' => !empty($instance['subtext']) ? apply_filters('widget_text', $instance['subtext'], $instance) : ''
 					) );
 
 		echo apply_filters( 'coolclock_widget_advanced', $output, $args, $instance );
