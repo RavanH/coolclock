@@ -14,7 +14,7 @@ class CoolClock {
 
 	private static $plugin_basename;
 
-	private static $min = '';
+	private static $min = '.min';
 
 	static $add_script = false;
 
@@ -145,7 +145,7 @@ class CoolClock {
  		self::$plugin_basename = plugin_basename( $file );
 
  		if ( defined('WP_DEBUG') && WP_DEBUG ) {
- 			self::$min = '.min';
+ 			self::$min = '';
  		}
  	}
 
