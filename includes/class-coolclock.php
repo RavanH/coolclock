@@ -8,7 +8,7 @@ class CoolClock {
 
 	static $plugin_version = '4.0';
 
-	static $script_version = '3.0.0';
+	static $script_version = '3.1.0';
 
 	private static $plugin_url;
 

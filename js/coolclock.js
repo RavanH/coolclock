@@ -1,5 +1,5 @@
 /**
- * CoolClock 3.0.1
+ * CoolClock 3.1.0
  *
 Copyright (c) 2010-2013, Simon Baird.
 All rights reserved.
