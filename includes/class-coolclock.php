@@ -29,23 +29,12 @@ class CoolClock {
 		'gmtoffset' => '',		// GMT offset
 		'showdigital' => '',	// Show digital time or date
 		'scale' => 'linear',	// Define type of clock linear/logarithmic/log reversed
-		'digitalcolor' => 'black'
+		'digitalcolor' => '#333'
 	);
 
 	static $showdigital_options = array (
 		'' => '',
 		'digital12' => 'showDigital'
-	);
-
-	static $digitalcolor_options = array (
-		'black',
-		'#333333',
-		'#666666',
-		'gray', // #808080
-		'silver', // #C0C0C0
-		'gainsboro', // #DCDCDC
-		'whitesmoke', // #F5F5F5
-		'white'
 	);
 
 	static $advanced = false;

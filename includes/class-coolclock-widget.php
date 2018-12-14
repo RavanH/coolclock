@@ -143,18 +143,6 @@ class CoolClock_Widget extends WP_Widget {
     		'date' => __('date','coolclock')
 		);
 
-		// Translatable color names go here
-		$digitalcolor_names = array (
-			'black' => __('Black','coolclock'),
-			'#333333' => __('Near black','coolclock'),
-			'#666666' => __('Darker gray','coolclock'),
-			'gray' => __('Gray','coolclock'),
-			'silver' => __('Silver','coolclock'),
-			'gainsboro' => __('Gainsboro','coolclock'),
-			'whitesmoke' => __('White smoke','coolclock'),
-			'white' => __('White','coolclock'),
-		);
-
 		// Misc translations
 		$stray = array(
 			'extra_settings' => __('Extra settings for the CoolClock widget.', 'coolclock')
@@ -242,15 +230,8 @@ class CoolClock_Widget extends WP_Widget {
 		}
 		$output .= '</select></p>';
 
-		$advanced = '<p><label for="' . $this->get_field_id('digitalcolor') . '">' . __('Digital font shade:', 'coolclock') . '</label> ';
-		$advanced .= '<select class="select" id="' . $this->get_field_id('digitalcolor') . '" name="' . $this->get_field_name('digitalcolor') . '">';
-		foreach ( CoolClock::$digitalcolor_options as $value ) {
-			$advanced .= '<option value="' . $value . '"';
-			$advanced .= ( $value == $instance['digitalcolor'] ) ? ' selected="selected">' : '>';
-			$advanced .= ( isset($digitalcolor_names[$value]) ) ? $digitalcolor_names[$value] : $value;
-			$advanced .= '</option>';
-		}
-		$advanced .= '</select></p>';
+		$advanced = '<p><label for="' . $this->get_field_id('digitalcolor') . '">' . __('Digital color:', 'coolclock') . '</label> ';
+		$advanced .= '<input id="' . $this->get_field_id('digitalcolor') . '" name="' . $this->get_field_name('digitalcolor') . '" type="text" value="' . $instance['digitalcolor'] . '" /> <em>' . __('(use a valid HTML color code or name)', 'coolclock') . '</em></p>';
 
 	    $advanced .= '<p><a href="http://premium.status301.net/downloads/coolclock-advanced/">' . __('More digital font options &raquo;', 'coolclock') . '</a></p>
 		<p><strong>' . __('Background') . '</strong></p><p><a href="http://premium.status301.net/downloads/coolclock-advanced/">' . __('Available in the Advanced extension &raquo;', 'coolclock') . '</a></p>';

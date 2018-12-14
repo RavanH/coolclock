@@ -3,7 +3,7 @@ Contributors: RavanH
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ravanhagen%40gmail%2ecom&item_name=CoolClock%20for%20WordPress&item_number=1%2e3%2e4%2e9&no_shipping=0&tax=0&charset=UTF%2d8&currency_code=EUR
 Tags: clock, analog clock, coolclock, javascript, jquery, widget, shortcode, logarithmic clock
 Requires at least: 4.8.1
-Tested up to: 4.9
+Tested up to: 5.0
 Requires PHP: 5.6
 Stable tag: 4.0
 
@@ -16,7 +16,7 @@ This plugin integrates [CoolClock - The Javascript Analog Clock](http://randomib
 = Features =
 
 - Can be added via a widget, shortcode or theme function
-- No flash, meaning compatible with pads and most other javascript enabled mobile devices
+- No flash, meaning compatible with tablets and most other javascript enabled mobile devices
 - 22 different skins to choose from or
 - Custom skin option to create your own skin style
 - Linear or logarithmic time scale
@@ -27,7 +27,7 @@ Read more on https://status301.net/wordpress-plugins/coolclock/ or see [the FAQ'
 
 - Show date or 24h digital time
 - Background image or color
-- Border radius (rounded corners for background))
+- Border radius (rounded corners for background)
 - Advanced positioning options (relative to background)
 - Advanced shortcode parameters (including background image and custom skin)
 - One extra clean skin for use with background image
@@ -85,7 +85,8 @@ First of all, you can pick a preset skin. There are 21 skins made by other users
 - Custom skin parameters - see question below;
 - Radius - changes the clock size;
 - Hide second hand;
-- Show digital time or date;
+- Show digital time (more options in the Advanced version);
+- Set digital time color;
 - GMT Offset - use this if you want one or more clocks to show the time for other timezones;
 - Scale - linear is our standard clock scale, the other two show a logarithmic time scale;
 - Align - left, center or right;
@@ -144,6 +145,7 @@ The following parameters are available:
 - **noseconds** -- set to true (or 1) to hide the second hand
 - **gmtoffset** -- a number to define a timezone relative the Greenwhich Mean Time. Do not set this parameter to default to local time.
 - **showdigital** -- set to 'digital12' to show the time in 12h digital format (with am/pm) too
+- **digitalcolor** -- set the font color of the digital time (use html color name or hex value)
 - **scale** -- must be one of these: 'linear' (default scale), 'logClock' or  'logClockRev'. Linear is our normal clock scale, the other two show a logarithmic time scale
 - **subtext** -- optional text, centered below the clock
 - **align** -- sets floating of the clock: 'left', 'right' or 'center'
@@ -198,6 +200,8 @@ New digital text shade option.
 
 = 4.1 =
 * Digital text styling
+* Clock icon for widget in Customizer
+* FIX: use .min script versions when not in debug mode
 
 = 4.0 =
 * Split up classes
