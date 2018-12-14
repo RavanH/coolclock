@@ -46,6 +46,10 @@ Pro features come with the [CoolClock - Advanced extension](https://premium.stat
 
 Please [contact me](https://status301.net/contact-en/) to submit your translation and get mentioned here :)
 
+= Privacy / GDPR =
+
+This plugin does not collect any user or visitor data nor set browser cookies. Using this plugin should not impact your site privacy policy in any way.
+
 
 == Installation ==
 
