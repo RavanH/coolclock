@@ -239,7 +239,7 @@ class CoolClock_Widget extends WP_Widget {
 		// Advanced filter
 		$output .= apply_filters( 'coolclock_widget_form_advanced', $advanced, $this, $instance, $defaults );
 
-		if ( class_exists( 'CoolClockAdvanced' ) && isset(CoolClockAdvanced::$plugin_version) && version_compare( CoolClockAdvanced::$plugin_version, '6.1', '<' )  ) { // add an upgrade notice
+		if ( class_exists( 'CoolClockAdvanced' ) && isset(CoolClockAdvanced::$plugin_version) && version_compare( CoolClockAdvanced::$plugin_version, '7.0', '<' )  ) { // add an upgrade notice
 			$output .= '<div class="update-nag"><strong>' . __('Please upgrade the CoolClock - Advanced extension.', 'coolclock') . '</strong> '. ' <a href="http://premium.status301.net/account/" target="_blank">' . __('Please log in with your account credentials here.', 'coolclock') . '</a>' . __('You can download the new version using the link in the downloads list.', 'coolclock') . '</div>';
 		}
 
