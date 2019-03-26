@@ -21,7 +21,7 @@ This plugin integrates [CoolClock - The Javascript Analog Clock](http://randomib
 - Custom skin option to create your own skin style
 - Linear or logarithmic time scale
 
-Read more on https://status301.net/wordpress-plugins/coolclock/ or see [the FAQ's](http://wordpress.org/extend/plugins/coolclock/faq/) to learn how to configure your own skin settings.
+Read more on the [CoolClock homepage](https://status301.net/wordpress-plugins/coolclock/) or see [the FAQ's](http://wordpress.org/extend/plugins/coolclock/faq/) to learn how to configure your own skin settings.
 
 = Pro features =
 
