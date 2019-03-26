@@ -5,7 +5,7 @@ Tags: clock, analog clock, coolclock, javascript, jquery, widget, shortcode, log
 Requires at least: 4.8.1
 Tested up to: 5.1
 Requires PHP: 5.6
-Stable tag: 4.0
+Stable tag: 4.1
 
 Show an analog clock on your WordPress site sidebar or in post and page content.
 
