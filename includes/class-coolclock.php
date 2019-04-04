@@ -150,8 +150,8 @@ class CoolClock {
 
 	// add links to plugin's description
 	public static function plugin_meta_links($links, $file) {
-	  $support_link = '<a target="_blank" href="https://wordpress.org/support/plugin/coolclock">' . __('Support','CoolClock') . '</a>';
-	  $rate_link = '<a target="_blank" href="https://wordpress.org/support/plugin/coolclock/reviews/?filter=5#new-post">' . __('Rate','CoolClock') . ' ★★★★★</a>';
+	  $support_link = '<a target="_blank" href="https://wordpress.org/support/plugin/coolclock/">' . __('Support','coolclock') . '</a>';
+	  $rate_link = '<a target="_blank" href="https://wordpress.org/support/plugin/coolclock/reviews/?filter=5#new-post">' . __('Rate ★★★★★','coolclock') . '</a>';
 
 	  if ( $file == self::$plugin_basename ) {
 	    $links[] = $support_link;
