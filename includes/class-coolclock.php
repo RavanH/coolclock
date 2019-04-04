@@ -175,16 +175,16 @@ class CoolClock {
  		}
 
 		// text domain
-		add_action( 'plugins_loaded', array( self, 'textdomain' ) );
+		add_action( 'plugins_loaded', array( __CLASS__, 'textdomain' ) );
 
 		// widgets
-		add_action( 'widgets_init', array( self, 'register_widget' ) );
+		add_action( 'widgets_init', array( __CLASS__, 'register_widget' ) );
 
 		// enqueue scripts but only if shortcode or widget has been used
 		// so it has to be done as late as the wp_footer action
-		add_action( 'wp_footer', array( self, 'enqueue_scripts' ), 1 );
+		add_action( 'wp_footer', array( __CLASS__, 'enqueue_scripts' ), 1 );
 
-		add_filter( 'plugin_row_meta', array( self, 'plugin_meta_links' ), 10, 2);
+		add_filter( 'plugin_row_meta', array( __CLASS__, 'plugin_meta_links' ), 10, 2);
 
 		/**************
 		 *  SHORTCODE
