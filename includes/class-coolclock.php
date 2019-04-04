@@ -148,6 +148,19 @@ class CoolClock {
 		register_widget("CoolClock_Widget");
 	}
 
+	// add links to plugin's description
+	public static function plugin_meta_links($links, $file) {
+	  $support_link = '<a target="_blank" href="https://wordpress.org/support/plugin/coolclock">' . __('Support','CoolClock') . '</a>';
+	  $rate_link = '<a target="_blank" href="https://wordpress.org/support/plugin/coolclock/reviews/?filter=5#new-post">' . __('Rate','CoolClock') . ' ★★★★★</a>';
+
+	  if ( $file == self::$plugin_basename ) {
+	    $links[] = $support_link;
+	    $links[] = $rate_link;
+	  }
+
+	  return $links;
+	}
+
 	/**
 	 * INIT
 	 */
@@ -160,6 +173,27 @@ class CoolClock {
  		if ( defined('WP_DEBUG') && WP_DEBUG ) {
  			self::$min = '';
  		}
+
+		// text domain
+		add_action( 'plugins_loaded', array( self, 'textdomain' ) );
+
+		// widgets
+		add_action( 'widgets_init', array( self, 'register_widget' ) );
+
+		// enqueue scripts but only if shortcode or widget has been used
+		// so it has to be done as late as the wp_footer action
+		add_action( 'wp_footer', array( self, 'enqueue_scripts' ), 1 );
+
+		add_filter( 'plugin_row_meta', array( self, 'plugin_meta_links' ), 10, 2);
+
+		/**************
+		 *  SHORTCODE
+		 **************/
+
+		add_shortcode( 'coolclock', array( 'CoolClock_Shortcode', 'handle_shortcode' ) );
+
+		// prevent texturizing shortcode content
+		add_filter( 'no_texturize_shortcodes', array( 'CoolClock_Shortcode', 'no_wptexturize') );
  	}
 
 }

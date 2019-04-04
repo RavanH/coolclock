@@ -197,10 +197,13 @@ Please report any other issues on the [Support page](http://wordpress.org/suppor
 
 == Upgrade Notice ==
 
-= 4.1 =
-New digital text shade option.
+= 4.2 =
+Plugin support and rate links
 
 == Changelog ==
+
+= 4.2 =
+* Plugin support and rate links
 
 = 4.1 =
 * Digital text styling
