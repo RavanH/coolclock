@@ -59,9 +59,9 @@ class CoolClock_Shortcode {
 		// still here? then skin is a custom skin
 
 		// add custom skin parameters to the advanced skins array
-		if ( !in_array( $atts['skin'], CoolClock::$advanced_skins ) && !empty( $content ) ) {
-			CoolClock::$advanced_skins[] = $atts['skin'];
-			CoolClock::$advanced_skins_config[$atts['skin']] = wp_strip_all_tags( $content, true );
+		if ( !in_array( $skin_name, CoolClock::$advanced_skins ) && !empty( $content ) ) {
+			CoolClock::$advanced_skins[] = $skin_name;
+			CoolClock::$advanced_skins_config[$skin_name] = wp_strip_all_tags( $content, true );
 		}
 
 		return $skin_name;
