@@ -74,7 +74,7 @@ class CoolClock_Widget extends WP_Widget {
 		$instance['noseconds'] = !empty($new_instance['noseconds']) ? '1' : '';
 		$instance['gmtoffset'] = !empty($new_instance['gmtoffset']) ? (float) $new_instance['gmtoffset'] : '';
 		$instance['showdigital'] = !empty($new_instance['showdigital']) ? strip_tags( $new_instance['showdigital'] ) : '';
-		$instance['digitalcolor'] = !empty($new_instance['digitalcolor']) ? strip_tags( $new_instance['digitalcolor'] ) : '';
+		$instance['digitalcolor'] = !empty($new_instance['digitalcolor']) ? CoolClock::colorval( $new_instance['digitalcolor'] ) : '';
 		$instance['scale'] = !empty($new_instance['scale']) ? strip_tags( $new_instance['scale'] ) : '';
 		$instance['align'] = !empty($new_instance['align']) ? strip_tags( $new_instance['align'] ) : '';
 
@@ -233,7 +233,7 @@ class CoolClock_Widget extends WP_Widget {
 		$advanced = '<p><label for="' . $this->get_field_id('digitalcolor') . '">' . __('Digital color:', 'coolclock') . '</label> ';
 		$advanced .= '<input id="' . $this->get_field_id('digitalcolor') . '" name="' . $this->get_field_name('digitalcolor') . '" type="text" value="' . $instance['digitalcolor'] . '" /> <em>' . __('(use a valid HTML color code or name)', 'coolclock') . '</em></p>';
 
-	    $advanced .= '<p><a href="http://premium.status301.net/downloads/coolclock-advanced/">' . __('More digital font options &raquo;', 'coolclock') . '</a></p>
+	  $advanced .= '<p><a href="http://premium.status301.net/downloads/coolclock-advanced/">' . __('More digital font options &raquo;', 'coolclock') . '</a></p>
 		<p><strong>' . __('Background') . '</strong></p><p><a href="http://premium.status301.net/downloads/coolclock-advanced/">' . __('Available in the Advanced extension &raquo;', 'coolclock') . '</a></p>';
 
 		// Advanced filter

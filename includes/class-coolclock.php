@@ -22,7 +22,7 @@ class CoolClock {
 
 	private static $done_excanvas = false;
 
-	static $defaults = array (
+	static $defaults = array(
 		'skin' => 'swissRail',
 		'radius' => 100,
 		'noseconds' => false,	// Hide seconds
@@ -32,27 +32,27 @@ class CoolClock {
 		'digitalcolor' => '#333'
 	);
 
-	static $showdigital_options = array (
+	static $showdigital_options = array(
 		'' => '',
 		'digital12' => 'showDigital'
 	);
 
 	static $advanced = false;
 
-	static $advanced_defaults = array (
+	static $advanced_defaults = array(
 		'subtext' => '',
 		'align' => 'center'
 	);
 
-	static $default_skins = ['swissRail','chunkySwiss','chunkySwissOnBlack'];
+	static $default_skins = array('swissRail','chunkySwiss','chunkySwissOnBlack');
 
-	static $more_skins = ['fancy','machine','simonbaird_com','classic','modern','simple','securephp','Tes2','Lev','Sand','Sun','Tor','Cold','Babosa','Tumb','Stone','Disc','watermelon','mister'];
+	static $more_skins = array('fancy','machine','simonbaird_com','classic','modern','simple','securephp','Tes2','Lev','Sand','Sun','Tor','Cold','Babosa','Tumb','Stone','Disc','watermelon','mister');
 
-	static $advanced_skins = [];
+	static $advanced_skins = array();
 
-	static $advanced_skins_config = [];
+	static $advanced_skins_config = array();
 
-	static $clock_types = array (
+	static $clock_types = array(
 		'linear' => '',
 		'logClock' => 'logClock',
 		'logClockRev' => 'logClockRev'
@@ -159,6 +159,21 @@ class CoolClock {
 	  }
 
 	  return $links;
+	}
+
+	public static function colorval( $color )
+	{
+		$color = strip_tags( $color );
+		$color = trim( $color );
+
+		if (substr($color, 0, 1) == '#') {
+			if ( ctype_xdigit(substr($color, 1)) )
+				return $color;
+
+			return substr($color, 1);
+		}
+
+		return ctype_xdigit($color) ? '#'.$color : $color;
 	}
 
 	/**
