@@ -3,7 +3,7 @@ Contributors: RavanH
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ravanhagen%40gmail%2ecom&item_name=CoolClock%20for%20WordPress&item_number=1%2e3%2e4%2e9&no_shipping=0&tax=0&charset=UTF%2d8&currency_code=EUR
 Tags: clock, analog clock, coolclock, javascript, jquery, widget, shortcode, logarithmic clock
 Requires at least: 4.8.1
-Tested up to: 5.1
+Tested up to: 5.2
 Requires PHP: 5.6
 Stable tag: 4.1
 
@@ -198,12 +198,16 @@ Please report any other issues on the [Support page](http://wordpress.org/suppor
 == Upgrade Notice ==
 
 = 4.2 =
-Plugin support and rate links
+Plugin support and rate links, input validation and bugfixes
 
 == Changelog ==
 
 = 4.2 =
+* Custom skin parameters in shortcode
 * Plugin support and rate links
+* Widget color code validation
+* FIX shortcode skin names case-sensitive
+* FIX undefined index
 
 = 4.1 =
 * Digital text styling
