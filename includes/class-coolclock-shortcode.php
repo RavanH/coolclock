@@ -29,7 +29,7 @@ class CoolClock_Shortcode {
 		// set footer script flags
 		CoolClock::$add_script = true;
 
-		$atts['skin'] = !empty($atts['skin']) ? self::parse_skin( $atts['skin'] ) : CoolClock::$defauls['skin'];
+		$atts['skin'] = !empty($atts['skin']) ? self::parse_skin( $atts['skin'], $content ) : CoolClock::$defauls['skin'];
 
 		// get output
 		$output = CoolClock::canvas( $atts );
