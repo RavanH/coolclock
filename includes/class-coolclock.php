@@ -6,7 +6,7 @@
 
 class CoolClock {
 
-	static $plugin_version = '4.0.99';
+	static $plugin_version;
 
 	static $script_version = '3.1.0';
 
@@ -165,10 +165,11 @@ class CoolClock {
 	 * INIT
 	 */
 
-	public function __construct( $file ) {
+	public function __construct( $plugin_file, $plugin_version ) {
  		// VARS
- 		self::$plugin_url = plugins_url( '/', $file );
- 		self::$plugin_basename = plugin_basename( $file );
+ 		self::$plugin_url = plugins_url( '/', $plugin_file );
+ 		self::$plugin_basename = plugin_basename( $plugin_file );
+		self::$plugin_version = $plugin_version;
 
  		if ( defined('WP_DEBUG') && WP_DEBUG ) {
  			self::$min = '';

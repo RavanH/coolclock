@@ -24,4 +24,4 @@ require plugin_dir_path( __FILE__ ) . '/includes/class-coolclock-shortcode.php';
  *  INITIATE
  **************/
 
-new CoolClock( __FILE__ );
+new CoolClock( __FILE__, '4.2-alpha' );
