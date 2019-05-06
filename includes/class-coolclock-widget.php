@@ -67,16 +67,16 @@ class CoolClock_Widget extends WP_Widget {
 
 	/** @see WP_Widget::update -- do not rename this */
 	public function update( $new_instance, $old_instance ) {
-		$instance['title'] = strip_tags( $new_instance['title'] );
-		$instance['skin'] = strip_tags( $new_instance['skin'] );
-		$instance['custom_skin'] = strip_tags( $new_instance['custom_skin'] );
-		$instance['radius'] = ( (int) $new_instance['radius'] < 5 ) ? 5 : (int) $new_instance['radius'];
-		$instance['noseconds'] = (bool) $new_instance['noseconds'];
-		$instance['gmtoffset'] = ( $new_instance['gmtoffset'] == '' ) ? '' : (float) $new_instance['gmtoffset'];
-		$instance['showdigital'] = strip_tags( $new_instance['showdigital'] );
-		$instance['digitalcolor'] = strip_tags( $new_instance['digitalcolor'] );
-		$instance['scale'] = strip_tags( $new_instance['scale'] );
-		$instance['align'] = strip_tags( $new_instance['align'] );
+		$instance['title'] = !empty($new_instance['title']) ? strip_tags( $new_instance['title'] ) : '';
+		$instance['skin'] = !empty($new_instance['skin']) ? strip_tags( $new_instance['skin'] ) : '';
+		$instance['custom_skin'] = !empty($new_instance['custom_skin']) ? strip_tags( $new_instance['custom_skin'] ) : '';
+		$instance['radius'] = ( empty($new_instance['radius']) || (int) $new_instance['radius'] < 5 ) ? 5 : (int) $new_instance['radius'];
+		$instance['noseconds'] = !empty($new_instance['noseconds']) ? '1' : '';
+		$instance['gmtoffset'] = !empty($new_instance['gmtoffset']) ? (float) $new_instance['gmtoffset'] : '';
+		$instance['showdigital'] = !empty($new_instance['showdigital']) ? strip_tags( $new_instance['showdigital'] ) : '';
+		$instance['digitalcolor'] = !empty($new_instance['digitalcolor']) ? strip_tags( $new_instance['digitalcolor'] ) : '';
+		$instance['scale'] = !empty($new_instance['scale']) ? strip_tags( $new_instance['scale'] ) : '';
+		$instance['align'] = !empty($new_instance['align']) ? strip_tags( $new_instance['align'] ) : '';
 
 		if ( current_user_can('unfiltered_html') )
 			$instance['subtext'] =  $new_instance['subtext'];
