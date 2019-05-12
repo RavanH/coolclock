@@ -80,11 +80,13 @@ Now visit your Widgets admin page and add the Analog Clock widget to your sideba
 
 There is no options page. Just go to your Appearance > Widgets admin page and find the new Analog Clock widget. Add it to your sidebar and change settings if you want to see another than the default clock.
 
-Other ways to integrate a clock into your site are ahortcodes or a theme function. See instructions below.
+Other ways to integrate a clock into your site are shortcodes or a theme function. See instructions below.
 
 = What options does the widget have? =
 
-First of all, you can pick a preset skin. There are 21 skins made by other users and one Minimal skin that only shows the clock arms, that can be useful for placing over a custom background image. Then there are:
+First of all, you can pick a preset skin. There are 21 skins made by other users and, when the Advanced extension is added, one Minimal skin that only shows the clock arms, that can be useful for placing over a custom background image.
+
+There are these options:
 
 - Custom skin parameters - see question below;
 - Radius - changes the clock size;
@@ -110,67 +112,20 @@ Then there are extra options availabe in the [CoolClock - Advanced extension](ht
 
 = How can I create a custom skin? =
 
-Go to you the Analog Clock widget, select *Skin: Custom* and copy the following code (all of it, not just the modified parts!) into the field **Custom skin parameters**.
-
-`
-outerBorder: { lineWidth: 1, radius:95, color: 'black', alpha: 1 },
-smallIndicator: { lineWidth: 2, startAt: 89, endAt: 93, color: 'black', alpha: 1 },
-largeIndicator: { lineWidth: 4, startAt: 80, endAt: 93, color: 'black', alpha: 1 },
-hourHand: { lineWidth: 8, startAt: -15, endAt: 50, color: 'black', alpha: 1 },
-minuteHand: { lineWidth: 7, startAt: -15, endAt: 75, color: 'black', alpha: 1 },
-secondHand: { lineWidth: 1, startAt: -20, endAt: 85, color: 'red', alpha: 1 },
-secondDecoration: { lineWidth: 1, startAt: 70, radius: 4, fillColor: 'red', color: 'red', alpha: 1 }
-`
-
-These parameters are the ones from the swissRail skin.
-
-Now go and change some parameter values like color (you can use any web color name or hex color code), lineWidth or start/endAt points. The numbers refer to a percentage of the radius, so startAt: 0, endAt: 50 means a line from the center to 50% of the way to the edge. Alpha means the transparency of the element where alpha: 1 means solid. For example alpha: 0.5 means 50% transparent.
-
-Then save the widget and reload your website front page (or wherever the clock is visible) to see the result of your work.
-
-See more preset skin examples in [moreskins.js](http://randomibis.com/coolclock/moreskins.js) if you like to start with another skin. Have fun tweaking and please do not hesitate sharing your custom skin (see below) !
+Follow the steps on [Creating a Custom Skin](https://premium.status301.net/coolclock-custom-skin/) and if you
 
 
 = Can I share this fantastic custom skin I created? =
 
-If you made a nice skin and would like to share it, then send it to the script creator at simon dot baird at gmail dot com or paste the custom parameters into a [Review](http://wordpress.org/support/view/plugin-reviews/coolclock).
+If you made a nice skin and would like to share it, you can do so in the comments on [Creating a Custom Skin](https://premium.status301.net/coolclock-custom-skin/) or add it to your [Plugin Review](http://wordpress.org/support/view/plugin-reviews/coolclock).
 
 Thanks for sharing! :)
 
 
 = Can I insert a clock in posts or pages? =
 
-Yes, there is a shortcode available. Start with a default clock by pasting **[coolclock** **/]** into a post.
+Yes, there the shortcode **[coolclock** **/]** available. You can find all parameters on [How to use the CoolClock shrotcode](https://premium.status301.net/how-to-use-the-coolclock-shortcode/).
 
-The following parameters are available:
-
-- **skin** -- must be one of these: 'swissRail' (default skin), 'chunkySwiss', 'chunkySwissOnBlack', 'fancy', 'machine', 'simonbaird_com', 'classic', 'modern', 'simple', 'securephp', 'Tes2', 'Lev', 'Sand', 'Sun', 'Tor', 'Cold', 'Babosa', 'Tumb', 'Stone', 'Disc', 'watermelon' or 'mister'. If the Advanced extension is activated, there is also 'minimal' available. Please note that these names are _case sensitive_.
-- **radius** -- a number to define the clock radius. Do not add 'px' or any other measure descriptor.
-- **noseconds** -- set to true (or 1) to hide the second hand
-- **gmtoffset** -- a number to define a timezone relative the Greenwhich Mean Time. Do not set this parameter to default to local time.
-- **showdigital** -- set to 'digital12' to show the time in 12h digital format (with am/pm) too
-- **digitalcolor** -- set the font color of the digital time (use html color name or hex value)
-- **scale** -- must be one of these: 'linear' (default scale), 'logClock' or  'logClockRev'. Linear is our normal clock scale, the other two show a logarithmic time scale
-- **subtext** -- optional text, centered below the clock
-- **align** -- sets floating of the clock: 'left', 'right' or 'center'
-
-Example: **[coolclock** **skin="chunkySwissOnBlack" radius="140" showdigital=digital12 align="left" /]**
-
-Then there are extra parameters and options availabe in the [CoolClock - Advanced extension](https://premium.status301.net/downloads/coolclock-advanced/) which allow for more customisation:
-
-- **showdigital** - extended with ‘digital24′ and ‘date’ options
-- **background_image** - define full URL or path to an image to serve as background
-- **background_height** - give a height in pixels (default: clock plus subtext height)
-- **background_width** - give a width in pixels  (default: clock width)
-- **background_color** - define a CSS color value in hex, rgb(a) format, or color name
-- **background_stretch** - CSS backround size options "cover" or "contain"
-- **background_position** - CSS positioning like "left top", "bottom", "10% 70%" or "10px 20px" (default: "left top")
-- **background_repeat** - background repetition options "repeat", "repeat-x", "repeat-y", "no-repeat" (default: "no-repeat")
-- **background_border_radius** - optional rounded corners value, higher is rounder
-
-Example: **[coolclock** **skin="minimal" radius="63" align="left" background_image="http://i35.tinypic.com/990wtx.png" /]**
-
-Custom skins can also be used in shortcode with the Advanced extension. See more on
 
 = I'm building my own theme. Is there a theme function available? =
 
