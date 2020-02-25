@@ -3,9 +3,9 @@ Contributors: RavanH
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ravanhagen%40gmail%2ecom&item_name=CoolClock%20for%20WordPress&item_number=1%2e3%2e4%2e9&no_shipping=0&tax=0&charset=UTF%2d8&currency_code=EUR
 Tags: clock, analog clock, coolclock, javascript, jquery, widget, shortcode, logarithmic clock
 Requires at least: 4.8.1
-Tested up to: 5.3
+Tested up to: 5.4
 Requires PHP: 5.6
-Stable tag: 4.2
+Stable tag: 4.2.1
 
 Show an analog clock on your WordPress site sidebar or in post and page content.
 
@@ -152,17 +152,20 @@ Please report any other issues on the [Support page](http://wordpress.org/suppor
 
 == Upgrade Notice ==
 
-= 4.2 =
-Plugin support and rate links, input validation and bugfixes
+= 4.2.1 =
+Bugfix release: GMT offset can be zero
 
 == Changelog ==
+
+= 4.2.1 =
+* BUGFIX: GMToffset can be zero
 
 = 4.2 =
 * Custom skin parameters in shortcode
 * Plugin support and rate links
 * Widget color code validation
-* FIX shortcode skin names case-sensitive
-* FIX undefined index
+* BUGFIX: shortcode skin names case-sensitive
+* BUGFIX: undefined index
 
 = 4.1 =
 * Digital text styling

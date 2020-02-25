@@ -52,7 +52,7 @@ class CoolClock_Widget extends WP_Widget {
 					'skin' => $skin,
 					'radius' => !empty($instance['radius']) && is_numeric($instance['radius']) ? (int) $instance['radius'] : 100,
 					'noseconds' => !empty($instance['radius']) ? $instance['noseconds'] : '',
-					'gmtoffset' => !empty($instance['gmtoffset']) ? $instance['gmtoffset'] : '',
+					'gmtoffset' => isset($instance['gmtoffset']) && $instance['gmtoffset'] !== '' ? (float) $instance['gmtoffset'] : '',
 					'showdigital' => !empty($instance['showdigital']) ? $instance['showdigital'] : '',
 					'digitalcolor' => !empty($instance['digitalcolor']) ? $instance['digitalcolor'] : '',
 					'scale' => !empty($instance['scale']) ? $instance['scale'] : 'linear',
@@ -72,7 +72,7 @@ class CoolClock_Widget extends WP_Widget {
 		$instance['custom_skin'] = !empty($new_instance['custom_skin']) ? strip_tags( $new_instance['custom_skin'] ) : '';
 		$instance['radius'] = ( empty($new_instance['radius']) || (int) $new_instance['radius'] < 5 ) ? 5 : (int) $new_instance['radius'];
 		$instance['noseconds'] = !empty($new_instance['noseconds']) ? '1' : '';
-		$instance['gmtoffset'] = !empty($new_instance['gmtoffset']) ? (float) $new_instance['gmtoffset'] : '';
+		$instance['gmtoffset'] = isset($new_instance['gmtoffset']) && $new_instance['gmtoffset'] !== '' ? (float) $new_instance['gmtoffset'] : '';
 		$instance['showdigital'] = !empty($new_instance['showdigital']) ? strip_tags( $new_instance['showdigital'] ) : '';
 		$instance['digitalcolor'] = !empty($new_instance['digitalcolor']) ? CoolClock::colorval( $new_instance['digitalcolor'] ) : '';
 		$instance['scale'] = !empty($new_instance['scale']) ? strip_tags( $new_instance['scale'] ) : '';
