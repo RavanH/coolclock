@@ -51,7 +51,7 @@ class CoolClock_Widget extends WP_Widget {
 		$output = CoolClock::canvas( array(
 					'skin' => $skin,
 					'radius' => !empty($instance['radius']) && is_numeric($instance['radius']) ? (int) $instance['radius'] : 100,
-					'noseconds' => !empty($instance['radius']) ? $instance['noseconds'] : '',
+					'noseconds' => !empty($instance['noseconds']) ? $instance['noseconds'] : '',
 					'gmtoffset' => isset($instance['gmtoffset']) && $instance['gmtoffset'] !== '' ? (float) $instance['gmtoffset'] : '',
 					'showdigital' => !empty($instance['showdigital']) ? $instance['showdigital'] : '',
 					'digitalcolor' => !empty($instance['digitalcolor']) ? $instance['digitalcolor'] : '',
