@@ -152,10 +152,13 @@ Please report any other issues on the [Support page](http://wordpress.org/suppor
 
 == Upgrade Notice ==
 
-= 4.2.1 =
-Bugfix release: GMT offset can be zero
+= 4.3 =
+New shortcode attributes, canvas fields filter, updated coolclock script
 
 == Changelog ==
+
+= 4.3 =
+* New shortcode attributes, canvas fields filter, updated coolclock script
 
 = 4.2.1 =
 * BUGFIX: GMToffset can be zero
