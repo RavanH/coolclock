@@ -35,8 +35,7 @@ class CoolClock_Widget extends WP_Widget {
 			echo $before_title . $title . $after_title;
 
 		// set skin
-		$skin = ( isset( $instance['skin'] ) )
-			? $instance['skin'] : CoolClock::$defaults['skin'];
+		$skin = isset( $instance['skin'] ) ? $instance['skin'] : CoolClock::$defaults['skin'];
 
 		// add custom skin parameters to the plugin skins array
 		if ( 'custom_'.$number == $skin )
@@ -49,16 +48,16 @@ class CoolClock_Widget extends WP_Widget {
 			CoolClock::$add_moreskins = true;
 
 		$output = CoolClock::canvas( array(
-					'skin' => $skin,
-					'radius' => !empty($instance['radius']) && is_numeric($instance['radius']) ? (int) $instance['radius'] : 100,
-					'noseconds' => !empty($instance['noseconds']) ? $instance['noseconds'] : '',
-					'gmtoffset' => isset($instance['gmtoffset']) && $instance['gmtoffset'] !== '' ? (float) $instance['gmtoffset'] : '',
-					'showdigital' => !empty($instance['showdigital']) ? $instance['showdigital'] : '',
-					'digitalcolor' => !empty($instance['digitalcolor']) ? $instance['digitalcolor'] : '',
-					'scale' => !empty($instance['scale']) ? $instance['scale'] : 'linear',
-					'align' => !empty($instance['align']) ? $instance['align'] : 'center',
-					'subtext' => !empty($instance['subtext']) ? apply_filters('widget_text', $instance['subtext'], $instance) : ''
-					) );
+			'skin' => $skin,
+			'radius' => !empty($instance['radius']) && is_numeric($instance['radius']) ? (int) $instance['radius'] : 100,
+			'noseconds' => !empty($instance['noseconds']) ? true : false,
+			'gmtoffset' => isset($instance['gmtoffset']) && $instance['gmtoffset'] !== '' ? (float) $instance['gmtoffset'] : '',
+			'showdigital' => !empty($instance['showdigital']) ? $instance['showdigital'] : '',
+			'color' => !empty($instance['digitalcolor']) ? $instance['digitalcolor'] : '',
+			'scale' => !empty($instance['scale']) ? $instance['scale'] : 'linear',
+			'align' => !empty($instance['align']) ? $instance['align'] : 'center',
+			'subtext' => !empty($instance['subtext']) ? $instance['subtext'] : ''
+		) );
 
 		echo apply_filters( 'coolclock_widget_advanced', $output, $args, $instance );
 
@@ -67,24 +66,19 @@ class CoolClock_Widget extends WP_Widget {
 
 	/** @see WP_Widget::update -- do not rename this */
 	public function update( $new_instance, $old_instance ) {
-		$instance['title'] = !empty($new_instance['title']) ? strip_tags( $new_instance['title'] ) : '';
-		$instance['skin'] = !empty($new_instance['skin']) ? strip_tags( $new_instance['skin'] ) : '';
-		$instance['custom_skin'] = !empty($new_instance['custom_skin']) ? strip_tags( $new_instance['custom_skin'] ) : '';
+		$instance['title'] = !empty($new_instance['title']) ? wp_strip_all_tags( $new_instance['title'] ) : '';
+		$instance['skin'] = !empty($new_instance['skin']) ? wp_strip_all_tags( $new_instance['skin'] ) : '';
+		$instance['custom_skin'] = !empty($new_instance['custom_skin']) ? wp_strip_all_tags( $new_instance['custom_skin'] ) : '';
 		$instance['radius'] = ( empty($new_instance['radius']) || (int) $new_instance['radius'] < 5 ) ? 5 : (int) $new_instance['radius'];
 		$instance['noseconds'] = !empty($new_instance['noseconds']) ? '1' : '';
 		$instance['gmtoffset'] = isset($new_instance['gmtoffset']) && $new_instance['gmtoffset'] !== '' ? (float) $new_instance['gmtoffset'] : '';
-		$instance['showdigital'] = !empty($new_instance['showdigital']) ? strip_tags( $new_instance['showdigital'] ) : '';
+		$instance['showdigital'] = !empty($new_instance['showdigital']) ? wp_strip_all_tags( $new_instance['showdigital'] ) : '';
 		$instance['digitalcolor'] = !empty($new_instance['digitalcolor']) ? CoolClock::colorval( $new_instance['digitalcolor'] ) : '';
-		$instance['scale'] = !empty($new_instance['scale']) ? strip_tags( $new_instance['scale'] ) : '';
-		$instance['align'] = !empty($new_instance['align']) ? strip_tags( $new_instance['align'] ) : '';
+		$instance['scale'] = !empty($new_instance['scale']) ? wp_strip_all_tags( $new_instance['scale'] ) : '';
+		$instance['align'] = !empty($new_instance['align']) ? wp_strip_all_tags( $new_instance['align'] ) : '';
+		$instance['subtext'] = wp_kses( $new_instance['subtext'], CoolClock::$allowed_tags );
 
-		if ( current_user_can('unfiltered_html') )
-			$instance['subtext'] =  $new_instance['subtext'];
-		else
-			// wp_filter_post_kses() expects slashed
-			$instance['subtext'] = stripslashes( wp_filter_post_kses( addslashes($new_instance['subtext']) ) );
-
-    	return apply_filters( 'coolclock_widget_update_advanced', $instance, $new_instance );
+    return apply_filters( 'coolclock_widget_update_advanced', $instance, $new_instance );
 	}
 
 	/** @see WP_Widget::form -- do not rename this */

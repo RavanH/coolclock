@@ -1,5 +1,5 @@
 /**
- * CoolClock 3.1.0
+ * CoolClock 3.2.0
  *
 Copyright (c) 2010-2013, Simon Baird.
 All rights reserved.
@@ -32,6 +32,9 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * Display an analog clock using canvas.
  * http://randomibis.com/coolclock/
  *
+Modified for WordPress CoolClock plugin by RavanH
+Based on version 3.1.0 by Simon Baird.
+Version 3.2.0 - added showDigital24,showSecs,showDate,showText,font,fontColor&text parameters
  */
 
 // Constructor for CoolClock objects
@@ -46,7 +49,7 @@ CoolClock.config = {
 	defaultRadius: 85,
 	renderRadius: 100,
 	defaultSkin: "chunkySwiss",
-	defaultFont: "15px sans-serif",
+	defaultFont: "15px monospace",
 	defaultFontColor: "#333",
 
 	skins:	{
@@ -120,11 +123,13 @@ CoolClock.prototype = {
 		this.gmtOffset      = (options.gmtOffset != null && options.gmtOffset != '') ? parseFloat(options.gmtOffset) : null;
 		this.showDigital    = typeof options.showDigital == "boolean" ? options.showDigital : false;
 		this.showDigital24  = typeof options.showDigital24 == "boolean" ? options.showDigital24 : false;
-		this.showDate       = typeof options.showDate == "boolean" ? options.showDate : false;
+    this.showSecs       = typeof options.showSecs == "boolean" ? options.showSecs : false;
+    this.showDate       = typeof options.showDate == "boolean" ? options.showDate : false;
+    this.showText       = typeof options.showText == "boolean" ? options.showText : false;
 		this.logClock       = typeof options.logClock == "boolean" ? options.logClock : false;
 		this.logClockRev    = typeof options.logClock == "boolean" ? options.logClockRev : false;
-
-		this.tickDelay      = CoolClock.config[ this.showSecondHand ? "tickDelay" : "longTickDelay" ];
+    this.text           = options.text || '';
+		this.tickDelay      = CoolClock.config[ this.showSecondHand || this.showSecs ? "tickDelay" : "longTickDelay" ];
 
 		// Get the canvas element
 		this.canvas = document.getElementById(this.canvasId);
@@ -279,11 +284,8 @@ CoolClock.prototype = {
 		}
 
 		// Write the time and or date
-		if (this.showDigital || this.showDigital24 || this.showDate) {
-			var text;
-			if (this.showDigital) text = this.timeText(hour,min,sec,true,false);
-			else if (this.showDigital24) text = this.timeText(hour,min,sec,false,true);
-			else text = date;
+		if (this.showDigital || this.showDigital24 || this.showDate || this.showText) {
+      var text = this.showDigital || this.showDigital24 ? this.timeText(hour,min,sec,!this.showDigital24,this.showSecs) : this.showDate ? date : this.text;
 			this.drawTextAt(
 				text,
 				this.renderRadius,
@@ -317,11 +319,6 @@ CoolClock.prototype = {
 			if (this.showSecondHand && skin.secondDecoration)
 				this.radialLineAtAngle(this.tickAngle(secA),skin.secondDecoration);
 		}
-
-		/* what's extraRender and why is it here?
-		if (this.extraRender) {
-			this.extraRender(hour,min,sec);
-		}*/
 	},
 
 	// Check the time and display the clock
@@ -331,13 +328,11 @@ CoolClock.prototype = {
 			// Use GMT + gmtOffset
 			var offsetNow = new Date(now.valueOf() + (this.gmtOffset * 1000 * 60 * 60));
 			this.render(offsetNow.getUTCHours(),offsetNow.getUTCMinutes(),offsetNow.getUTCSeconds(),offsetNow.toLocaleDateString());
-		}
-		else {
+		} else {
 			// Use local time
 			this.render(now.getHours(),now.getMinutes(),now.getSeconds(),now.toLocaleDateString());
 		}
 	},
-
 
 	// Check the canvas element hasn't been removed
 	stillHere: function() {
@@ -375,18 +370,21 @@ CoolClock.findAndCreateClocks = function() {
 			}
 			// Create a clock object for this element
 			new CoolClock({
-				canvasId:       canvases[i].id,
-				skinId:         fields[1],
-				displayRadius:  fields[2],
-				showSecondHand: fields[3]!='noSeconds',
-				gmtOffset:      fields[4],
-				showDigital:    fields[5]=='showDigital',
-				showDigital24:  fields[5]=='showDigital24',
-				showDate:       fields[5]=='showDate',
-				logClock:       fields[6]=='logClock',
-				logClockRev:    fields[6]=='logClockRev',
-				font:           fields[7],
-				fontColor:      fields[8]
+        canvasId:       canvases[i].id,
+        skinId:         fields[1],
+        displayRadius:  fields[2],
+        showSecondHand: fields[3]!='noSeconds',
+        gmtOffset:      fields[4],
+        showDigital:    fields[5]=='showDigital'||fields[5]=='showDigital+Secs',
+        showDigital24:  fields[5]=='showDigital24'||fields[5]=='showDigital24+Secs',
+        showSecs:       fields[5].indexOf('+Secs',10)!=-1,
+        showDate:       fields[5]=='showDate',
+        showText:       fields[5]=='showText',
+        logClock:       fields[6]=='logClock',
+        logClockRev:    fields[6]=='logClockRev',
+        fontColor:      fields[7],
+        font:           fields[8] ? fields[8].replace(/\|/g,' ') : null,
+        text:           fields[9] ? fields[9].replace(/\|/g,' ') : null
 			});
 		}
 	}
