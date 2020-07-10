@@ -1,105 +1,125 @@
 <?php
 $more_skins = array(
+	'swissrail' => array(
+		'outerBorder' => array(
+			'lineWidth' => 2,
+			'radius' => 95
+		),
+		'smallIndicator' => array(
+			'lineWidth' => 2,
+			'startAt' => 88,
+			'endAt' => 92
+		),
+		'largeIndicator' => array(
+			'lineWidth' => 4,
+			'startAt' => 79,
+			'endAt' => 92
+		),
+		'hourHand' => array(
+			'lineWidth' => 8,
+			'startAt' => -15,
+			'endAt' => 50
+		),
+		'minuteHand' => array(
+			'lineWidth' => 7,
+			'startAt' => -15,
+			'endAt' => 75
+		),
+		'secondHand' => array(
+			'lineWidth' => 1,
+			'startAt' => -20,
+			'endAt' => 85,
+			'color' => 'red'
+		),
+		'secondDecoration' => array(
+			'lineWidth' => 1,
+			'startAt' => 70,
+			'radius' => 4,
+			'fillColor' => 'red',
+			'color' => 'red'
+		)
+	),
 	'chunkyswiss' => array(
 		'outerBorder' => array(
 			'lineWidth' => 4,
-			'radius' => 97,
-			'color' => 'black',
-			'alpha' => 1
+			'radius' => 97
 		),
 		'smallIndicator' => array(
 			'lineWidth' => 4,
 			'startAt' => 89,
-			'endAt' => 93,
-			'color' => 'black',
-			'alpha' => 1
+			'endAt' => 93
 		),
 		'largeIndicator' => array(
 			'lineWidth' => 8,
 			'startAt' => 80,
-			'endAt' => 93,
-			'color' => 'black',
-			'alpha' => 1
+			'endAt' => 93
 		),
 		'hourHand' => array(
 			'lineWidth' => 12,
 			'startAt' => -15,
-			'endAt' => 60,
-			'color' => 'black',
-			'alpha' => 1
+			'endAt' => 60
 		),
 		'minuteHand' => array(
 			'lineWidth' => 10,
 			'startAt' => -15,
-			'endAt' => 85,
-			'color' => 'black',
-			'alpha' => 1
+			'endAt' => 85
 		),
 		'secondHand' => array(
 			'lineWidth' => 4,
 			'startAt' => -20,
 			'endAt' => 85,
-			'color' => 'red',
-			'alpha' => 1
+			'color' => 'red'
 		),
 		'secondDecoration' => array(
 			'lineWidth' => 2,
 			'startAt' => 70,
 			'radius' => 8,
 			'fillColor' => 'red',
-			'color' => 'red',
-			'alpha' => 1
+			'color' => 'red'
 		)
 	),
 	'chunkyswissonblack' => array(
 		'outerBorder' => array(
 			'lineWidth' => 4,
 			'radius' => 97,
-			'color' => 'white',
-			'alpha' => 1
+			'color' => 'white'
 		),
 		'smallIndicator' => array(
 			'lineWidth' => 4,
 			'startAt' => 89,
 			'endAt' => 93,
-			'color' => 'white',
-			'alpha' => 1
+			'color' => 'white'
 		),
 		'largeIndicator' => array(
 			'lineWidth' => 8,
 			'startAt' => 80,
 			'endAt' => 93,
-			'color' => 'white',
-			'alpha' => 1
+			'color' => 'white'
 		),
 		'hourHand' => array(
 			'lineWidth' => 12,
 			'startAt' => -15,
 			'endAt' => 60,
-			'color' => 'white',
-			'alpha' => 1
+			'color' => 'white'
 		),
 		'minuteHand' => array(
 			'lineWidth' => 10,
 			'startAt' => -15,
 			'endAt' => 85,
-			'color' => 'white',
-			'alpha' => 1
+			'color' => 'white'
 		),
 		'secondHand' => array(
 			'lineWidth' => 4,
 			'startAt' => -20,
 			'endAt' => 85,
-			'color' => 'red',
-			'alpha' => 1
+			'color' => 'red'
 		),
 		'secondDecoration' => array(
 			'lineWidth' => 2,
 			'startAt' => 70,
 			'radius' => 8,
 			'fillColor' => 'red',
-			'color' => 'red',
-			'alpha' => 1
+			'color' => 'red'
 		)
 	),
 	'fancy' => array(
@@ -113,14 +133,12 @@ $more_skins = array(
 			'lineWidth' => 1,
 			'startAt' => 80,
 			'endAt' => 93,
-			'color' => 'black',
 			'alpha' => 0.4
 		),
 		'largeIndicator' => array(
 			'lineWidth' => 1,
 			'startAt' => 30,
 			'endAt' => 93,
-			'color' => 'black',
 			'alpha' => 0.5
 		),
 		'hourHand' => array(
@@ -157,29 +175,25 @@ $more_skins = array(
 		'outerBorder' => array(
 			'lineWidth' => 60,
 			'radius' => 55,
-			'color' => '#dd6655',
-			'alpha' => 1
+			'color' => '#dd6655'
 		),
 		'smallIndicator' => array(
 			'lineWidth' => 4,
 			'startAt' => 80,
 			'endAt' => 95,
-			'color' => 'white',
-			'alpha' => 1
+			'color' => 'white'
 		),
 		'largeIndicator' => array(
 			'lineWidth' => 14,
 			'startAt' => 77,
 			'endAt' => 92,
-			'color' => '#dd6655',
-			'alpha' => 1
+			'color' => '#dd6655'
 		),
 		'hourHand' => array(
 			'lineWidth' => 18,
 			'startAt' => -15,
 			'endAt' => 40,
-			'color' => 'white',
-			'alpha' => 1
+			'color' => 'white'
 		),
 		'minuteHand' => array(
 			'lineWidth' => 14,
@@ -232,36 +246,29 @@ $more_skins = array(
 		'outerBorder' => array(
 			'lineWidth' => 185,
 			'radius' => 1,
-			'color' => '#E5ECF9',
-			'alpha' => 1
+			'color' => '#E5ECF9'
 		),
 		'smallIndicator' => array(
 			'lineWidth' => 2,
 			'startAt' => 89,
 			'endAt' => 94,
-			'color' => '#3366CC',
-			'alpha' => 1
+			'color' => '#3366CC'
 		),
 		'largeIndicator' => array(
 			'lineWidth' => 4,
 			'startAt' => 83,
 			'endAt' => 94,
-			'color' => '#3366CC',
-			'alpha' => 1
+			'color' => '#3366CC'
 		),
 		'hourHand' => array(
 			'lineWidth' => 5,
 			'startAt' => 0,
-			'endAt' => 60,
-			'color' => 'black',
-			'alpha' => 1
+			'endAt' => 60
 		),
 		'minuteHand' => array(
 			'lineWidth' => 4,
 			'startAt' => 0,
-			'endAt' => 80,
-			'color' => 'black',
-			'alpha' => 1
+			'endAt' => 80
 		),
 		'secondHand' => array(
 			'lineWidth' => 1,
@@ -274,45 +281,36 @@ $more_skins = array(
 			'lineWidth' => 3,
 			'startAt' => 0,
 			'radius' => 2,
-			'fillColor' => 'black',
-			'color' => 'black',
-			'alpha' => 1
+			'fillColor' => 'black'
 		)
 	),
 	'modern' => array(
 		'outerBorder' => array(
 			'lineWidth' => 185,
 			'radius' => 1,
-			'color' => '#E5ECF9',
-			'alpha' => 1
+			'color' => '#E5ECF9'
 		),
 		'smallIndicator' => array(
 			'lineWidth' => 5,
 			'startAt' => 88,
 			'endAt' => 94,
-			'color' => '#3366CC',
-			'alpha' => 1
+			'color' => '#3366CC'
 		),
 		'largeIndicator' => array(
 			'lineWidth' => 5,
 			'startAt' => 88,
 			'endAt' => 94,
-			'color' => '#3366CC',
-			'alpha' => 1
+			'color' => '#3366CC'
 		),
 		'hourHand' => array(
 			'lineWidth' => 8,
 			'startAt' => 0,
-			'endAt' => 60,
-			'color' => 'black',
-			'alpha' => 1
+			'endAt' => 60
 		),
 		'minuteHand' => array(
 			'lineWidth' => 8,
 			'startAt' => 0,
-			'endAt' => 80,
-			'color' => 'black',
-			'alpha' => 1
+			'endAt' => 80
 		),
 		'secondHand' => array(
 			'lineWidth' => 5,
@@ -325,45 +323,36 @@ $more_skins = array(
 			'lineWidth' => 3,
 			'startAt' => 0,
 			'radius' => 4,
-			'fillColor' => 'black',
-			'color' => 'black',
-			'alpha' => 1
+			'fillColor' => 'black'
 		)
 	),
 	'simple' => array(
 		'outerBorder' => array(
 			'lineWidth' => 185,
 			'radius' => 1,
-			'color' => '#E5ECF9',
-			'alpha' => 1
+			'color' => '#E5ECF9'
 		),
 		'smallIndicator' => array(
 			'lineWidth' => 10,
 			'startAt' => 90,
 			'endAt' => 94,
-			'color' => '#3366CC',
-			'alpha' => 1
+			'color' => '#3366CC'
 		),
 		'largeIndicator' => array(
 			'lineWidth' => 10,
 			'startAt' => 90,
 			'endAt' => 94,
-			'color' => '#3366CC',
-			'alpha' => 1
+			'color' => '#3366CC'
 		),
 		'hourHand' => array(
 			'lineWidth' => 8,
 			'startAt' => 0,
-			'endAt' => 60,
-			'color' => 'black',
-			'alpha' => 1
+			'endAt' => 60
 		),
 		'minuteHand' => array(
 			'lineWidth' => 8,
 			'startAt' => 0,
-			'endAt' => 80,
-			'color' => 'black',
-			'alpha' => 1
+			'endAt' => 80
 		),
 		'secondHand' => array(
 			'lineWidth' => 5,
@@ -376,9 +365,7 @@ $more_skins = array(
 			'lineWidth' => 3,
 			'startAt' => 0,
 			'radius' => 4,
-			'fillColor' => 'black',
-			'color' => 'black',
-			'alpha' => 1
+			'fillColor' => 'black'
 		)
 	),
 	'securephp' => array(
@@ -392,8 +379,7 @@ $more_skins = array(
 			'lineWidth' => 2,
 			'startAt' => 80,
 			'endAt' => 90,
-			'color' => 'green',
-			'alpha' => 1
+			'color' => 'green'
 		),
 		'largeIndicator' => array(
 			'lineWidth' => 8.5,
@@ -405,16 +391,12 @@ $more_skins = array(
 		'hourHand' => array(
 			'lineWidth' => 3,
 			'startAt' => 0,
-			'endAt' => 60,
-			'color' => 'black',
-			'alpha' => 1
+			'endAt' => 60
 		),
 		'minuteHand' => array(
 			'lineWidth' => 2,
 			'startAt' => 0,
-			'endAt' => 75,
-			'color' => 'black',
-			'alpha' => 1
+			'endAt' => 75
 		),
 		'secondHand' => array(
 			'lineWidth' => 1,
@@ -428,59 +410,51 @@ $more_skins = array(
 			'startAt' => 70,
 			'radius' => 4,
 			'fillColor' => 'blue',
-			'color' => 'red',
-			'alpha' => 1
+			'color' => 'red'
 		)
 	),
 	'tes2' => array(
 		'outerBorder' => array(
 			'lineWidth' => 4,
 			'radius' => 95,
-			'color' => 'black',
 			'alpha' => 0.5
 		),
 		'smallIndicator' => array(
 			'lineWidth' => 1,
 			'startAt' => 10,
 			'endAt' => 50,
-			'color' => '#66CCFF',
-			'alpha' => 1
+			'color' => '#66CCFF'
 		),
 		'largeIndicator' => array(
 			'lineWidth' => 8.5,
 			'startAt' => 60,
 			'endAt' => 70,
-			'color' => '#6699FF',
-			'alpha' => 1
+			'color' => '#6699FF'
 		),
 		'hourHand' => array(
 			'lineWidth' => 5,
 			'startAt' => -15,
 			'endAt' => 60,
-			'color' => 'black',
 			'alpha' => 0.7
 		),
 		'minuteHand' => array(
 			'lineWidth' => 3,
 			'startAt' => -25,
 			'endAt' => 75,
-			'color' => 'black',
 			'alpha' => 0.7
 		),
 		'secondHand' => array(
 			'lineWidth' => 1.5,
 			'startAt' => -20,
 			'endAt' => 88,
-			'color' => 'red',
-			'alpha' => 1
+			'color' => 'red'
 		),
 		'secondDecoration' => array(
 			'lineWidth' => 1,
 			'startAt' => 20,
 			'radius' => 4,
 			'fillColor' => 'blue',
-			'color' => 'red',
-			'alpha' => 1
+			'color' => 'red'
 		)
 	),
 	'lev' => array(
@@ -494,8 +468,7 @@ $more_skins = array(
 			'lineWidth' => 5,
 			'startAt' => 84,
 			'endAt' => 90,
-			'color' => '#996600',
-			'alpha' => 1
+			'color' => '#996600'
 		),
 		'largeIndicator' => array(
 			'lineWidth' => 40,
@@ -508,37 +481,30 @@ $more_skins = array(
 			'lineWidth' => 4,
 			'startAt' => 0,
 			'endAt' => 65,
-			'color' => 'black',
 			'alpha' => 0.9
 		),
 		'minuteHand' => array(
 			'lineWidth' => 3,
 			'startAt' => 0,
 			'endAt' => 80,
-			'color' => 'black',
 			'alpha' => 0.85
 		),
 		'secondHand' => array(
 			'lineWidth' => 1,
 			'startAt' => 0,
-			'endAt' => 85,
-			'color' => 'black',
-			'alpha' => 1
+			'endAt' => 85
 		),
 		'secondDecoration' => array(
 			'lineWidth' => 2,
 			'startAt' => 5,
 			'radius' => 10,
-			'fillColor' => 'black',
-			'color' => 'black',
-			'alpha' => 1
+			'fillColor' => 'black'
 		)
 	),
 	'sand' => array(
 		'outerBorder' => array(
 			'lineWidth' => 1,
 			'radius' => 70,
-			'color' => 'black',
 			'alpha' => 0.5
 		),
 		'smallIndicator' => array(
@@ -559,30 +525,24 @@ $more_skins = array(
 			'lineWidth' => 4,
 			'startAt' => 0,
 			'endAt' => 65,
-			'color' => 'black',
 			'alpha' => 0.9
 		),
 		'minuteHand' => array(
 			'lineWidth' => 3,
 			'startAt' => 0,
 			'endAt' => 80,
-			'color' => 'black',
 			'alpha' => 0.85
 		),
 		'secondHand' => array(
 			'lineWidth' => 1,
 			'startAt' => 0,
-			'endAt' => 85,
-			'color' => 'black',
-			'alpha' => 1
+			'endAt' => 85
 		),
 		'secondDecoration' => array(
 			'lineWidth' => 2,
 			'startAt' => 5,
 			'radius' => 10,
-			'fillColor' => 'black',
-			'color' => 'black',
-			'alpha' => 1
+			'fillColor' => 'black'
 		)
 	),
 	'sun' => array(
@@ -596,44 +556,36 @@ $more_skins = array(
 			'lineWidth' => 300,
 			'startAt' => 50,
 			'endAt' => 70,
-			'color' => 'black',
 			'alpha' => 0.1
 		),
 		'largeIndicator' => array(
 			'lineWidth' => 5,
 			'startAt' => 80,
 			'endAt' => 95,
-			'color' => 'black',
 			'alpha' => 0.65
 		),
 		'hourHand' => array(
 			'lineWidth' => 4,
 			'startAt' => 0,
 			'endAt' => 65,
-			'color' => 'black',
 			'alpha' => 0.9
 		),
 		'minuteHand' => array(
 			'lineWidth' => 3,
 			'startAt' => 0,
 			'endAt' => 80,
-			'color' => 'black',
 			'alpha' => 0.85
 		),
 		'secondHand' => array(
 			'lineWidth' => 1,
 			'startAt' => 0,
-			'endAt' => 90,
-			'color' => 'black',
-			'alpha' => 1
+			'endAt' => 90
 		),
 		'secondDecoration' => array(
 			'lineWidth' => 2,
 			'startAt' => 5,
 			'radius' => 10,
-			'fillColor' => 'black',
-			'color' => 'black',
-			'alpha' => 1
+			'fillColor' => 'black'
 		)
 	),
 	'tor' => array(
@@ -654,44 +606,35 @@ $more_skins = array(
 			'lineWidth' => 6,
 			'startAt' => 73,
 			'endAt' => 100,
-			'color' => 'black',
 			'alpha' => 0.65
 		),
 		'hourHand' => array(
 			'lineWidth' => 4,
 			'startAt' => 0,
-			'endAt' => 65,
-			'color' => 'black',
-			'alpha' => 1
+			'endAt' => 65
 		),
 		'minuteHand' => array(
 			'lineWidth' => 3,
 			'startAt' => 0,
-			'endAt' => 80,
-			'color' => 'black',
-			'alpha' => 1
+			'endAt' => 80
 		),
 		'secondHand' => array(
 			'lineWidth' => 1,
 			'startAt' => -73,
 			'endAt' => 73,
-			'color' => 'black',
 			'alpha' => 0.8
 		),
 		'secondDecoration' => array(
 			'lineWidth' => 2,
 			'startAt' => 5,
 			'radius' => 10,
-			'fillColor' => 'black',
-			'color' => 'black',
-			'alpha' => 1
+			'fillColor' => 'black'
 		)
 	),
 	'cold' => array(
 		'outerBorder' => array(
 			'lineWidth' => 15,
 			'radius' => 90,
-			'color' => 'black',
 			'alpha' => 0.3
 		),
 		'smallIndicator' => array(
@@ -711,31 +654,24 @@ $more_skins = array(
 		'hourHand' => array(
 			'lineWidth' => 4,
 			'startAt' => 0,
-			'endAt' => 65,
-			'color' => 'black',
-			'alpha' => 1
+			'endAt' => 65
 		),
 		'minuteHand' => array(
 			'lineWidth' => 3,
 			'startAt' => 0,
-			'endAt' => 80,
-			'color' => 'black',
-			'alpha' => 1
+			'endAt' => 80
 		),
 		'secondHand' => array(
 			'lineWidth' => 1,
 			'startAt' => 0,
 			'endAt' => 85,
-			'color' => 'black',
 			'alpha' => 0.8
 		),
 		'secondDecoration' => array(
 			'lineWidth' => 5,
 			'startAt' => 30,
 			'radius' => 10,
-			'fillColor' => 'black',
-			'color' => 'black',
-			'alpha' => 1
+			'fillColor' => 'black'
 		)
 	),
 	'babosa' => array(
@@ -749,29 +685,23 @@ $more_skins = array(
 			'lineWidth' => 3,
 			'startAt' => 90,
 			'endAt' => 95,
-			'color' => '#3366CC',
-			'alpha' => 1
+			'color' => '#3366CC'
 		),
 		'largeIndicator' => array(
 			'lineWidth' => 4,
 			'startAt' => 75,
 			'endAt' => 95,
-			'color' => '#3366CC',
-			'alpha' => 1
+			'color' => '#3366CC'
 		),
 		'hourHand' => array(
 			'lineWidth' => 4,
 			'startAt' => 0,
-			'endAt' => 60,
-			'color' => 'black',
-			'alpha' => 1
+			'endAt' => 60
 		),
 		'minuteHand' => array(
 			'lineWidth' => 3,
 			'startAt' => 0,
-			'endAt' => 85,
-			'color' => 'black',
-			'alpha' => 1
+			'endAt' => 85
 		),
 		'secondHand' => array(
 			'lineWidth' => 12,
@@ -784,9 +714,7 @@ $more_skins = array(
 			'lineWidth' => 3,
 			'startAt' => 0,
 			'radius' => 4,
-			'fillColor' => 'black',
-			'color' => 'black',
-			'alpha' => 1
+			'fillColor' => 'black'
 		)
 	),
 	'tumb' => array(
@@ -800,8 +728,7 @@ $more_skins = array(
 			'lineWidth' => 1,
 			'startAt' => 93,
 			'endAt' => 98,
-			'color' => 'green',
-			'alpha' => 1
+			'color' => 'green'
 		),
 		'largeIndicator' => array(
 			'lineWidth' => 50,
@@ -813,22 +740,17 @@ $more_skins = array(
 		'hourHand' => array(
 			'lineWidth' => 4,
 			'startAt' => 0,
-			'endAt' => 65,
-			'color' => 'black',
-			'alpha' => 1
+			'endAt' => 65
 		),
 		'minuteHand' => array(
 			'lineWidth' => 3,
 			'startAt' => 0,
 			'endAt' => 80,
-			'color' => 'black',
-			'alpha' => 1
 		),
 		'secondHand' => array(
 			'lineWidth' => 1,
 			'startAt' => 0,
 			'endAt' => 85,
-			'color' => 'black',
 			'alpha' => 0.8
 		),
 		'secondDecoration' => array(
@@ -836,7 +758,6 @@ $more_skins = array(
 			'startAt' => 50,
 			'radius' => 90,
 			'fillColor' => 'black',
-			'color' => 'black',
 			'alpha' => 0.05
 		)
 	),
@@ -864,22 +785,17 @@ $more_skins = array(
 		'hourHand' => array(
 			'lineWidth' => 4,
 			'startAt' => 0,
-			'endAt' => 65,
-			'color' => 'black',
-			'alpha' => 1
+			'endAt' => 65
 		),
 		'minuteHand' => array(
 			'lineWidth' => 3,
 			'startAt' => 0,
-			'endAt' => 75,
-			'color' => 'black',
-			'alpha' => 1
+			'endAt' => 75
 		),
 		'secondHand' => array(
 			'lineWidth' => 1,
 			'startAt' => 0,
 			'endAt' => 85,
-			'color' => 'black',
 			'alpha' => 0.8
 		),
 		'secondDecoration' => array(
@@ -887,7 +803,6 @@ $more_skins = array(
 			'startAt' => 50,
 			'radius' => 90,
 			'fillColor' => 'black',
-			'color' => 'black',
 			'alpha' => 0.05
 		)
 	),
@@ -909,22 +824,17 @@ $more_skins = array(
 			'lineWidth' => 6,
 			'startAt' => 25,
 			'endAt' => 35,
-			'color' => '#666600',
-			'alpha' => 1
+			'color' => '#666600'
 		),
 		'hourHand' => array(
 			'lineWidth' => 4,
 			'startAt' => 0,
-			'endAt' => 65,
-			'color' => 'black',
-			'alpha' => 1
+			'endAt' => 65
 		),
 		'minuteHand' => array(
 			'lineWidth' => 3,
 			'startAt' => 0,
-			'endAt' => 75,
-			'color' => 'black',
-			'alpha' => 1
+			'endAt' => 75
 		),
 		'secondHand' => array(
 			'lineWidth' => 1,
@@ -960,15 +870,13 @@ $more_skins = array(
 			'lineWidth' => 2,
 			'startAt' => 45,
 			'endAt' => 94,
-			'color' => '#a9bf04',
-			'alpha' => 1
+			'color' => '#a9bf04'
 		),
 		'hourHand' => array(
 			'lineWidth' => 5,
 			'startAt' => -20,
 			'endAt' => 65,
-			'color' => '#d93d04',
-			'alpha' => 1
+			'color' => '#d93d04'
 		),
 		'minuteHand' => array(
 			'lineWidth' => 3,
@@ -999,29 +907,25 @@ $more_skins = array(
 			'radius' => 5,
 			'startAt' => 78,
 			'endAt' => 98,
-			'color' => '#76777b',
-			'alpha' => 1
+			'color' => '#76777b'
 		),
 		'hourHand' => array(
 			'lineWidth' => 7,
 			'startAt' => 10,
 			'endAt' => 47,
-			'color' => '#76777b',
-			'alpha' => 1
+			'color' => '#76777b'
 		),
 		'minuteHand' => array(
 			'lineWidth' => 5,
 			'startAt' => 10,
 			'endAt' => 65,
-			'color' => '#76777b',
-			'alpha' => 1
+			'color' => '#76777b'
 		),
 		'secondHand' => array(
 			'lineWidth' => 3,
 			'startAt' => 0,
 			'endAt' => 92,
-			'color' => '#76777b',
-			'alpha' => 1
+			'color' => '#76777b'
 		)
 	)
 );

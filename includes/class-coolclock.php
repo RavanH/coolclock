@@ -8,7 +8,7 @@ class CoolClock {
 
 	static $plugin_version;
 
-	static $script_version = '3.2.0';
+	static $script_version = '3.2.1';
 
 	private static $plugin_url;
 
@@ -39,18 +39,6 @@ class CoolClock {
 	static $advanced_defaults = array(
 		'subtext' => '',
 		'align' => 'center'
-	);
-
-	static $default_skins_config = array(
-		'swissrail' => array(
-			'outerBorder' => array( 'lineWidth' => 2, 'radius' => 95, 'color' => 'black', 'alpha' => 1 ),
-			'smallIndicator' => array( 'lineWidth' => 2, 'startAt' => 88, 'endAt' => 92, 'color' => 'black', 'alpha' => 1 ),
-			'largeIndicator' => array( 'lineWidth' => 4, 'startAt' => 79, 'endAt' => 92, 'color' => 'black', 'alpha' => 1 ),
-			'hourHand' => array( 'lineWidth' => 8, 'startAt' => -15, 'endAt' => 50, 'color' => 'black', 'alpha' => 1 ),
-			'minuteHand' => array( 'lineWidth' => 7, 'startAt' => -15, 'endAt' => 75, 'color' => 'black', 'alpha' => 1 ),
-			'secondHand' => array( 'lineWidth' => 1, 'startAt' => -20, 'endAt' => 85, 'color' => 'red', 'alpha' => 1 ),
-			'secondDecoration' => array( 'lineWidth' => 1, 'startAt' => 70, 'radius' => 4, 'fillColor' => 'red', 'color' => 'red', 'alpha' => 1 )
-		)
 	);
 
 	static $more_skins_config = array();
@@ -305,15 +293,12 @@ class CoolClock {
 
 		if ( !empty( self::$skins_config ) ) {
 
-			// add the default skin(s), avoids need for jQuery extend() method
-			$skins_config = array_merge( self::$skins_config, self::$default_skins_config );
-
 			/**
 			 * Load IE 6/7 specific JSON polyfill
 			 */
 			wp_enqueue_script( 'json2' );
 
-			$script .=  'CoolClock.config.skins = JSON.parse(\'' . json_encode( $skins_config ) . '\');';
+			$script .=  'CoolClock.config.skins = JSON.parse(\'' . json_encode( self::$skins_config ) . '\');';
 
 		}
 
