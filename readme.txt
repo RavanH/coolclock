@@ -1,11 +1,11 @@
 === CoolClock - a Javascript Analog Clock ===
 Contributors: RavanH
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ravanhagen%40gmail%2ecom&item_name=CoolClock%20for%20WordPress&item_number=1%2e3%2e4%2e9&no_shipping=0&tax=0&charset=UTF%2d8&currency_code=EUR
-Tags: clock, analog clock, coolclock, javascript, jquery, widget, shortcode, logarithmic clock
+Tags: clock, analog clock, coolclock, javascript, widget, shortcode, logarithmic clock
 Requires at least: 4.8.1
-Tested up to: 5.4
+Tested up to: 5.5
 Requires PHP: 5.6
-Stable tag: 4.2.1
+Stable tag: 4.3
 
 Show an analog clock on your WordPress site sidebar or in post and page content.
 
@@ -124,14 +124,14 @@ Thanks for sharing! :)
 
 = Can I insert a clock in posts or pages? =
 
-Yes, there the shortcode **[coolclock** **/]** available. You can find all parameters on [How to use the CoolClock shrotcode](https://premium.status301.net/how-to-use-the-coolclock-shortcode/).
+Yes, there the shortcode **[coolclock** **/]** available. You can find all parameters on [How to use the CoolClock shortcode](https://premium.status301.net/how-to-use-the-coolclock-shortcode/).
 
 
 = I'm building my own theme. Is there a theme function available? =
 
 Yes, you can use a built-in WordPress function that parses a shortcode. To place the same clock as in the shortcode example above, anywhere in your theme, use this:
 
-`<?php echo do_shortcode('[ coolclock skin="chunkySwiss" radius="140" showdigital=true align="left" ]'); ?>`
+`<?php echo do_shortcode('[<!-- -->coolclock skin="chunkySwiss" radius="140" showdigital=true align="left" /]'); ?>`
 
 
 == Known Issues ==
@@ -153,15 +153,22 @@ Please report any other issues on the [Support page](http://wordpress.org/suppor
 == Upgrade Notice ==
 
 = 4.3 =
-New shortcode attributes, canvas fields filter, updated coolclock script
+New shortcode attributes, new filters, lighter coolclock script, drop jQuery, JSON skin parameters
 
 == Changelog ==
 
 = 4.3 =
-* New shortcode attributes, canvas fields filter, updated coolclock script
+* New shortcode attributes, canvas fields and styles filters
+* Updated coolclock script
+* Script size reduction
+* Replace moreskins.js with dynamic inline skins parameters
+* Custom skin parameter input sanitization
+* Skin parameters in JSON format + json polyfill for IE6/7
+* Remove jQuery dependancy
+* Help link to KB pages
 
 = 4.2.1 =
-* BUGFIX: GMToffset can be zero
+* BUGFIX: Widget GMToffset can be zero
 
 = 4.2 =
 * Custom skin parameters in shortcode

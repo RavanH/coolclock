@@ -9,23 +9,27 @@ class CoolClock_Shortcode {
 	public static function handle_shortcode( $atts, $content = null )
 	{
 		/**
-		* skin					Must be one of these: 'swissRail' (default skin), 'chunkySwiss', 'chunkySwissOnBlack', 'fancy', 'machine', 'simonbaird_com', 'classic', 'modern', 'simple', 'securephp', 'Tes2', 'Lev', 'Sand', 'Sun', 'Tor', 'Cold', 'Babosa', 'Tumb', 'Stone', 'Disc', 'watermelon' or 'mister'.
-		* 							If the Advanced extension is activated, there is also 'minimal' available.
-		* radius				A number to define the clock radius. Do not add 'px' or any other measure descriptor.
-		* noseconds			Set to 'true' or 1 or without value to hide the second hand.
-		* gmtoffset			A number to define a timezone relative the Greenwhich Mean Time. Do not set this parameter to default to local time.
-		* showdigital		Set to 'true' or 1 or 'digital12' or without value to show the time in 12h digital format (with am/pm) too
-		* color					Set to a color value to change the digital time color, digitalcolor for backward compatibility
-		* scale					Must be one of these: 'linear' (default scale), 'logClock' or 'logClockRev'. Linear is our normal clock scale, the other two show a logarithmic time scale
-		* subtext				Optional text, centered below the clock
-		* align					Sets floating of the clock: 'left', 'right' or 'center'
+		* skin			Must be one of these: 'swissRail' (default skin), 'chunkySwiss', 'chunkySwissOnBlack', 'fancy', 'machine', 'simonbaird_com', 'classic', 'modern', 'simple', 'securephp', 'Tes2', 'Lev', 'Sand', 'Sun', 'Tor', 'Cold', 'Babosa', 'Tumb', 'Stone', 'Disc', 'watermelon' or 'mister'.
+		* 				If the Advanced extension is activated, there is also 'minimal' available.
+		* radius		A number to define the clock radius. Do not add 'px' or any other measure descriptor.
+		* noseconds		Set to 'true' or 1 or without value to hide the second hand.
+		* gmtoffset		A number to define a timezone relative the Greenwhich Mean Time. Do not set this parameter to default to local time.
+		* showdigital	Set to 'true' or 1 or 'digital12' or without value to show the time in 12h digital format (with am/pm) too
+		* fontcolor		Set to a color value to change the digital time color, digitalcolor for backward compatibility
+		* scale			Must be one of these: 'linear' (default scale), 'logClock' or 'logClockRev'. Linear is our normal clock scale, the other two show a logarithmic time scale
+		* subtext		Optional text, centered below the clock
+		* align			Sets floating of the clock: 'left', 'right' or 'center'
 		*/
 
 		if ( is_feed() )
 			return '';
 
+		// sanitize user input
+		if ( $content )
+			$content = wp_strip_all_tags( $content );
+
 		// backward compat fontcolor
-		if ( !empty( $atts['digitalcolor'] ) ) {
+		if ( !empty( $atts['digitalcolor'] ) && empty($atts['fontcolor']) ) {
 			$atts['fontcolor'] = $atts['digitalcolor'];
 		}
 
@@ -40,7 +44,11 @@ class CoolClock_Shortcode {
 		$atts = shortcode_atts( $defaults, $atts, 'coolclock' );
 
 		// parse skin
-		$atts['skin'] = self::parse_skin( $atts['skin'], $content );
+		$atts['skin'] = CoolClock::parse_skin( $atts['skin'], $content );
+
+		// radius, used in wrapper style and coolclock fields
+		$atts['radius'] = !empty( $atts['radius'] ) && is_numeric($atts['radius']) ? (int) $atts['radius'] : $defaults['radius'];
+		if ( 10 > $atts['radius'] ) $atts['radius'] = 10; // absolute minimum size 20x20
 
 		// clean gmtoffset
 		if ( !empty( $atts['gmtoffset'] ) ) {
@@ -48,10 +56,6 @@ class CoolClock_Shortcode {
 			$atts['gmtoffset'] = str_replace( array('1/2','½'), '.5', $atts['gmtoffset'] );
 			$atts['gmtoffset'] = str_replace( array('h',' '), '', $atts['gmtoffset'] );
 			$atts['gmtoffset'] = is_numeric( $atts['gmtoffset'] ) ? (float) trim( $atts['gmtoffset'] ) : '';
-		}
-
-		if ( !empty( $atts['fontcolor'] ) ) {
-			$atts['fontcolor'] = CoolClock::colorval( $atts['fontcolor'] );
 		}
 
 		if ( !empty( $atts['scale'] ) )
@@ -69,49 +73,35 @@ class CoolClock_Shortcode {
 		if ( 'false' === $atts['noseconds'] )
 			$atts['noseconds'] = false;
 
+		if ( !empty( $atts['fontcolor'] ) )
+			$atts['fontcolor'] = CoolClock::colorval( $atts['fontcolor'] );
+
 		if ( !empty( $atts['font'] ) )
 			$atts['font'] = wp_strip_all_tags( $atts['font'] );
-
-		if ( !empty( $atts['align'] ) )
-			$atts['align'] = wp_strip_all_tags( $atts['align'] );
 
 		if ( !empty( $atts['subtext'] ) )
 			$atts['subtext'] = wp_kses( $atts['subtext'], CoolClock::$allowed_tags );
 
+		$align = !empty( $atts['align'] ) ? wp_strip_all_tags( $atts['align'] ) : $defaults['align'];
+		$class = in_array( $align, array('left','right','center') ) ? ' align' . $align : '';
+
+		// inline container style
+		$styles = array(
+			'width' => 2 * $atts['radius'] . 'px',
+			'height' => 'auto' // leave height:auto at the end for old pro filter to find and replace
+		);
+		$styles = apply_filters( 'coolclock_container_styles', $styles, $atts, $defaults );
+
+		// begin wrapper
+		$output = '<div class="coolclock-container ' . $class . '"' . CoolClock::inline_style( $styles ) . '>'; // should end with height:auto"> for old pro plugin to find and replace
+
 		// get output
-		$output = CoolClock::canvas( $atts );
+		$output .= CoolClock::canvas( $atts );
 
-		return apply_filters( 'coolclock_shortcode_advanced', $output, $atts, $content );
-	}
+		// end wrapper
+		$output .= '</div>';
 
-	private static function parse_skin( $skin_name, $content )
-	{
-		// look trhough the default skins first
-		foreach ( CoolClock::$default_skins as $skin ) {
-			if ( strtolower($skin_name) == strtolower($skin) )
-			// return the matching skin
-			return $skin;
-		}
-
-		// still here? then search in the $more_skins array
-		foreach ( CoolClock::$more_skins as $skin ) {
-			if ( strtolower($skin_name) == strtolower($skin) ) {
-				// set more_skins flag
-				CoolClock::$add_moreskins = true;
-				// return the matching skin
-				return $skin;
-			}
-		}
-
-		// still here? then skin is a custom skin
-
-		// add custom skin parameters to the advanced skins array
-		if ( !in_array( $skin_name, CoolClock::$advanced_skins ) && !empty( $content ) ) {
-			CoolClock::$advanced_skins[] = $skin_name;
-			CoolClock::$advanced_skins_config[$skin_name] = wp_strip_all_tags( $content, true );
-		}
-
-		return $skin_name;
+		return apply_filters( 'coolclock_shortcode', $output, $atts, $content );
 	}
 
 	public static function no_wptexturize( $shortcodes )
