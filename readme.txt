@@ -131,7 +131,7 @@ Yes, there the shortcode **[coolclock** **/]** available. You can find all param
 
 Yes, you can use a built-in WordPress function that parses a shortcode. To place the same clock as in the shortcode example above, anywhere in your theme, use this:
 
-`<?php echo do_shortcode('[<!-- -->coolclock skin="chunkySwiss" radius="140" showdigital=true align="left" /]'); ?>`
+`<?php echo do_shortcode('[coolclock skin="chunkySwiss" radius="140" showdigital=true align="left" /]'); ?>`
 
 
 == Known Issues ==
@@ -152,14 +152,15 @@ Please report any other issues on the [Support page](http://wordpress.org/suppor
 
 == Upgrade Notice ==
 
-= 4.3.1 =
-4.3 New shortcode attributes, new filters, lighter coolclock script, drop jQuery, JSON skin parameters; 4.3.1 bugfix release
+= 4.3.2 =
+Bugfix release
 
 == Changelog ==
 
-= 4.3.1 =
+= 4.3.2 =
 * Script update v.3.2.1 with more robust skin handling
 * Bugfix: script not enqueued when only shortcode is used
+* Bugfix: not initiated on IE8 and older
 
 = 4.3 =
 * New shortcode attributes, canvas fields and styles filters
