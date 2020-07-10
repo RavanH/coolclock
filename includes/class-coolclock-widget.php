@@ -35,6 +35,9 @@ class CoolClock_Widget extends WP_Widget {
 		$title = !empty($instance['title']) ? apply_filters( 'widget_title', $instance['title'] ) : '';
 		$number = $this->number;
 
+		// set footer script flags
+		CoolClock::$add_script = true;
+
 		// Print output
 		echo $before_widget;
 
@@ -51,9 +54,6 @@ class CoolClock_Widget extends WP_Widget {
 		$instance['radius'] = !empty( $instance['radius'] ) && is_numeric( $instance['radius'] ) ? (int) $instance['radius'] : $defaults['radius'];
 		if ( 10 > $instance['radius'] ) $instance['radius'] = 10; // absolute minimum size 20x20
 
-		// set footer script flags
-		CoolClock::$add_script = true;
-
 		$align = !empty( $instance['align'] ) ? $instance['align'] : $defaults['align'];
 		$styles = array(
 			'width' => 2 * $instance['radius'] . 'px',
@@ -69,14 +69,15 @@ class CoolClock_Widget extends WP_Widget {
 		}
 		$styles = apply_filters( 'coolclock_container_styles', $styles, $instance, $defaults );
 
+		// Build output
 		// begin wrapper
 		$output = '<div class="coolclock-container"' . CoolClock::inline_style( $styles ) . '>';
-
+		// add canvas
 		$output .= CoolClock::canvas( $instance );
-
 		// end wrapper
 		$output .= '</div>';
 
+		// Print filtered output
 		echo apply_filters( 'coolclock_widget', $output, $args, $instance );
 
 		echo $after_widget;

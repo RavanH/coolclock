@@ -92,15 +92,18 @@ class CoolClock_Shortcode {
 		);
 		$styles = apply_filters( 'coolclock_container_styles', $styles, $atts, $defaults );
 
+		// set footer script flags
+		CoolClock::$add_script = true;
+
+		// Build output
 		// begin wrapper
 		$output = '<div class="coolclock-container ' . $class . '"' . CoolClock::inline_style( $styles ) . '>'; // should end with height:auto"> for old pro plugin to find and replace
-
-		// get output
+		// add canvas
 		$output .= CoolClock::canvas( $atts );
-
 		// end wrapper
 		$output .= '</div>';
 
+		// Return filtered output
 		return apply_filters( 'coolclock_shortcode', $output, $atts, $content );
 	}
 
