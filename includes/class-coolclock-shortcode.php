@@ -24,6 +24,10 @@ class CoolClock_Shortcode {
 		if ( is_feed() )
 			return '';
 
+		// filter shortcode attributes
+		$defaults = array_merge( CoolClock::$defaults, CoolClock::$advanced_defaults );
+		$atts = shortcode_atts( $defaults, $atts, 'coolclock' );
+
 		// sanitize user input
 		if ( $content )
 			$content = wp_strip_all_tags( $content );
@@ -38,10 +42,6 @@ class CoolClock_Shortcode {
 			$atts['noseconds'] = true;
 		if ( is_int( array_search( 'showdigital', $atts ) ) )
 			$atts['showdigital'] = 'digital12';
-
-		// filter shortcode attributes
-		$defaults = array_merge( CoolClock::$defaults, CoolClock::$advanced_defaults );
-		$atts = shortcode_atts( $defaults, $atts, 'coolclock' );
 
 		// parse skin
 		$atts['skin'] = CoolClock::parse_skin( $atts['skin'], $content );
