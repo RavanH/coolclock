@@ -1,5 +1,5 @@
 /**
-* CoolClock 3.2.1
+* CoolClock 3.2.2
 *
 Copyright (c) 2010-2013, Simon Baird.
 All rights reserved.
@@ -30,7 +30,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 Based on version 3.1.0 by Simon Baird.
 Modified for WordPress CoolClock plugin by RavanH 2020
 Version 3.2.0 - added showDigital24,showSecs,showDate,showText,font,fontColor&text parameters
-Version 3.2.1 - more robust skin handling: load skin parameters only once with option for dynamic skin polling; make sure a fallback skin is always available.
+Version 3.2.2 - more robust skin handling: load skin parameters only once with option for dynamic skin polling; make sure a fallback skin is always available.
 */
 
 // Constructor for CoolClock objects
@@ -349,7 +349,7 @@ CoolClock.prototype = {
 	getSkin: function() {
 		if ( ! this.skin || this.dynamicSkin ) {
 			var skin = CoolClock.config.skins[this.skinId];
-			if ( skin.length === 0 )
+			if ( typeof skin === 'undefined' || skin.length === 0 )
 				skin = CoolClock.config.skin;
 			this.skin = skin;
 		}

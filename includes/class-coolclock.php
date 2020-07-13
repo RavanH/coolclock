@@ -8,7 +8,7 @@ class CoolClock {
 
 	static $plugin_version;
 
-	static $script_version = '3.2.1';
+	static $script_version = '3.2.2';
 
 	private static $plugin_url;
 
@@ -261,7 +261,7 @@ class CoolClock {
 
 			if ( empty( $skin_array ) )
 				// set faulty skin name
-				$skin = 'invalid_or_missing_skin';
+				return 'no_skin_found';
 		}
 
 		// add found skin parameters to the config array
