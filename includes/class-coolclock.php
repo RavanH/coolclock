@@ -302,7 +302,7 @@ class CoolClock {
 
 		}
 
-		$script .= PHP_EOL . 'if(document.addEventListener){document.addEventListener("DOMContentLoaded",function(){CoolClock.findAndCreateClocks();})}else{CoolClock.findAndCreateClocks();};';
+		$script .= PHP_EOL . 'if(document.readyState!="loading"&&document.addEventListener){document.addEventListener("DOMContentLoaded",function(){CoolClock.findAndCreateClocks();})}else{CoolClock.findAndCreateClocks();};';
 
 		wp_enqueue_script( 'coolclock', self::$plugin_url . 'js/coolclock' . self::$min . '.js', false, self::$script_version, true );
 
