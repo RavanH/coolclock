@@ -3,103 +3,84 @@ $more_skins_json = '{
 	"chunkyswiss":{
 		"outerBorder":{
 			"lineWidth":4,
-			"radius":97,
-			"color":"black",
-			"alpha":1
+			"radius":97
 		},
 		"smallIndicator":{
 			"lineWidth":4,
 			"startAt":89,
-			"endAt":93,
-			"color":"black",
-			"alpha":1
+			"endAt":93
 		},
 		"largeIndicator":{
 			"lineWidth":8,
 			"startAt":80,
-			"endAt":93,
-			"color":"black",
-			"alpha":1
+			"endAt":93
 		},
 		"hourHand":{
 			"lineWidth":12,
 			"startAt":-15,
-			"endAt":60,
-			"color":"black",
-			"alpha":1
+			"endAt":60
 		},
 		"minuteHand":{
 			"lineWidth":10,
 			"startAt":-15,
-			"endAt":85,
-			"color":"black",
-			"alpha":1
+			"endAt":85
 		},
 		"secondHand":{
 			"lineWidth":4,
 			"startAt":-20,
 			"endAt":85,
-			"color":"red",
-			"alpha":1
+			"color":"red"
 		},
 		"secondDecoration":{
 			"lineWidth":2,
 			"startAt":70,
 			"radius":8,
 			"fillColor":"red",
-			"color":"red",
-			"alpha":1
+			"color":"red"
 		}
 	},
 	"chunkyswissonblack":{
 		"outerBorder":{
 			"lineWidth":4,
 			"radius":97,
-			"color":"white",
-			"alpha":1
+			"color":"white"
 		},
 		"smallIndicator":{
 			"lineWidth":4,
 			"startAt":89,
 			"endAt":93,
-			"color":"white",
-			"alpha":1
+			"color":"white"
 		},
 		"largeIndicator":{
 			"lineWidth":8,
 			"startAt":80,
 			"endAt":93,
-			"color":"white",
-			"alpha":1
+			"color":"white"
 		},
 		"hourHand":{
 			"lineWidth":12,
 			"startAt":-15,
 			"endAt":60,
-			"color":"white",
-			"alpha":1
+			"color":"white"
 		},
 		"minuteHand":{
 			"lineWidth":10,
 			"startAt":-15,
 			"endAt":85,
-			"color":"white",
-			"alpha":1
+			"color":"white"
 		},
 		"secondHand":{
 			"lineWidth":4,
 			"startAt":-20,
 			"endAt":85,
-			"color":"red",
-			"alpha":1
+			"color":"red"
 		},
 		"secondDecoration":{
 			"lineWidth":2,
 			"startAt":70,
 			"radius":8,
 			"fillColor":"red",
-			"color":"red",
-			"alpha":1
+			"color":"red"
 		}
 	},
 	"fancy":{
@@ -113,14 +94,12 @@ $more_skins_json = '{
 			"lineWidth":1,
 			"startAt":80,
 			"endAt":93,
-			"color":"black",
 			"alpha":0.4
 		},
 		"largeIndicator":{
 			"lineWidth":1,
 			"startAt":30,
 			"endAt":93,
-			"color":"black",
 			"alpha":0.5
 		},
 		"hourHand":{
@@ -157,29 +136,25 @@ $more_skins_json = '{
 		"outerBorder":{
 			"lineWidth":60,
 			"radius":55,
-			"color":"#dd6655",
-			"alpha":1
+			"color":"#dd6655"
 		},
 		"smallIndicator":{
 			"lineWidth":4,
 			"startAt":80,
 			"endAt":95,
-			"color":"white",
-			"alpha":1
+			"color":"white"
 		},
 		"largeIndicator":{
 			"lineWidth":14,
 			"startAt":77,
 			"endAt":92,
-			"color":"#dd6655",
-			"alpha":1
+			"color":"#dd6655"
 		},
 		"hourHand":{
 			"lineWidth":18,
 			"startAt":-15,
 			"endAt":40,
-			"color":"white",
-			"alpha":1
+			"color":"white"
 		},
 		"minuteHand":{
 			"lineWidth":14,
@@ -232,36 +207,29 @@ $more_skins_json = '{
 		"outerBorder":{
 			"lineWidth":185,
 			"radius":1,
-			"color":"#E5ECF9",
-			"alpha":1
+			"color":"#E5ECF9"
 		},
 		"smallIndicator":{
 			"lineWidth":2,
 			"startAt":89,
 			"endAt":94,
-			"color":"#3366CC",
-			"alpha":1
+			"color":"#3366CC"
 		},
 		"largeIndicator":{
 			"lineWidth":4,
 			"startAt":83,
 			"endAt":94,
-			"color":"#3366CC",
-			"alpha":1
+			"color":"#3366CC"
 		},
 		"hourHand":{
 			"lineWidth":5,
 			"startAt":0,
-			"endAt":60,
-			"color":"black",
-			"alpha":1
+			"endAt":60
 		},
 		"minuteHand":{
 			"lineWidth":4,
 			"startAt":0,
-			"endAt":80,
-			"color":"black",
-			"alpha":1
+			"endAt":80
 		},
 		"secondHand":{
 			"lineWidth":1,
@@ -274,45 +242,36 @@ $more_skins_json = '{
 			"lineWidth":3,
 			"startAt":0,
 			"radius":2,
-			"fillColor":"black",
-			"color":"black",
-			"alpha":1
+			"fillColor":"black"
 		}
 	},
 	"modern":{
 		"outerBorder":{
 			"lineWidth":185,
 			"radius":1,
-			"color":"#E5ECF9",
-			"alpha":1
+			"color":"#E5ECF9"
 		},
 		"smallIndicator":{
 			"lineWidth":5,
 			"startAt":88,
 			"endAt":94,
-			"color":"#3366CC",
-			"alpha":1
+			"color":"#3366CC"
 		},
 		"largeIndicator":{
 			"lineWidth":5,
 			"startAt":88,
 			"endAt":94,
-			"color":"#3366CC",
-			"alpha":1
+			"color":"#3366CC"
 		},
 		"hourHand":{
 			"lineWidth":8,
 			"startAt":0,
-			"endAt":60,
-			"color":"black",
-			"alpha":1
+			"endAt":60
 		},
 		"minuteHand":{
 			"lineWidth":8,
 			"startAt":0,
-			"endAt":80,
-			"color":"black",
-			"alpha":1
+			"endAt":80
 		},
 		"secondHand":{
 			"lineWidth":5,
@@ -325,45 +284,36 @@ $more_skins_json = '{
 			"lineWidth":3,
 			"startAt":0,
 			"radius":4,
-			"fillColor":"black",
-			"color":"black",
-			"alpha":1
+			"fillColor":"black"
 		}
 	},
 	"simple":{
 		"outerBorder":{
 			"lineWidth":185,
 			"radius":1,
-			"color":"#E5ECF9",
-			"alpha":1
+			"color":"#E5ECF9"
 		},
 		"smallIndicator":{
 			"lineWidth":10,
 			"startAt":90,
 			"endAt":94,
-			"color":"#3366CC",
-			"alpha":1
+			"color":"#3366CC"
 		},
 		"largeIndicator":{
 			"lineWidth":10,
 			"startAt":90,
 			"endAt":94,
-			"color":"#3366CC",
-			"alpha":1
+			"color":"#3366CC"
 		},
 		"hourHand":{
 			"lineWidth":8,
 			"startAt":0,
-			"endAt":60,
-			"color":"black",
-			"alpha":1
+			"endAt":60
 		},
 		"minuteHand":{
 			"lineWidth":8,
 			"startAt":0,
-			"endAt":80,
-			"color":"black",
-			"alpha":1
+			"endAt":80
 		},
 		"secondHand":{
 			"lineWidth":5,
@@ -376,9 +326,7 @@ $more_skins_json = '{
 			"lineWidth":3,
 			"startAt":0,
 			"radius":4,
-			"fillColor":"black",
-			"color":"black",
-			"alpha":1
+			"fillColor":"black"
 		}
 	},
 	"securephp":{
@@ -392,8 +340,7 @@ $more_skins_json = '{
 			"lineWidth":2,
 			"startAt":80,
 			"endAt":90,
-			"color":"green",
-			"alpha":1
+			"color":"green"
 		},
 		"largeIndicator":{
 			"lineWidth":8.5,
@@ -405,16 +352,12 @@ $more_skins_json = '{
 		"hourHand":{
 			"lineWidth":3,
 			"startAt":0,
-			"endAt":60,
-			"color":"black",
-			"alpha":1
+			"endAt":60
 		},
 		"minuteHand":{
 			"lineWidth":2,
 			"startAt":0,
-			"endAt":75,
-			"color":"black",
-			"alpha":1
+			"endAt":75
 		},
 		"secondHand":{
 			"lineWidth":1,
@@ -428,59 +371,51 @@ $more_skins_json = '{
 			"startAt":70,
 			"radius":4,
 			"fillColor":"blue",
-			"color":"red",
-			"alpha":1
+			"color":"red"
 		}
 	},
 	"tes2":{
 		"outerBorder":{
 			"lineWidth":4,
 			"radius":95,
-			"color":"black",
 			"alpha":0.5
 		},
 		"smallIndicator":{
 			"lineWidth":1,
 			"startAt":10,
 			"endAt":50,
-			"color":"#66CCFF",
-			"alpha":1
+			"color":"#66CCFF"
 		},
 		"largeIndicator":{
 			"lineWidth":8.5,
 			"startAt":60,
 			"endAt":70,
-			"color":"#6699FF",
-			"alpha":1
+			"color":"#6699FF"
 		},
 		"hourHand":{
 			"lineWidth":5,
 			"startAt":-15,
 			"endAt":60,
-			"color":"black",
 			"alpha":0.7
 		},
 		"minuteHand":{
 			"lineWidth":3,
 			"startAt":-25,
 			"endAt":75,
-			"color":"black",
 			"alpha":0.7
 		},
 		"secondHand":{
 			"lineWidth":1.5,
 			"startAt":-20,
 			"endAt":88,
-			"color":"red",
-			"alpha":1
+			"color":"red"
 		},
 		"secondDecoration":{
 			"lineWidth":1,
 			"startAt":20,
 			"radius":4,
 			"fillColor":"blue",
-			"color":"red",
-			"alpha":1
+			"color":"red"
 		}
 	},
 	"lev":{
@@ -494,8 +429,7 @@ $more_skins_json = '{
 			"lineWidth":5,
 			"startAt":84,
 			"endAt":90,
-			"color":"#996600",
-			"alpha":1
+			"color":"#996600"
 		},
 		"largeIndicator":{
 			"lineWidth":40,
@@ -508,37 +442,30 @@ $more_skins_json = '{
 			"lineWidth":4,
 			"startAt":0,
 			"endAt":65,
-			"color":"black",
 			"alpha":0.9
 		},
 		"minuteHand":{
 			"lineWidth":3,
 			"startAt":0,
 			"endAt":80,
-			"color":"black",
 			"alpha":0.85
 		},
 		"secondHand":{
 			"lineWidth":1,
 			"startAt":0,
-			"endAt":85,
-			"color":"black",
-			"alpha":1
+			"endAt":85
 		},
 		"secondDecoration":{
 			"lineWidth":2,
 			"startAt":5,
 			"radius":10,
-			"fillColor":"black",
-			"color":"black",
-			"alpha":1
+			"fillColor":"black"
 		}
 	},
 	"sand":{
 		"outerBorder":{
 			"lineWidth":1,
 			"radius":70,
-			"color":"black",
 			"alpha":0.5
 		},
 		"smallIndicator":{
@@ -559,30 +486,24 @@ $more_skins_json = '{
 			"lineWidth":4,
 			"startAt":0,
 			"endAt":65,
-			"color":"black",
 			"alpha":0.9
 		},
 		"minuteHand":{
 			"lineWidth":3,
 			"startAt":0,
 			"endAt":80,
-			"color":"black",
 			"alpha":0.85
 		},
 		"secondHand":{
 			"lineWidth":1,
 			"startAt":0,
-			"endAt":85,
-			"color":"black",
-			"alpha":1
+			"endAt":85
 		},
 		"secondDecoration":{
 			"lineWidth":2,
 			"startAt":5,
 			"radius":10,
-			"fillColor":"black",
-			"color":"black",
-			"alpha":1
+			"fillColor":"black"
 		}
 	},
 	"sun":{
@@ -596,44 +517,36 @@ $more_skins_json = '{
 			"lineWidth":300,
 			"startAt":50,
 			"endAt":70,
-			"color":"black",
 			"alpha":0.1
 		},
 		"largeIndicator":{
 			"lineWidth":5,
 			"startAt":80,
 			"endAt":95,
-			"color":"black",
 			"alpha":0.65
 		},
 		"hourHand":{
 			"lineWidth":4,
 			"startAt":0,
 			"endAt":65,
-			"color":"black",
 			"alpha":0.9
 		},
 		"minuteHand":{
 			"lineWidth":3,
 			"startAt":0,
 			"endAt":80,
-			"color":"black",
 			"alpha":0.85
 		},
 		"secondHand":{
 			"lineWidth":1,
 			"startAt":0,
-			"endAt":90,
-			"color":"black",
-			"alpha":1
+			"endAt":90
 		},
 		"secondDecoration":{
 			"lineWidth":2,
 			"startAt":5,
 			"radius":10,
-			"fillColor":"black",
-			"color":"black",
-			"alpha":1
+			"fillColor":"black"
 		}
 	},
 	"tor":{
@@ -654,44 +567,35 @@ $more_skins_json = '{
 			"lineWidth":6,
 			"startAt":73,
 			"endAt":100,
-			"color":"black",
 			"alpha":0.65
 		},
 		"hourHand":{
 			"lineWidth":4,
 			"startAt":0,
-			"endAt":65,
-			"color":"black",
-			"alpha":1
+			"endAt":65
 		},
 		"minuteHand":{
 			"lineWidth":3,
 			"startAt":0,
-			"endAt":80,
-			"color":"black",
-			"alpha":1
+			"endAt":80
 		},
 		"secondHand":{
 			"lineWidth":1,
 			"startAt":-73,
 			"endAt":73,
-			"color":"black",
 			"alpha":0.8
 		},
 		"secondDecoration":{
 			"lineWidth":2,
 			"startAt":5,
 			"radius":10,
-			"fillColor":"black",
-			"color":"black",
-			"alpha":1
+			"fillColor":"black"
 		}
 	},
 	"cold":{
 		"outerBorder":{
 			"lineWidth":15,
 			"radius":90,
-			"color":"black",
 			"alpha":0.3
 		},
 		"smallIndicator":{
@@ -711,31 +615,24 @@ $more_skins_json = '{
 		"hourHand":{
 			"lineWidth":4,
 			"startAt":0,
-			"endAt":65,
-			"color":"black",
-			"alpha":1
+			"endAt":65
 		},
 		"minuteHand":{
 			"lineWidth":3,
 			"startAt":0,
-			"endAt":80,
-			"color":"black",
-			"alpha":1
+			"endAt":80
 		},
 		"secondHand":{
 			"lineWidth":1,
 			"startAt":0,
 			"endAt":85,
-			"color":"black",
 			"alpha":0.8
 		},
 		"secondDecoration":{
 			"lineWidth":5,
 			"startAt":30,
 			"radius":10,
-			"fillColor":"black",
-			"color":"black",
-			"alpha":1
+			"fillColor":"black"
 		}
 	},
 	"babosa":{
@@ -749,29 +646,23 @@ $more_skins_json = '{
 			"lineWidth":3,
 			"startAt":90,
 			"endAt":95,
-			"color":"#3366CC",
-			"alpha":1
+			"color":"#3366CC"
 		},
 		"largeIndicator":{
 			"lineWidth":4,
 			"startAt":75,
 			"endAt":95,
-			"color":"#3366CC",
-			"alpha":1
+			"color":"#3366CC"
 		},
 		"hourHand":{
 			"lineWidth":4,
 			"startAt":0,
-			"endAt":60,
-			"color":"black",
-			"alpha":1
+			"endAt":60
 		},
 		"minuteHand":{
 			"lineWidth":3,
 			"startAt":0,
-			"endAt":85,
-			"color":"black",
-			"alpha":1
+			"endAt":85
 		},
 		"secondHand":{
 			"lineWidth":12,
@@ -784,9 +675,7 @@ $more_skins_json = '{
 			"lineWidth":3,
 			"startAt":0,
 			"radius":4,
-			"fillColor":"black",
-			"color":"black",
-			"alpha":1
+			"fillColor":"black"
 		}
 	},
 	"tumb":{
@@ -800,8 +689,7 @@ $more_skins_json = '{
 			"lineWidth":1,
 			"startAt":93,
 			"endAt":98,
-			"color":"green",
-			"alpha":1
+			"color":"green"
 		},
 		"largeIndicator":{
 			"lineWidth":50,
@@ -813,22 +701,17 @@ $more_skins_json = '{
 		"hourHand":{
 			"lineWidth":4,
 			"startAt":0,
-			"endAt":65,
-			"color":"black",
-			"alpha":1
+			"endAt":65
 		},
 		"minuteHand":{
 			"lineWidth":3,
 			"startAt":0,
-			"endAt":80,
-			"color":"black",
-			"alpha":1
+			"endAt":80
 		},
 		"secondHand":{
 			"lineWidth":1,
 			"startAt":0,
 			"endAt":85,
-			"color":"black",
 			"alpha":0.8
 		},
 		"secondDecoration":{
@@ -836,7 +719,6 @@ $more_skins_json = '{
 			"startAt":50,
 			"radius":90,
 			"fillColor":"black",
-			"color":"black",
 			"alpha":0.05
 		}
 	},
@@ -864,22 +746,17 @@ $more_skins_json = '{
 		"hourHand":{
 			"lineWidth":4,
 			"startAt":0,
-			"endAt":65,
-			"color":"black",
-			"alpha":1
+			"endAt":65
 		},
 		"minuteHand":{
 			"lineWidth":3,
 			"startAt":0,
-			"endAt":75,
-			"color":"black",
-			"alpha":1
+			"endAt":75
 		},
 		"secondHand":{
 			"lineWidth":1,
 			"startAt":0,
 			"endAt":85,
-			"color":"black",
 			"alpha":0.8
 		},
 		"secondDecoration":{
@@ -887,7 +764,6 @@ $more_skins_json = '{
 			"startAt":50,
 			"radius":90,
 			"fillColor":"black",
-			"color":"black",
 			"alpha":0.05
 		}
 	},
@@ -909,22 +785,17 @@ $more_skins_json = '{
 			"lineWidth":6,
 			"startAt":25,
 			"endAt":35,
-			"color":"#666600",
-			"alpha":1
+			"color":"#666600"
 		},
 		"hourHand":{
 			"lineWidth":4,
 			"startAt":0,
-			"endAt":65,
-			"color":"black",
-			"alpha":1
+			"endAt":65
 		},
 		"minuteHand":{
 			"lineWidth":3,
 			"startAt":0,
-			"endAt":75,
-			"color":"black",
-			"alpha":1
+			"endAt":75
 		},
 		"secondHand":{
 			"lineWidth":1,
@@ -960,15 +831,13 @@ $more_skins_json = '{
 			"lineWidth":2,
 			"startAt":45,
 			"endAt":94,
-			"color":"#a9bf04",
-			"alpha":1
+			"color":"#a9bf04"
 		},
 		"hourHand":{
 			"lineWidth":5,
 			"startAt":-20,
 			"endAt":65,
-			"color":"#d93d04",
-			"alpha":1
+			"color":"#d93d04"
 		},
 		"minuteHand":{
 			"lineWidth":3,
@@ -999,29 +868,25 @@ $more_skins_json = '{
 			"radius":5,
 			"startAt":78,
 			"endAt":98,
-			"color":"#76777b",
-			"alpha":1
+			"color":"#76777b"
 		},
 		"hourHand":{
 			"lineWidth":7,
 			"startAt":10,
 			"endAt":47,
-			"color":"#76777b",
-			"alpha":1
+			"color":"#76777b"
 		},
 		"minuteHand":{
 			"lineWidth":5,
 			"startAt":10,
 			"endAt":65,
-			"color":"#76777b",
-			"alpha":1
+			"color":"#76777b"
 		},
 		"secondHand":{
 			"lineWidth":3,
 			"startAt":0,
 			"endAt":92,
-			"color":"#76777b",
-			"alpha":1
+			"color":"#76777b"
 		}
 	}
 }';
