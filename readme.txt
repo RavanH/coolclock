@@ -3,9 +3,9 @@ Contributors: RavanH
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ravanhagen%40gmail%2ecom&item_name=CoolClock%20for%20WordPress&item_number=1%2e3%2e4%2e9&no_shipping=0&tax=0&charset=UTF%2d8&currency_code=EUR
 Tags: clock, analog clock, coolclock, javascript, widget, shortcode, logarithmic clock
 Requires at least: 4.8.1
-Tested up to: 5.5
+Tested up to: 5.7
 Requires PHP: 5.6
-Stable tag: 4.3.3
+Stable tag: 4.3.4
 
 Show an analog clock on your WordPress site sidebar or in post and page content.
 
@@ -31,9 +31,9 @@ Read more on the [CoolClock homepage](https://status301.net/wordpress-plugins/co
 - Advanced positioning options (relative to background)
 - Advanced shortcode parameters (including background image and custom skin)
 - One extra clean skin for use with background image
-- Support on the [CoolClock Pro forum](https://premium.status301.net/support/forum/coolclock-pro/)
+- Support on the [CoolClock Pro forum](https://premium.status301.com/support/forum/coolclock-pro/)
 
-Pro features come with the [CoolClock - Advanced extension](https://premium.status301.net/downloads/coolclock-advanced/).
+Pro features come with the [CoolClock - Advanced extension](https://premium.status301.com/downloads/coolclock-advanced/).
 
 = Translators =
 
@@ -98,7 +98,7 @@ There are these options:
 - Align - left, center or right;
 - Subtext - optional text, centered below the clock.
 
-Then there are extra options availabe in the [CoolClock - Advanced extension](https://premium.status301.net/downloads/coolclock-advanced/) which allow for more customisation:
+Then there are extra options availabe in the [CoolClock - Advanced extension](https://premium.status301.com/downloads/coolclock-advanced/) which allow for more customisation:
 
 - Background image - define the full URL or path to an image to serve as background;
 - Repeat image;
@@ -112,19 +112,19 @@ Then there are extra options availabe in the [CoolClock - Advanced extension](ht
 
 = How can I create a custom skin? =
 
-Follow the steps on [Creating a Custom Skin](https://premium.status301.net/coolclock-custom-skin/) and if you
+Follow the steps on [Creating a Custom Skin](https://premium.status301.com/coolclock-custom-skin/) and if you are happy with the result, please consider sharing it with other users!
 
 
 = Can I share this fantastic custom skin I created? =
 
-If you made a nice skin and would like to share it, you can do so in the comments on [Creating a Custom Skin](https://premium.status301.net/coolclock-custom-skin/) or add it to your [Plugin Review](http://wordpress.org/support/view/plugin-reviews/coolclock).
+If you made a nice skin and would like to share it, you can do so in the comments on [Creating a Custom Skin](https://premium.status301.com/coolclock-custom-skin/) or add it to your [Plugin Review](http://wordpress.org/support/view/plugin-reviews/coolclock).
 
 Thanks for sharing! :)
 
 
 = Can I insert a clock in posts or pages? =
 
-Yes, there the shortcode **[coolclock** **/]** available. You can find all parameters on [How to use the CoolClock shortcode](https://premium.status301.net/how-to-use-the-coolclock-shortcode/).
+Yes, there the shortcode **[coolclock** **/]** available. You can find all parameters on [How to use the CoolClock shortcode](https://premium.status301.com/how-to-use-the-coolclock-shortcode/).
 
 
 = I'm building my own theme. Is there a theme function available? =
@@ -145,17 +145,20 @@ Please report any other issues on the [Support page](http://wordpress.org/suppor
 
 == Screenshots ==
 
-1. Example analog clock in sidebar. The background logo is added with the [CoolClock - Advanced extension](https://premium.status301.net/downloads/coolclock-advanced/).
+1. Example analog clock in sidebar. The background logo is added with the [CoolClock - Advanced extension](https://premium.status301.com/downloads/coolclock-advanced/).
 
-2. Widget settings. The background options are availabe in the [CoolClock - Advanced extension](https://premium.status301.net/downloads/coolclock-advanced/).
+2. Widget settings. The background options are availabe in the [CoolClock - Advanced extension](https://premium.status301.com/downloads/coolclock-advanced/).
 
 
 == Upgrade Notice ==
 
-= 4.3.3 =
+= 4.3.4 =
 Bugfix release and more robust skin handling
 
 == Changelog ==
+
+= 4.3.4 =
+* Update URLs
 
 = 4.3.3 =
 * Bugfix: cannot read property 'length' of undefined

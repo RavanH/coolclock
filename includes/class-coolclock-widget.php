@@ -157,7 +157,7 @@ class CoolClock_Widget extends WP_Widget {
 
 		// Translatable show digital options go here
 		$showdigital_names = array (
-			'' => translate('none'),
+			'' => translate('No'),
 			'digital12' => __('time (am/pm)','coolclock'),
 			'digital24' => __('time (24h)','coolclock'),
 			'date' => __('date','coolclock'),
@@ -258,8 +258,8 @@ class CoolClock_Widget extends WP_Widget {
 		$output .= '<p><label for="' . $this->get_field_id('fontcolor') . '">' . __('Digital font color:', 'coolclock') . '</label> ';
 		$output .= '<input id="' . $this->get_field_id('fontcolor') . '" name="' . $this->get_field_name('fontcolor') . '" type="text" value="' . $instance['fontcolor'] . '" /> <em>' . __('(use a valid HTML color code or name)', 'coolclock') . '</em></p>';
 
-		$advanced .= '<p><a href="http://premium.status301.net/downloads/coolclock-advanced/">' . __('More digital font options &raquo;', 'coolclock') . '</a></p>
-		<p><strong>' . __('Background') . '</strong></p><p><a href="http://premium.status301.net/downloads/coolclock-advanced/">' . __('Available in the Advanced extension &raquo;', 'coolclock') . '</a></p>';
+		$advanced .= '<p><a href="https://premium.status301.com/downloads/coolclock-advanced/">' . __('More digital font options &raquo;', 'coolclock') . '</a></p>
+		<p><strong>' . __('Background') . '</strong></p><p><a href="https://premium.status301.com/downloads/coolclock-advanced/">' . __('Available in the Advanced extension &raquo;', 'coolclock') . '</a></p>';
 
 		// Advanced filter
 		$output .= apply_filters( 'coolclock_widget_form_advanced', $advanced, $this, $instance, $defaults );
@@ -267,7 +267,7 @@ class CoolClock_Widget extends WP_Widget {
 		$output .= '</div>';
 
 		if ( class_exists( 'CoolClockAdvanced' ) && isset(CoolClockAdvanced::$plugin_version) && version_compare( CoolClockAdvanced::$plugin_version, '7.1', '<' )  ) { // add an upgrade notice
-			$output .= '<div class="update-nag"><strong>' . __('Please upgrade the CoolClock - Advanced extension.', 'coolclock') . '</strong> '. ' <a href="http://premium.status301.net/account/" target="_blank">' . __('Please log in with your account credentials here.', 'coolclock') . '</a>' . __('You can download the new version using the link in the downloads list.', 'coolclock') . '</div>';
+			$output .= '<div class="update-nag"><strong>' . __('Please upgrade the CoolClock - Advanced extension.', 'coolclock') . '</strong> '. ' <a href="https://premium.status301.com/account/" target="_blank">' . __('Please log in with your account credentials here.', 'coolclock') . '</a>' . __('You can download the new version using the link in the downloads list.', 'coolclock') . '</div>';
 		}
 
 		echo $output;
