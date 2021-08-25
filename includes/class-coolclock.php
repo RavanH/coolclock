@@ -411,6 +411,9 @@ class CoolClock {
 	{
 		$color = wp_strip_all_tags( $color );
 		$color = trim( $color );
+		$color = str_replace( array( '"', '\'', ':'), '', $color );
+		$color_arr = explode( ' ', $color, 2 );
+		$color = esc_attr( $color_arr[0] );
 
 		if ( substr($color, 0, 1) == '#' ) {
 			if ( ctype_xdigit( substr( $color, 1 ) ) )
