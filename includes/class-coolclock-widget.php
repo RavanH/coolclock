@@ -33,7 +33,7 @@ class CoolClock_Widget extends WP_Widget {
 		if ( isset($instance['digitalcolor']) && !isset($instance['fontcolor']) ) $instance['fontcolor'] = $instance['digitalcolor'];
 
 		$title = !empty($instance['title']) ? apply_filters( 'widget_title', $instance['title'] ) : '';
-		$number = $this->number;
+		//$number = $this->number;
 
 		// set footer script flags
 		CoolClock::$add_script = true;
@@ -46,8 +46,8 @@ class CoolClock_Widget extends WP_Widget {
 
 		// set skin
 		$instance['skin'] = CoolClock::parse_skin(
-			!empty( $instance['skin'] ) ? $instance['skin'] : $defaults['skin'],
-			!empty( $instance['custom_skin'] ) ? $instance['custom_skin'] : ''
+			! empty( $instance['skin'] ) ? $instance['skin'] : $defaults['skin'],
+			! empty( $instance['custom_skin'] ) ? $instance['custom_skin'] : ''
 		);
 
 		// radius, used in wrapper style and coolclock fields

@@ -5,7 +5,7 @@ Tags: clock, analog clock, coolclock, javascript, widget, shortcode, logarithmic
 Requires at least: 4.8.1
 Tested up to: 5.9
 Requires PHP: 5.6
-Stable tag: 4.3.5
+Stable tag: 4.3.6
 
 Show an analog clock on your WordPress site sidebar or in post and page content.
 
@@ -152,10 +152,13 @@ Please report any other issues on the [Support page](http://wordpress.org/suppor
 
 == Upgrade Notice ==
 
-= 4.3.5 =
-Bugfix release: shortcode XSS vulnerability
+= 4.3.6 =
+Bugfix release: empty noseconds and showdigital ignored
 
 == Changelog ==
+
+= 4.3.6 =
+* Bugfix: empty noseconds and showdigital ignored
 
 = 4.3.5 =
 * Bugfix: shortcode Stored XSS vulnerability, thanks @wpscan

@@ -24,6 +24,15 @@ class CoolClock_Shortcode {
 		if ( is_feed() )
 			return '';
 
+		// set empty parameter noseconds to default
+		if ( in_array( 'noseconds', $atts, true ) && ! array_key_exists( 'noseconds', $atts ) ) {
+			$atts['noseconds'] = true;
+		}
+		// set empty parameter showdigital to default
+		if ( in_array( 'showdigital', $atts, true ) && ! array_key_exists( 'showdigital', $atts ) ) {
+			$atts['showdigital'] = 'digital12';
+		}
+
 		// filter shortcode attributes
 		$defaults = array_merge( CoolClock::$defaults, CoolClock::$advanced_defaults );
 		$atts = shortcode_atts( $defaults, $atts, 'coolclock' );
