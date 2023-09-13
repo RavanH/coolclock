@@ -6,6 +6,10 @@
 	align-items: center /* center child elements horizontally */
 }
 
+.coolclock-container figure {
+	margin: 0;
+}
+
 .coolclock-container canvas {
 	display: block;
 	margin: 0 auto; /* center horizontally on IE9 and older */

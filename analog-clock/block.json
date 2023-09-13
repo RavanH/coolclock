@@ -1,0 +1,83 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "coolclock/analog-clock",
+	"version": "0.1.0",
+	"title": "Analog Clock",
+	"category": "widgets",
+	"icon": "clock",
+	"description": "A CoolClock Analog Clock.",
+	"attributes": {
+		"autoplay": {
+			"type": "boolean",
+			"source": "attribute",
+			"selector": "video",
+			"attribute": "autoplay"
+		},
+		"controls": {
+			"type": "boolean",
+			"source": "attribute",
+			"selector": "video",
+			"attribute": "controls",
+			"default": true
+		},
+		"loop": {
+			"type": "boolean",
+			"source": "attribute",
+			"selector": "video",
+			"attribute": "loop"
+		},
+		"muted": {
+			"type": "boolean",
+			"source": "attribute",
+			"selector": "video",
+			"attribute": "muted"
+		},
+		"poster": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "video",
+			"attribute": "poster"
+		},
+		"background-image": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "src"
+		},
+		"align": {
+			"type": "string"
+		},
+		"caption": {
+			"type": "string",
+			"source": "html",
+			"selector": "figcaption"
+		},
+		"id": {
+			"type": "number"
+		},
+		"width": {
+			"type": "number"
+		},
+		"height": {
+			"type": "number"
+		},
+		"sizeSlug": {
+			"type": "string"
+		}
+	},
+	"supports": {
+		"align": true,
+		"color": {
+			"text": false,
+			"background": false
+		},
+		"__experimentalBorder": {
+			"radius": true
+		}
+    },
+	"textdomain": "coolclock",
+	"editorScript": "file:./index.js",
+	"script": "file:../../js/coolclock.js",
+	"style": "file:../../css/coolclock.css"
+}

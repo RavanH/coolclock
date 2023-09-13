@@ -159,7 +159,7 @@ sprintf( /* Translators: Premium Plugin name */
 __( 'This option will allow you to update the plugin to the latest beta release.', 'coolclock' );
 sprintf( /* Translators: Account (linked) */
 	__( 'Please note: Auto-updates are blocked for non-stable versions. Once updated a pre-release version, disabling this option will <em>not</em> automatically revert the plugin to the latest stable release. If you wish to downgrade, you can download the latest stable release from your %s and install it manually.', 'coolclock' ),
-	'<a href="' . trailingslashit( self::$store_url ) . 'account/#tab-downloads" target="_blank">' . __( 'Status301 Premium account', 'coolclock' ) . '</a>'
+	'<a href="' . trailingslashit( self::$store_url ) . 'account/downloads/" target="_blank">' . __( 'Status301 Premium account', 'coolclock' ) . '</a>'
 );
 __( 'License action', 'coolclock' );
 __( 'Check license key', 'coolclock' );

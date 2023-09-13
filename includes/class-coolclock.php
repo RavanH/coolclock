@@ -92,32 +92,34 @@ class CoolClock {
 		// text domain
 		add_action( 'plugins_loaded', array( __CLASS__, 'textdomain' ) );
 
-		// widgets
-		add_action( 'widgets_init', array( __CLASS__, 'register_widget' ) );
-
 		// enqueue scripts but only if shortcode or widget has been used
 		// so it has to be done as late as the wp_footer action
 		add_action( 'wp_footer', array( __CLASS__, 'enqueue_scripts' ), 1 );
 
 		add_filter( 'plugin_row_meta', array( __CLASS__, 'plugin_meta_links' ), 10, 2);
 
-		// backward compat
-		add_filter( 'coolclock_shortcode', array( __CLASS__, 'filter_shortcode'), 10, 3 );
-		add_filter( 'coolclock_widget', array( __CLASS__, 'filter_widget'), 10, 3 );
-
-		/**************
-		 *  SHORTCODE
-		 **************/
-
-		add_shortcode( 'coolclock', array( 'CoolClock_Shortcode', 'handle_shortcode' ) );
-
-		// prevent texturizing shortcode content
-		add_filter( 'no_texturize_shortcodes', array( 'CoolClock_Shortcode', 'no_wptexturize') );
  	}
 
 	/**
 	 * METHODS
 	 */
+
+	public static function textdomain() {
+		load_plugin_textdomain( 'coolclock', false, dirname(self::$plugin_basename).'/languages' );
+	}
+
+	// add links to plugin's description
+	public static function plugin_meta_links($links, $file) {
+	  $support_link = '<a target="_blank" href="https://wordpress.org/support/plugin/coolclock/">' . __('Support','coolclock') . '</a>';
+	  $rate_link = '<a target="_blank" href="https://wordpress.org/support/plugin/coolclock/reviews/?filter=5#new-post">' . __('Rate ★★★★★','coolclock') . '</a>';
+
+	  if ( $file == self::$plugin_basename ) {
+	    $links[] = $support_link;
+	    $links[] = $rate_link;
+	  }
+
+	  return $links;
+	}
 
 	/**
 	* Build canvas output
@@ -312,27 +314,6 @@ class CoolClock {
 		wp_enqueue_style( 'coolclock', self::$plugin_url . 'css/coolclock' . self::$min . '.css' );
 	}
 
-	public static function textdomain() {
-		load_plugin_textdomain( 'coolclock', false, dirname(self::$plugin_basename).'/languages' );
-	}
-
-	public static function register_widget() {
-		register_widget("CoolClock_Widget");
-	}
-
-	// add links to plugin's description
-	public static function plugin_meta_links($links, $file) {
-	  $support_link = '<a target="_blank" href="https://wordpress.org/support/plugin/coolclock/">' . __('Support','coolclock') . '</a>';
-	  $rate_link = '<a target="_blank" href="https://wordpress.org/support/plugin/coolclock/reviews/?filter=5#new-post">' . __('Rate ★★★★★','coolclock') . '</a>';
-
-	  if ( $file == self::$plugin_basename ) {
-	    $links[] = $support_link;
-	    $links[] = $rate_link;
-	  }
-
-	  return $links;
-	}
-
 	/**
 	* Turn custom skin user input into an array
 	*
@@ -423,42 +404,6 @@ class CoolClock {
 		}
 
 		return ctype_xdigit( $color ) ? '#'.$color : $color;
-	}
-
-	/**
-	* Filter shortcode output
-	*
-	* @since 4.3
-	*
-	* @param string 	$output 	output
-	* @param array 		$atts 		array of shortcode attributes
-	* @param string 	$content 	shortcode content
-	*
-	* @return string 	output
-	*/
-
-	public static function filter_shortcode( $output, $atts, $content )
-	{
-		// add backward compat filter
-		return apply_filters( 'coolclock_shortcode_advanced', $output, $atts, $content );
-	}
-
-	/**
-	* Filter widget output
-	*
-	* @since 4.3
-	*
-	* @param string 	$output 	output
-	* @param array 		$args 		array of widget parameters
-	* @param array 		$instance 	widget instance array parameters
-	*
-	* @return string 	output
-	*/
-
-	public static function filter_widget( $output, $args, $instance )
-	{
-		// add backward compat filter
-		return apply_filters( 'coolclock_widget_advanced', $output, $args, $instance );
 	}
 
 }
