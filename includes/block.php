@@ -11,19 +11,30 @@
  * the corresponding context.
  */
 function coolclock_block_init() {
-    if ( ! function_exists( 'register_block_type' ) ) {
-        // Block editor is not available.
-        return;
-    }
+	if ( ! function_exists( 'register_block_type' ) ) {
+		// Block editor is not available.
+		return;
+	}
+
+	// automatically load dependencies and version
+	/*$asset_file = include( COOLCLOCK_DIR . 'analog-clock/index.asset.php');
+
+	wp_register_script(
+		'coolclock-analog-clock',
+		plugins_url( '/', COOLCLOCK_DIR . 'coolclock.php' ) . 'analog-clock/index.js',
+		$asset_file['dependencies'],
+		$asset_file['version']
+	);*/
 
 	register_block_type(
 		COOLCLOCK_DIR . 'analog-clock',
 		array(
+			'api_version' => 2,
+			//'editor_script' => 'coolclock-analog-clock',
 			'render_callback' => 'coolclock_block_render_callback'
 		)
 	);
 }
-add_action( 'init', 'coolclock_block_init' );
 
 /**
  * This function is called when the block is being rendered on the front end of the site
@@ -64,12 +75,22 @@ function coolclock_block_render_callback( $attributes, $content, $block_instance
 
 	// Build output
 	// begin wrapper
-	$output = '<div class="coolclock-block-analog-clock ' . $align . '"><div class="coolclock-container"' . CoolClock::inline_style( $styles ) . '><figure>';
+	$output = '<figure class="coolclock-container"' . CoolClock::inline_style( $styles ) . '>';
 	// add canvas
 	$output .= CoolClock::canvas( $atts );
 	// end wrapper
-	$output .= '</figure></div></div>';
+	$output .= '</figure>';
 
+	/*if ( is_admin() ) {
+		$plugin_url = plugins_url( '/', COOLCLOCK_DIR . 'coolclock.php' );
+		// Print Style.
+		$output .= '<style src="' . $plugin_url . 'css/coolclock.css"></style>';
+		// Print scripts.
+		$output .= '<script src="' . $plugin_url . 'js/coolclock.js"></script>';
+		$output .= '<script src="' . $plugin_url . 'js/moreskins.js"></script>';
+		$output .= '<script>CoolClock.findAndCreateClocks();</script>';
+	//} */
+	// DEBUG
 	$output .= '<!-- ' . print_r( $attributes, true) . ' -->';
 
 	// Return filtered output.

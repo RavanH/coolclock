@@ -1,7 +1,7 @@
 <?php
 
 /**
- * CoolClock Shortcode Class
+ * CoolClock Shortcode Class.
  */
 
 class CoolClock_Shortcode {
@@ -24,42 +24,42 @@ class CoolClock_Shortcode {
 		if ( is_feed() )
 			return '';
 
-		// set empty parameter noseconds to default
+		// Set empty parameter noseconds to default.
 		if ( in_array( 'noseconds', $atts, true ) && ! array_key_exists( 'noseconds', $atts ) ) {
 			$atts['noseconds'] = true;
 		}
-		// set empty parameter showdigital to default
+		// Set empty parameter showdigital to default.
 		if ( in_array( 'showdigital', $atts, true ) && ! array_key_exists( 'showdigital', $atts ) ) {
 			$atts['showdigital'] = 'digital12';
 		}
 
-		// filter shortcode attributes
+		// Filter shortcode attributes.
 		$defaults = array_merge( CoolClock::$defaults, CoolClock::$advanced_defaults );
 		$atts = shortcode_atts( $defaults, $atts, 'coolclock' );
 
-		// sanitize user input
+		// Sanitize user input.
 		if ( $content )
 			$content = wp_strip_all_tags( $content );
 
-		// backward compat fontcolor
+		// Backward compat fontcolor.
 		if ( !empty( $atts['digitalcolor'] ) && empty($atts['fontcolor']) ) {
 			$atts['fontcolor'] = $atts['digitalcolor'];
 		}
 
-		// pre-treat possible empty attributes
+		// Pre-treat possible empty attributes.
 		if ( is_int( array_search( 'noseconds', $atts ) ) )
 			$atts['noseconds'] = true;
 		if ( is_int( array_search( 'showdigital', $atts ) ) )
 			$atts['showdigital'] = 'digital12';
 
-		// parse skin
+		// Parse skin.
 		$atts['skin'] = CoolClock::parse_skin( $atts['skin'], $content );
 
-		// radius, used in wrapper style and coolclock fields
+		// Radius, used in wrapper style and coolclock fields.
 		$atts['radius'] = !empty( $atts['radius'] ) && is_numeric($atts['radius']) ? (int) $atts['radius'] : $defaults['radius'];
 		if ( 10 > $atts['radius'] ) $atts['radius'] = 10; // absolute minimum size 20x20
 
-		// clean gmtoffset
+		// Clean gmtoffset.
 		if ( !empty( $atts['gmtoffset'] ) ) {
 			$atts['gmtoffset'] = str_replace( ',', '.', $atts['gmtoffset'] );
 			$atts['gmtoffset'] = str_replace( array('1/2','½'), '.5', $atts['gmtoffset'] );
@@ -70,7 +70,7 @@ class CoolClock_Shortcode {
 		if ( !empty( $atts['scale'] ) )
 			$atts['scale'] = wp_strip_all_tags( $atts['scale'] );
 
-		// post-treat showdigital
+		// Post-treat showdigital.
 		if ( in_array( $atts['showdigital'], array('true','1') ) )
 			$atts['showdigital'] = true;
 		elseif ( !in_array( $atts['showdigital'], array('false','0') ) )
@@ -78,7 +78,7 @@ class CoolClock_Shortcode {
 		else
 			$atts['showdigital'] = '';
 
-		// post-treat noseconds
+		// Post-treat noseconds.
 		if ( 'false' === $atts['noseconds'] )
 			$atts['noseconds'] = false;
 
@@ -94,25 +94,38 @@ class CoolClock_Shortcode {
 		$align = !empty( $atts['align'] ) ? wp_strip_all_tags( $atts['align'] ) : $defaults['align'];
 		$class = in_array( $align, array('left','right','center') ) ? ' align' . $align : '';
 
-		// inline container style
+		// Inline container style.
 		$styles = array(
 			'width' => 2 * $atts['radius'] . 'px',
-			'height' => 'auto' // leave height:auto at the end for old pro filter to find and replace
+			'height' => 'auto' // Leave height:auto at the end for old pro filter to find and replace.
 		);
 		$styles = apply_filters( 'coolclock_container_styles', $styles, $atts, $defaults );
 
-		// set footer script flags
+		// Set footer script flags.
 		CoolClock::$add_script = true;
 
-		// Build output
-		// begin wrapper
-		$output = '<div class="coolclock-container ' . $class . '"' . CoolClock::inline_style( $styles ) . '>'; // should end with height:auto"> for old pro plugin to find and replace
-		// add canvas
-		$output .= CoolClock::canvas( $atts );
-		// end wrapper
-		$output .= '</div>';
+		/**
+		 * Build output.
+		 */
 
-		// Return filtered output
+		// Begin wrapper.
+		$output = '<figure class="coolclock-container ' . $class . '"' . CoolClock::inline_style( $styles ) . '>'; // Should end with height:auto"> for old pro plugin to find and replace.
+
+		// Add canvas.
+		$output .= CoolClock::canvas( $atts );
+
+		// Add subtext.
+		$subtext = ( isset( $atts['subtext'] ) ) ? $atts['subtext'] : $defaults['subtext'];
+		if ( ! empty( $subtext ) ) {
+			$output .= '<figcaption class="coolclock-subtext">' . $subtext . '</figcaption>';
+		}
+
+		// End wrapper.
+		$output .= '</figure>';
+
+		/**
+		 * Return filtered output.
+		 */
 		return apply_filters( 'coolclock_shortcode', $output, $atts, $content );
 	}
 

@@ -77,7 +77,5 @@
 		}
     },
 	"textdomain": "coolclock",
-	"editorScript": "file:./index.js",
-	"script": "file:../../js/coolclock.js",
-	"style": "file:../../css/coolclock.css"
+	"editorScript": "file:./index.js"
 }

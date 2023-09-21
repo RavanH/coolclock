@@ -89,12 +89,14 @@ class CoolClock {
  			self::$min = '';
  		}
 
-		// text domain
+		// Text domain.
 		add_action( 'plugins_loaded', array( __CLASS__, 'textdomain' ) );
 
-		// enqueue scripts but only if shortcode or widget has been used
-		// so it has to be done as late as the wp_footer action
-		add_action( 'wp_footer', array( __CLASS__, 'enqueue_scripts' ), 1 );
+		// Register scripts and styles.
+		add_action( 'init', array( __CLASS__, 'register' ) );
+
+		// Enqueue scripts & styles.
+		add_action( 'wp_footer', array( __CLASS__, 'enqueue' ), 1 );
 
 		add_filter( 'plugin_row_meta', array( __CLASS__, 'plugin_meta_links' ), 10, 2);
 
@@ -105,7 +107,7 @@ class CoolClock {
 	 */
 
 	public static function textdomain() {
-		load_plugin_textdomain( 'coolclock', false, dirname(self::$plugin_basename).'/languages' );
+		load_plugin_textdomain( 'coolclock', false, dirname( self::$plugin_basename ).'/languages' );
 	}
 
 	// add links to plugin's description
@@ -192,11 +194,6 @@ class CoolClock {
 
 		// canvas parameters
 		$output .= '<canvas class="' . implode(':',$fields) . '"' . CoolClock::inline_style( $styles ) . '></canvas>';
-
-		// sub text
-		$subtext = ( isset( $atts['subtext'] ) ) ? $atts['subtext'] : $defaults['subtext'];
-		if ( !empty( $subtext ) )
-		 	$output .= '<div class="coolclock-subtext">' . $subtext . '</div>';
 
 		return $output;
 	}
@@ -286,8 +283,22 @@ class CoolClock {
 		return array_merge( self::$more_skins_config, self::$advanced_skins_config );
 	}
 
-	public static function enqueue_scripts() {
-		// bail if we don't need script
+	public static function register() {
+		// Main CoolClock script.
+		wp_register_script( 'coolclock', self::$plugin_url . 'js/coolclock' . self::$min . '.js', false, self::$script_version, true );
+
+		if ( is_admin() ) {
+			wp_add_inline_script( 'coolclock', 'if(document.readyState!="loading"&&document.addEventListener){document.addEventListener("DOMContentLoaded",function(){CoolClock.findAndCreateClocks();})}else{CoolClock.findAndCreateClocks();};' );
+			// Moreskins for admin block use only.
+			wp_register_script( 'moreskins', self::$plugin_url . 'js/moreskins' . self::$min . '.js', false, self::$script_version, true );
+		}
+
+		// Main styles.
+		wp_register_style( 'coolclock', self::$plugin_url . 'css/coolclock' . self::$min . '.css' );
+	}
+
+	public static function enqueue() {
+		// Bail if we don't need script.
 		if ( ! self::$add_script )
 			return;
 
@@ -296,7 +307,7 @@ class CoolClock {
 		if ( !empty( self::$skins_config ) ) {
 
 			/**
-			 * Load IE 6/7 specific JSON polyfill
+			 * Load IE 6/7 specific JSON polyfill.
 			 */
 			wp_enqueue_script( 'json2' );
 
@@ -306,12 +317,11 @@ class CoolClock {
 
 		$script .= PHP_EOL . 'if(document.readyState!="loading"&&document.addEventListener){document.addEventListener("DOMContentLoaded",function(){CoolClock.findAndCreateClocks();})}else{CoolClock.findAndCreateClocks();};';
 
-		wp_enqueue_script( 'coolclock', self::$plugin_url . 'js/coolclock' . self::$min . '.js', false, self::$script_version, true );
+		wp_enqueue_script( 'coolclock' );
 
 		wp_add_inline_script( 'coolclock', $script );
 
-		// called late so should end up in the footer
-		wp_enqueue_style( 'coolclock', self::$plugin_url . 'css/coolclock' . self::$min . '.css' );
+		wp_enqueue_style( 'coolclock' );
 	}
 
 	/**

@@ -1,6 +1,6 @@
 <?php
 /**
- * CoolClock Widget Class
+ * CoolClock Widget Class.
  */
 
 class CoolClock_Widget extends WP_Widget {
@@ -29,30 +29,30 @@ class CoolClock_Widget extends WP_Widget {
 
 		$defaults = array_merge( array('title'=>'','custom_skin'=>''), CoolClock::$defaults, CoolClock::$advanced_defaults );
 
-		// backward compat
+		// Backward compat.
 		if ( isset($instance['digitalcolor']) && !isset($instance['fontcolor']) ) $instance['fontcolor'] = $instance['digitalcolor'];
 
 		$title = !empty($instance['title']) ? apply_filters( 'widget_title', $instance['title'] ) : '';
 		//$number = $this->number;
 
-		// set footer script flags
+		// Set footer script flags.
 		CoolClock::$add_script = true;
 
-		// Print output
+		// Print output.
 		echo $before_widget;
 
 		if ( $title )
 			echo $before_title . $title . $after_title;
 
-		// set skin
+		// Set skin.
 		$instance['skin'] = CoolClock::parse_skin(
 			! empty( $instance['skin'] ) ? $instance['skin'] : $defaults['skin'],
 			! empty( $instance['custom_skin'] ) ? $instance['custom_skin'] : ''
 		);
 
-		// radius, used in wrapper style and coolclock fields
+		// Radius, used in wrapper style and coolclock fields.
 		$instance['radius'] = !empty( $instance['radius'] ) && is_numeric( $instance['radius'] ) ? (int) $instance['radius'] : $defaults['radius'];
-		if ( 10 > $instance['radius'] ) $instance['radius'] = 10; // absolute minimum size 20x20
+		if ( 10 > $instance['radius'] ) $instance['radius'] = 10; // Absolute minimum size 20x20.
 
 		$align = !empty( $instance['align'] ) ? $instance['align'] : $defaults['align'];
 		$styles = array(
@@ -69,15 +69,28 @@ class CoolClock_Widget extends WP_Widget {
 		}
 		$styles = apply_filters( 'coolclock_container_styles', $styles, $instance, $defaults );
 
-		// Build output
-		// begin wrapper
-		$output = '<div class="coolclock-container"' . CoolClock::inline_style( $styles ) . '>';
-		// add canvas
-		$output .= CoolClock::canvas( $instance );
-		// end wrapper
-		$output .= '</div>';
+		/**
+		 * Build output.
+		 */
 
-		// Print filtered output
+		// Begin wrapper.
+		$output = '<figure class="coolclock-container"' . CoolClock::inline_style( $styles ) . '>';
+
+		// Add canvas.
+		$output .= CoolClock::canvas( $instance );
+
+		// Add subtext.
+		$subtext = ( isset( $atts['subtext'] ) ) ? $atts['subtext'] : $defaults['subtext'];
+		if ( ! empty( $subtext ) ) {
+			$output .= '<figcaption class="coolclock-subtext">' . $subtext . '</figcaption>';
+		}
+
+		// End wrapper.
+		$output .= '</figure>';
+
+		/**
+		 * Print filtered output.
+		 */
 		echo apply_filters( 'coolclock_widget', $output, $args, $instance );
 
 		echo $after_widget;
@@ -110,7 +123,7 @@ class CoolClock_Widget extends WP_Widget {
 		$output = '';
 		$advanced = '';
 
-		// backward compat
+		// Backward compat.
 		if ( isset($instance['digitalcolor']) && !isset($instance['fontcolor']) ) $instance['fontcolor'] = $instance['digitalcolor'];
 
 		$defaults = array_merge( array('title'=>'','custom_skin'=>''), CoolClock::$defaults, CoolClock::$advanced_defaults );
@@ -121,7 +134,7 @@ class CoolClock_Widget extends WP_Widget {
 		$subtext = esc_attr( $instance['subtext'] );
 		$custom_skin = esc_attr( $instance['custom_skin'] );
 
-		// Translatable skin names go here
+		// Translatable skin names go here.
 		$skin_names = array (
 			'swissrail' => __('Swiss Rail','coolclock'),
 			'chunkyswiss' => __('Chunky Swiss','coolclock'),
@@ -148,14 +161,14 @@ class CoolClock_Widget extends WP_Widget {
 			'minimal' => __('Minimal','coolclock')
 		);
 
-		// Translatable type names go here
+		// Translatable type names go here.
 		$type_names = array (
 			'linear' => __('Linear','coolclock'),
 			'logclock' => __('Logarithmic','coolclock'),
 			'logclockrev' => __('Logarithmic reversed','coolclock')
 		);
 
-		// Translatable show digital options go here
+		// Translatable show digital options go here.
 		$showdigital_names = array (
 			'' => translate('No'),
 			'digital12' => __('time (am/pm)','coolclock'),
@@ -166,17 +179,17 @@ class CoolClock_Widget extends WP_Widget {
 			'text' => __('custom text','coolclock')
 		);
 
-		// Misc translations
+		// Misc translations.
 		$stray = array(
 			'extra_settings' => __('Extra settings for the CoolClock widget.', 'coolclock')
 		);
 
-		// Title
+		// Title.
 		$output .= '<style type="text/css">#available-widgets [class*=clock] .widget-title:before{content:"\f469"}</style>
 			<p><label for="' . $this->get_field_id('title') . '">' . __('Title:') . '</label> ';
 		$output .= '<input class="widefat" id="' . $this->get_field_id('title') . '" name="' . $this->get_field_name('title') . '" type="text" value="' . $title . '" /></p>';
 
-		// Clock settings
+		// Clock settings.
 		$output .= '<p><strong>' . __('Clock', 'coolclock') . '</strong></p>';
 		$output .= '<p><a href="https://premium.status301.com/coolclock-widget-settings/" target="_blank">' . __('CoolClock widget instructions &raquo;', 'coolclock') . '</a></p>';
 
@@ -193,21 +206,21 @@ class CoolClock_Widget extends WP_Widget {
 		$output .= '<option value="custom_' . $this->number . '" ' . selected( 'custom_'.$this->number, $instance['skin'], false ) . '>';
 		$output .= __('Custom (define below)', 'coolclock') . '</option></select></p>';
 
-		// Custom skin field
+		// Custom skin field.
 		$output .= '<p><label for="' . $this->get_field_id('custom_skin') . '">' . __('Custom skin parameters:', 'coolclock') . '</label> ';
 		$output .= '<textarea class="widefat" id="' . $this->get_field_id('custom_skin') . '" name="' . $this->get_field_name('custom_skin') . '">' . $custom_skin . '</textarea> ';
 		$output .= '<em>' .  sprintf( __('(set Skin to Custom above, then add %s here)', 'coolclock'), '<a href="https://premium.status301.com/coolclock-custom-skin/" target="_blank">' . __('parameters in JSON format', 'coolclock') . '</a>' ) . '</em></p>';
 
-		// Radius
+		// Radius.
 		$output .= '<p><label for="' . $this->get_field_id('radius') . '">' . __('Radius:', 'coolclock') . '</label> ';
 		$output .= '<input class="small-text" id="' . $this->get_field_id('radius') . '" name="' . $this->get_field_name('radius') . '" type="number" min="10" value="' . $instance['radius'] . '" /></p>';
 
-		// Second hand
+		// Second hand.
 		$output .= '<p><input id="' . $this->get_field_id('noseconds') . '" name="' . $this->get_field_name('noseconds') . '" type="checkbox" value=';
 		$output .= ( $instance['noseconds'] ) ? '"true" checked="checked" />' : '"false" />';
 		$output .= ' <label for="' . $this->get_field_id('noseconds') . '">' .  __('Hide second hand', 'coolclock') . '</label></p>';
 
-		// Align
+		// Align.
 		$output .= '<p><label for="' . $this->get_field_id('align') . '">' . __('Align:', 'coolclock') . '</label> ';
 		$output .= '<select class="select" id="' . $this->get_field_id('align') . '" name="' . $this->get_field_name('align') . '">';
 		$output .= '<option value="">';
@@ -220,7 +233,7 @@ class CoolClock_Widget extends WP_Widget {
 		$output .= __('center', 'coolclock') . '</option>';
 		$output .= '</select></p>';
 
-		// Subtext
+		// Subtext.
 		$output .= '<p><label for="' . $this->get_field_id('subtext') . '">' . __('Subtext:', 'coolclock') . '</label> ';
 		$output .= '<input class="widefat" id="' . $this->get_field_id('subtext') . '" name="' . $this->get_field_name('subtext') . '" type="text" value="' . $subtext . '" /> <em>' . __('(basic HTML allowed)', 'coolclock') . '</em></p>';
 
@@ -228,11 +241,11 @@ class CoolClock_Widget extends WP_Widget {
 
 		$output .= '<p><strong>' . translate('Advanced') . '</strong></p>';
 
-		// Use GMT offset
+		// GMT offset.
 		$output .= '<p><label for="' . $this->get_field_id('gmtoffset') . '">' . __('GMT offset:', 'coolclock') . '</label> ';
 		$output .= '<input class="small-text" id="' . $this->get_field_id('gmtoffset') . '" name="' . $this->get_field_name('gmtoffset') . '" type="number" step="0.5" value="' . $instance['gmtoffset'] . '" /> <em>' . __('(leave blank for visitor local time)', 'coolclock') . '</em></p>';
 
-		// Scale
+		// Scale.
 		$output .= '<p><label for="' . $this->get_field_id('scale') . '">' . __('Scale:', 'coolclock') . '</label> ';
 		$output .= '<select class="select" id="' . $this->get_field_id('scale') . '" name="' . $this->get_field_name('scale') . '">';
 		foreach ( CoolClock::$clock_types as $key => $value ) {
@@ -242,9 +255,9 @@ class CoolClock_Widget extends WP_Widget {
 		}
 		$output .= '</select></p>';
 
-		// Show digital
+		// Show digital.
 		if ( $instance['showdigital'] == 'true' || $instance['showdigital'] == '1' )
-			$instance['showdigital'] = 'digital12'; // backward compat
+			$instance['showdigital'] = 'digital12'; // Backward compat.
 
 		$output .= '<p><label for="' . $this->get_field_id('showdigital') . '">' . __('Show digital:', 'coolclock') . '</label> ';
 		$output .= '<select class="select" id="' . $this->get_field_id('showdigital') . '" name="' . $this->get_field_name('showdigital') . '">';
@@ -261,7 +274,7 @@ class CoolClock_Widget extends WP_Widget {
 		$advanced .= '<p><a href="https://premium.status301.com/downloads/coolclock-advanced/">' . __('More digital font options &raquo;', 'coolclock') . '</a></p>
 		<p><strong>' . __('Background') . '</strong></p><p><a href="https://premium.status301.com/downloads/coolclock-advanced/">' . __('Available in the Advanced extension &raquo;', 'coolclock') . '</a></p>';
 
-		// Advanced filter
+		// Advanced filter.
 		$output .= apply_filters( 'coolclock_widget_form_advanced', $advanced, $this, $instance, $defaults );
 
 		$output .= '</div>';

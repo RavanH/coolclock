@@ -5,14 +5,14 @@ Plugin URI: https://status301.net/wordpress-plugins/coolclock/
 Description: An analog clock for your site.
 Text Domain: coolclock
 Domain Path: languages
-Version: 4.4-alpha1
+Version: 4.4-alpha2
 Author: RavanH
 Author URI: https://status301.net/
 */
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'COOLCLOCK_VERSION', '4.4-alpha1' );
+define( 'COOLCLOCK_VERSION', '4.4-alpha6' );
 define( 'COOLCLOCK_DIR', plugin_dir_path( __FILE__ ) );
 
 /***************
@@ -59,3 +59,6 @@ add_filter( 'coolclock_widget', function( $output, $args, $instance ) {
  **************/
 
 require COOLCLOCK_DIR . 'includes/block.php';
+
+add_action( 'init', 'coolclock_block_init' );
+
