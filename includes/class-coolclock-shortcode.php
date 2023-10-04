@@ -25,11 +25,11 @@ class CoolClock_Shortcode {
 			return '';
 
 		// set empty parameter noseconds to default
-		if ( in_array( 'noseconds', $atts, true ) && ! array_key_exists( 'noseconds', $atts ) ) {
+		if ( ! empty( $atts ) && in_array( 'noseconds', $atts, true ) && ! array_key_exists( 'noseconds', $atts ) ) {
 			$atts['noseconds'] = true;
 		}
 		// set empty parameter showdigital to default
-		if ( in_array( 'showdigital', $atts, true ) && ! array_key_exists( 'showdigital', $atts ) ) {
+		if ( ! empty( $atts ) && in_array( 'showdigital', $atts, true ) && ! array_key_exists( 'showdigital', $atts ) ) {
 			$atts['showdigital'] = 'digital12';
 		}
 
