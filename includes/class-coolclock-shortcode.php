@@ -6,7 +6,7 @@
 
 class CoolClock_Shortcode {
 
-	public static function handle_shortcode( $atts, $content = null )
+	public static function handle_shortcode( $atts, $content = '' )
 	{
 		/**
 		* skin			Must be one of these: 'swissRail' (default skin), 'chunkySwiss', 'chunkySwissOnBlack', 'fancy', 'machine', 'simonbaird_com', 'classic', 'modern', 'simple', 'securephp', 'Tes2', 'Lev', 'Sand', 'Sun', 'Tor', 'Cold', 'Babosa', 'Tumb', 'Stone', 'Disc', 'watermelon' or 'mister'.
@@ -21,15 +21,16 @@ class CoolClock_Shortcode {
 		* align			Sets floating of the clock: 'left', 'right' or 'center'
 		*/
 
-		if ( is_feed() )
+		if ( is_feed() ) {
 			return '';
+		}
 
-		// Set empty parameter noseconds to default.
-		if ( in_array( 'noseconds', $atts, true ) && ! array_key_exists( 'noseconds', $atts ) ) {
+		// Force empty parameter noseconds to true.
+		if ( ! empty( $atts ) && in_array( 'noseconds', $atts, true ) && ! array_key_exists( 'noseconds', $atts ) ) {
 			$atts['noseconds'] = true;
 		}
-		// Set empty parameter showdigital to default.
-		if ( in_array( 'showdigital', $atts, true ) && ! array_key_exists( 'showdigital', $atts ) ) {
+		// Force empty parameter showdigital to default.
+		if ( ! empty( $atts ) && in_array( 'showdigital', $atts, true ) && ! array_key_exists( 'showdigital', $atts ) ) {
 			$atts['showdigital'] = 'digital12';
 		}
 
@@ -38,19 +39,20 @@ class CoolClock_Shortcode {
 		$atts = shortcode_atts( $defaults, $atts, 'coolclock' );
 
 		// Sanitize user input.
-		if ( $content )
-			$content = wp_strip_all_tags( $content );
+		$content = wp_strip_all_tags( $content );
 
 		// Backward compat fontcolor.
-		if ( !empty( $atts['digitalcolor'] ) && empty($atts['fontcolor']) ) {
+		if ( ! empty( $atts['digitalcolor'] ) && empty($atts['fontcolor']) ) {
 			$atts['fontcolor'] = $atts['digitalcolor'];
 		}
 
 		// Pre-treat possible empty attributes.
-		if ( is_int( array_search( 'noseconds', $atts ) ) )
+		if ( is_int( array_search( 'noseconds', $atts ) ) ) {
 			$atts['noseconds'] = true;
-		if ( is_int( array_search( 'showdigital', $atts ) ) )
+		}
+		if ( is_int( array_search( 'showdigital', $atts ) ) ) {
 			$atts['showdigital'] = 'digital12';
+		}
 
 		// Parse skin.
 		$atts['skin'] = CoolClock::parse_skin( $atts['skin'], $content );
