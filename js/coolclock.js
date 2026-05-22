@@ -25,7 +25,7 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *
 * Display an analog clock using canvas.
-* http://randomibis.com/coolclock/
+* https://github.com/simonbaird/CoolClock
 *
 Based on version 3.1.0 by Simon Baird.
 Modified for WordPress CoolClock plugin by RavanH 2020

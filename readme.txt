@@ -13,7 +13,7 @@ Show an analog clock on your WordPress site sidebar or in post and page content.
 
 == Description ==
 
-This plugin integrates [CoolClock - The Javascript Analog Clock](http://randomibis.com/coolclock/) into your WordPress site. You can add it as a **widget** to your sidebar or insert it into your posts and pages with a **shortcode**. See [the FAQ's](http://wordpress.org/extend/plugins/coolclock/faq/) for available shortcode parameters and how to build the clock into your theme.
+This plugin integrates [CoolClock - The Javascript Analog Clock](https://github.com/simonbaird/CoolClock) into your WordPress site. You can add it as a **widget** to your sidebar or insert it into your posts and pages with a **shortcode**. See [the FAQ's](http://wordpress.org/extend/plugins/coolclock/faq/) for available shortcode parameters and how to build the clock into your theme.
 
 = Features =
 
