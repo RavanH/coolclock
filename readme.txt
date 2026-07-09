@@ -1,6 +1,6 @@
 === CoolClock - a Javascript Analog Clock ===
 Contributors: RavanH
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ravanhagen%40gmail%2ecom&item_name=CoolClock%20for%20WordPress&item_number=1%2e3%2e4%2e9&no_shipping=0&tax=0&charset=UTF%2d8&currency_code=EUR
+Donate link: https://donate.stripe.com/6oUbJ10Nz8xYfF7b5qdEs01
 Tags: clock, analog clock, coolclock, logarithmic clock
 Requires at least: 4.8.1
 Tested up to: 6.2
