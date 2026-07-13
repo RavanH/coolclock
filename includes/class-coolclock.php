@@ -78,8 +78,7 @@ class CoolClock {
 	 * INIT
 	 */
 
-	public function __construct( $plugin_file, $plugin_version )
-	{
+	public function __construct( $plugin_file, $plugin_version ) {
  		// VARS
  		self::$plugin_url = plugins_url( '/', $plugin_file );
  		self::$plugin_basename = plugin_basename( $plugin_file );
@@ -128,9 +127,7 @@ class CoolClock {
 	*
 	* @return string Canvas tag
 	*/
-
-	public static function canvas( $atts )
-	{
+	public static function canvas( $atts ) {
 		/**
 		* ARRAY VALUES
 		* skin			@param string		Skin ID. Must be one of these: 'swissRail' (default skin), 'chunkySwiss', 'chunkySwissOnBlack', 'fancy', 'machine', 'simonbaird_com', 'classic', 'modern', 'simple', 'securephp', 'Tes2', 'Lev', 'Sand', 'Sun', 'Tor', 'Cold', 'Babosa', 'Tumb', 'Stone', 'Disc', 'watermelon' or 'mister'.
@@ -189,7 +186,7 @@ class CoolClock {
 		$styles = apply_filters( 'coolclock_canvas_styles',  array(), $atts, $defaults );
 
 		// canvas parameters
-		$output .= '<canvas class="' . implode(':',$fields) . '"' . CoolClock::inline_style( $styles ) . '></canvas>';
+		$output .= '<canvas class="' . implode( ':', array_map('esc_attr', $fields) ) . '"' . CoolClock::inline_style( $styles ) . '></canvas>';
 
 		// sub text
 		$subtext = ( isset( $atts['subtext'] ) ) ? $atts['subtext'] : $defaults['subtext'];
@@ -208,9 +205,7 @@ class CoolClock {
 	*
 	* @return string inline style attribute style="..." complete with leading space
 	*/
-
-	public static function inline_style( $styles )
-	{
+	public static function inline_style( $styles ) {
 		$style_arr = array();
 
 		foreach ( $styles as $key => $value ) {
@@ -232,36 +227,37 @@ class CoolClock {
 	*
 	* @return string either found matching skin name or 'invalid_or_missing_skin' on failure
 	*/
-
-	public static function parse_skin( $skin_name, $skin_parms = '' )
-	{
-		$skin = strtolower($skin_name);
-		$skin_array = array();
+	public static function parse_skin( $skin_name, $skin_parms = '' ) {
+		$skin = strtolower( $skin_name ); // user input, sanitize!
+		$skin = preg_replace( '/[^a-z0-9_-]/', '', $skin );
 
 		// check for empty or default skin first
-		if ( empty($skin) || $skin == self::$defaults['skin'] )
+		if ( empty($skin) || $skin === self::$defaults['skin'] ) {
 			// return the matching skin name
 			return self::$defaults['skin'];
+		}
 
 		// short-circuit if skin name is already in the config array
-		if ( array_key_exists( $skin, self::$skins_config ) )
+		if ( array_key_exists( $skin, self::$skins_config ) ) {
 			// return the matching skin name
 			return $skin;
+		}
 
 		// search in the more_skins and advanced_skins arrays
-		$all_skins = self::get_all_skins();
+		$all_skins  = self::get_all_skins();
+		$skin_array = array();
+
 		if ( array_key_exists( $skin, $all_skins ) ) {
 			// fetch parameters from skins array
 			$skin_array = is_array( $all_skins[$skin] ) ? $all_skins[$skin] : self::skin_array( $all_skins[$skin] );
-		}
-		// try to build a skin config from passed parameters
-		else {
-			// fetch parameters from custom skin user input
+		} else {
+			// try to build a skin config from passed parameters (user input, sanitize!)
 			$skin_array = self::skin_array( $skin_parms );
 
-			if ( empty( $skin_array ) )
+			if ( empty( $skin_array ) ) {
 				// set faulty skin name
 				return 'no_skin_found';
+			}
 		}
 
 		// add found skin parameters to the config array
@@ -278,7 +274,6 @@ class CoolClock {
 			include COOLCLOCK_DIR . 'includes/moreskins.php';
 
 			self::$more_skins_config = $more_skins;
-
 		}
 
 		return array_merge( self::$more_skins_config, self::$advanced_skins_config );
@@ -342,9 +337,7 @@ class CoolClock {
 	*
 	* @return array array of skin parameters
 	*/
-
-	public static function skin_array( $skin )
-	{
+	public static function skin_array( $skin ) {
 		// remove everything following a ; to thwart any script injection
 		$parts = explode( ';', $skin, 2 );
 		$sanitized = $parts[0];
@@ -406,9 +399,7 @@ class CoolClock {
 	*
 	* @return string hex color value or text for named color
 	*/
-
-	public static function colorval( $color )
-	{
+	public static function colorval( $color ) {
 		$color = wp_strip_all_tags( $color );
 		$color = trim( $color );
 		$color = str_replace( array( '"', '\'', ':'), '', $color );
@@ -436,9 +427,7 @@ class CoolClock {
 	*
 	* @return string 	output
 	*/
-
-	public static function filter_shortcode( $output, $atts, $content )
-	{
+	public static function filter_shortcode( $output, $atts, $content ) {
 		// add backward compat filter
 		return apply_filters( 'coolclock_shortcode_advanced', $output, $atts, $content );
 	}
@@ -454,11 +443,8 @@ class CoolClock {
 	*
 	* @return string 	output
 	*/
-
-	public static function filter_widget( $output, $args, $instance )
-	{
+	public static function filter_widget( $output, $args, $instance ) {
 		// add backward compat filter
 		return apply_filters( 'coolclock_widget_advanced', $output, $args, $instance );
 	}
-
 }

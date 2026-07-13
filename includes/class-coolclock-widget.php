@@ -6,8 +6,7 @@
 class CoolClock_Widget extends WP_Widget {
 
 	/** PHP5+ constructor */
-	public function __construct()
-	{
+	public function __construct() {
 		parent::__construct(
 			'coolclock-widget',
 			__('Analog Clock', 'coolclock'),
@@ -23,8 +22,7 @@ class CoolClock_Widget extends WP_Widget {
 	}
 
 	/** @see WP_Widget::widget -- do not rename this */
-	public function widget( $args, $instance )
-	{
+	public function widget( $args, $instance ) {
 		extract( $args );
 
 		$defaults = array_merge( array('title'=>'','custom_skin'=>''), CoolClock::$defaults, CoolClock::$advanced_defaults );
@@ -84,8 +82,7 @@ class CoolClock_Widget extends WP_Widget {
 	}
 
 	/** @see WP_Widget::update -- do not rename this */
-	public function update( $new_instance, $old_instance )
-	{
+	public function update( $new_instance, $old_instance ) {
 		// parse custom skin code
 		$skin_array = !empty($new_instance['custom_skin']) ? CoolClock::skin_array( wp_strip_all_tags( $new_instance['custom_skin'] ) ) : array();
 
@@ -105,8 +102,7 @@ class CoolClock_Widget extends WP_Widget {
 	}
 
 	/** @see WP_Widget::form -- do not rename this */
-	public function form( $instance )
-	{
+	public function form( $instance ) {
 		$output = '';
 		$advanced = '';
 

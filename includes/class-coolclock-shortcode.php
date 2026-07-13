@@ -6,8 +6,7 @@
 
 class CoolClock_Shortcode {
 
-	public static function handle_shortcode( $atts, $content = null )
-	{
+	public static function handle_shortcode( $atts, $content = null ) {
 		/**
 		* skin			Must be one of these: 'swissRail' (default skin), 'chunkySwiss', 'chunkySwissOnBlack', 'fancy', 'machine', 'simonbaird_com', 'classic', 'modern', 'simple', 'securephp', 'Tes2', 'Lev', 'Sand', 'Sun', 'Tor', 'Cold', 'Babosa', 'Tumb', 'Stone', 'Disc', 'watermelon' or 'mister'.
 		* 				If the Advanced extension is activated, there is also 'minimal' available.
@@ -21,8 +20,9 @@ class CoolClock_Shortcode {
 		* align			Sets floating of the clock: 'left', 'right' or 'center'
 		*/
 
-		if ( is_feed() )
+		if ( is_feed() ) {
 			return '';
+		}
 
 		// set empty parameter noseconds to default
 		if ( ! empty( $atts ) && in_array( 'noseconds', $atts, true ) && ! array_key_exists( 'noseconds', $atts ) ) {
@@ -38,8 +38,9 @@ class CoolClock_Shortcode {
 		$atts = shortcode_atts( $defaults, $atts, 'coolclock' );
 
 		// sanitize user input
-		if ( $content )
+		if ( $content ) {
 			$content = wp_strip_all_tags( $content );
+		}
 
 		// backward compat fontcolor
 		if ( !empty( $atts['digitalcolor'] ) && empty($atts['fontcolor']) ) {
@@ -47,10 +48,12 @@ class CoolClock_Shortcode {
 		}
 
 		// pre-treat possible empty attributes
-		if ( is_int( array_search( 'noseconds', $atts ) ) )
+		if ( is_int( array_search( 'noseconds', $atts ) ) ) {
 			$atts['noseconds'] = true;
-		if ( is_int( array_search( 'showdigital', $atts ) ) )
+		}
+		if ( is_int( array_search( 'showdigital', $atts ) ) ) {
 			$atts['showdigital'] = 'digital12';
+		}
 
 		// parse skin
 		$atts['skin'] = CoolClock::parse_skin( $atts['skin'], $content );
@@ -116,8 +119,7 @@ class CoolClock_Shortcode {
 		return apply_filters( 'coolclock_shortcode', $output, $atts, $content );
 	}
 
-	public static function no_wptexturize( $shortcodes )
-	{
+	public static function no_wptexturize( $shortcodes ) {
 		$shortcodes[] = 'coolclock';
 		return $shortcodes;
 	}
