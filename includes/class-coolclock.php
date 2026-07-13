@@ -132,9 +132,7 @@ class CoolClock {
 	*
 	* @return string Canvas tag
 	*/
-
-	public static function canvas( $atts )
-	{
+	public static function canvas( $atts ) {
 		/**
 		* ARRAY VALUES
 		* skin			@param string		Skin ID. Must be one of these: 'swissRail' (default skin), 'chunkySwiss', 'chunkySwissOnBlack', 'fancy', 'machine', 'simonbaird_com', 'classic', 'modern', 'simple', 'securephp', 'Tes2', 'Lev', 'Sand', 'Sun', 'Tor', 'Cold', 'Babosa', 'Tumb', 'Stone', 'Disc', 'watermelon' or 'mister'.
@@ -193,7 +191,7 @@ class CoolClock {
 		$styles = apply_filters( 'coolclock_canvas_styles',  array(), $atts, $defaults );
 
 		// canvas parameters
-		$output .= '<canvas class="' . implode(':',$fields) . '"' . CoolClock::inline_style( $styles ) . '></canvas>';
+		$output .= '<canvas class="' . implode( ':', array_map('esc_attr', $fields) ) . '"' . CoolClock::inline_style( $styles ) . '></canvas>';
 
 		return $output;
 	}
@@ -207,9 +205,7 @@ class CoolClock {
 	*
 	* @return string inline style attribute style="..." complete with leading space
 	*/
-
-	public static function inline_style( $styles )
-	{
+	public static function inline_style( $styles ) {
 		$style_arr = array();
 
 		foreach ( $styles as $key => $value ) {
@@ -231,14 +227,14 @@ class CoolClock {
 	*
 	* @return string either found matching skin name or 'invalid_or_missing_skin' on failure
 	*/
+	public static function parse_skin( $skin_name, $skin_parms = '' ) {
+		$skin = strtolower( $skin_name );
+		$skin = preg_replace( '/[^a-z0-9_]/', '', $skin );
 
-	public static function parse_skin( $skin_name, $skin_parms = '' )
-	{
-		$skin = strtolower($skin_name);
 		$skin_array = array();
 
 		// check for empty or default skin first
-		if ( empty($skin) || $skin == self::$defaults['skin'] )
+		if ( empty($skin) || $skin === self::$defaults['skin'] )
 			// return the matching skin name
 			return self::$defaults['skin'];
 
@@ -305,14 +301,16 @@ class CoolClock {
 		$script = '';
 
 		if ( !empty( self::$skins_config ) ) {
+			$skins = wp_json_encode( self::$skins_config );
 
-			/**
-			 * Load IE 6/7 specific JSON polyfill.
-			 */
-			wp_enqueue_script( 'json2' );
+			if ( $skins ) {
+				/**
+				 * Load IE 6/7 specific JSON polyfill.
+				 */
+				wp_enqueue_script( 'json2' );
 
-			$script .=  'CoolClock.config.skins = JSON.parse(\'' . json_encode( self::$skins_config ) . '\');';
-
+				$script .=  'CoolClock.config.skins = <' . $skins . '>;';
+			}
 		}
 
 		$script .= PHP_EOL . 'if(document.readyState!="loading"&&document.addEventListener){document.addEventListener("DOMContentLoaded",function(){CoolClock.findAndCreateClocks();})}else{CoolClock.findAndCreateClocks();};';
@@ -333,9 +331,7 @@ class CoolClock {
 	*
 	* @return array array of skin parameters
 	*/
-
-	public static function skin_array( $skin )
-	{
+	public static function skin_array( $skin ) {
 		// remove everything following a ; to thwart any script injection
 		$parts = explode( ';', $skin, 2 );
 		$sanitized = $parts[0];
@@ -397,12 +393,10 @@ class CoolClock {
 	*
 	* @return string hex color value or text for named color
 	*/
-
-	public static function colorval( $color )
-	{
+	public static function colorval( $color ) {
 		$color = wp_strip_all_tags( $color );
 		$color = trim( $color );
-		$color = str_replace( array( '"', '\'', ':'), '', $color );
+		$color = str_replace( array( '"', '\'', ':' ), '', $color );
 		$color_arr = explode( ' ', $color, 2 );
 		$color = esc_attr( $color_arr[0] );
 
