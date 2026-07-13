@@ -288,13 +288,12 @@ class CoolClock {
 
 		if ( !empty( self::$skins_config ) ) {
 
-			/**
-			 * Load IE 6/7 specific JSON polyfill
-			 */
-			wp_enqueue_script( 'json2' );
+			$skins = wp_json_encode( self::$skins_config );
+			if ( false === $skins ) {
+				$skins = '{} /* skin parse error, please fix your custom skin */';
+			}
 
-			$script .=  'CoolClock.config.skins = JSON.parse(\'' . json_encode( self::$skins_config ) . '\');';
-
+			$script .=  'CoolClock.config.skins = ' . $skins . ';';
 		}
 
 		$script .= PHP_EOL . 'if(document.readyState!="loading"&&document.addEventListener){document.addEventListener("DOMContentLoaded",function(){CoolClock.findAndCreateClocks();})}else{CoolClock.findAndCreateClocks();};';
