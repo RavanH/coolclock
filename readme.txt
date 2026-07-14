@@ -1,40 +1,37 @@
 === CoolClock - a Javascript Analog Clock ===
 Contributors: RavanH
-Donate link: https://donate.stripe.com/6oUbJ10Nz8xYfF7b5qdEs01
-Tags: clock, analog clock, coolclock, logarithmic clock
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ravanhagen%40gmail%2ecom&item_name=CoolClock%20for%20WordPress&item_number=1%2e3%2e4%2e9&no_shipping=0&tax=0&charset=UTF%2d8&currency_code=EUR
+Tags: clock, analog clock, coolclock, javascript, widget, shortcode, logarithmic clock
 Requires at least: 4.8.1
-Tested up to: 6.2
+Tested up to: 6.3
 Requires PHP: 5.6
-Stable tag: 4.3.6
-License: GPLv3
-License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Stable tag: 4.3.7
 
 Show an analog clock on your WordPress site sidebar or in post and page content.
 
 == Description ==
 
-This plugin integrates [CoolClock - The Javascript Analog Clock](https://github.com/simonbaird/CoolClock) into your WordPress site. You can add it as a **widget** to your sidebar or insert it into your posts and pages with a **shortcode**. See [the FAQ's](http://wordpress.org/extend/plugins/coolclock/faq/) for available shortcode parameters and how to build the clock into your theme.
+This plugin integrates [CoolClock - The Javascript Analog Clock](http://randomibis.com/coolclock/) into your WordPress site. You can add it as a **widget** to your sidebar or insert it into your posts and pages with a **shortcode**. See [the FAQ's](http://wordpress.org/extend/plugins/coolclock/faq/) for available shortcode parameters and how to build the clock into your theme.
 
 = Features =
 
-- Can be added via a widget, shortcode or child theme function
-- No SWF, meaning compatible with tablets and most other javascript enabled mobile devices
+- Can be added via a widget, shortcode or theme function
+- No flash, meaning compatible with tablets and most other javascript enabled mobile devices
 - 22 different skins to choose from or
 - Custom skin option to create your own skin style
 - Linear or logarithmic time scale
-- Additionally show 12h digital time (on the analog clock face)
 
 Read more on the [CoolClock homepage](https://status301.net/wordpress-plugins/coolclock/) or see [the FAQ's](http://wordpress.org/extend/plugins/coolclock/faq/) to learn how to configure your own skin settings.
 
 = Pro features =
 
+- Show date or 24h digital time
 - Background image or color
 - Border radius (rounded corners for background)
-- Additionally show date, custom text or 24h digital time (on the analog clock face)
 - Advanced positioning options (relative to background)
 - Advanced shortcode parameters (including background image and custom skin)
 - One extra clean skin for use with background image
-- Support on the [CoolClock Pro forum](https://premium.status301.com/support-forums/forum/coolclock-pro/)
+- Support on the [CoolClock Pro forum](https://premium.status301.com/support/forum/coolclock-pro/)
 
 Pro features come with the [CoolClock - Advanced extension](https://premium.status301.com/downloads/coolclock-advanced/).
 
@@ -155,15 +152,13 @@ Please report any other issues on the [Support page](http://wordpress.org/suppor
 
 == Upgrade Notice ==
 
-= 4.3.6 =
-Bugfix release: empty noseconds and showdigital ignored
+= 4.3.7 =
+Bugfix release: fatal error when shotcode has no parameters
 
 == Changelog ==
 
-= 4.4 =
-*
-TODO
-- move css inline (footer or just above first instance)
+= 4.3.7 =
+* Bugfix: fatal error when shotcode has no parameters
 
 = 4.3.6 =
 * Bugfix: empty noseconds and showdigital ignored
