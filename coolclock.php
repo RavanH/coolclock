@@ -58,7 +58,7 @@ add_filter( 'coolclock_widget', function( $output, $args, $instance ) {
  *    BLOCK
  **************/
 
-//require COOLCLOCK_DIR . 'includes/block.php';
+require COOLCLOCK_DIR . 'includes/block.php';
 
-//add_action( 'init', 'coolclock_block_init' );
+add_action( 'init', 'coolclock_block_init' );
 
