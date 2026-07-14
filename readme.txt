@@ -152,10 +152,13 @@ Please report any other issues on the [Support page](http://wordpress.org/suppor
 
 == Upgrade Notice ==
 
-= 4.3.7 =
-Bugfix release: fatal error when shotcode has no parameters
+= 4.3.8 =
+Bugfix release: shortcode Stored XSS vulnerability, thanks @Artus KG
 
 == Changelog ==
+
+= 4.3.8 =
+* Bugfix: shortcode Stored XSS vulnerability, thanks @Artus KG
 
 = 4.3.7 =
 * Bugfix: fatal error when shotcode has no parameters
