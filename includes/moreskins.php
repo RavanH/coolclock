@@ -1,5 +1,9 @@
 <?php
-$more_skins = array(
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+return array(
 	'swissrail' => array(
 		'outerBorder' => array(
 			'lineWidth' => 2,
