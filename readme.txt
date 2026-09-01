@@ -155,12 +155,12 @@ Please report any other issues on the [Support page](http://wordpress.org/suppor
 == Upgrade Notice ==
 
 = 4.3.8 =
-Bugfix release: shortcode Stored XSS vulnerability, thanks @Artus KG
+Bugfix release: shortcode Stored XSS vulnerability, thanks @Artus KG and @Philipp Doblhofer
 
 == Changelog ==
 
 = 4.3.8 =
-* Bugfix: shortcode Stored XSS vulnerability, thanks @Artus KG
+* Bugfix: shortcode Stored XSS vulnerability, thanks @Artus KG and @Philipp Doblhofer
 * Apply Plugin Check recommendations
 * Drop legacy IE8 excanvas support
 
