@@ -114,10 +114,6 @@ class CoolClock {
  	}
 
 	/**
-	 * METHODS
-	 */
-
-	/**
 	* Build canvas output
 	*
 	* @since 2.0
@@ -259,6 +255,13 @@ class CoolClock {
 		return $skin;
 	}
 
+	/**
+	 * Get all available skins
+	 *
+	 * @since 3.2.0
+	 *
+	 * @return array array of all skins
+	 */
 	public static function get_all_skins() {
 
 		if ( empty( self::$more_skins_config ) ) {
@@ -268,6 +271,11 @@ class CoolClock {
 		return array_merge( self::$more_skins_config, self::$advanced_skins_config );
 	}
 
+	/**
+	 * Enqueue scripts
+	 *
+	 * @since 3.2.0
+	 */
 	public static function enqueue_scripts() {
 		// bail if we don't need script
 		if ( ! self::$add_script )
