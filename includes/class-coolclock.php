@@ -6,19 +6,17 @@
 
 class CoolClock {
 
-	static $plugin_version;
+	static ?string $plugin_version;
 
 	static $script_version = '3.2.2';
 
-	private static $plugin_url;
+	private static ?string $plugin_url;
 
-	private static $plugin_basename;
+	private static ?string $plugin_basename;
 
 	private static $min = '.min';
 
 	static $add_script = false;
-
-	private static $done_excanvas = false;
 
 	static $defaults = array(
 		'skin' => 'swissrail',
@@ -75,10 +73,14 @@ class CoolClock {
 	);
 
 	/**
-	 * INIT
+	 * Constructor
+	 *
+	 * @since 4.3
+	 *
+	 * @param string $plugin_file Plugin file path
+	 * @param string $plugin_version Plugin version
 	 */
-
-	public function __construct( $plugin_file, $plugin_version ) {
+	public function __construct( string $plugin_file, string $plugin_version ) {
  		// VARS
  		self::$plugin_url = plugins_url( '/', $plugin_file );
  		self::$plugin_basename = plugin_basename( $plugin_file );
@@ -87,9 +89,6 @@ class CoolClock {
  		if ( defined('WP_DEBUG') && WP_DEBUG ) {
  			self::$min = '';
  		}
-
-		// text domain
-		add_action( 'plugins_loaded', array( __CLASS__, 'textdomain' ) );
 
 		// widgets
 		add_action( 'widgets_init', array( __CLASS__, 'register_widget' ) );
@@ -175,13 +174,6 @@ class CoolClock {
 
 		// build output
 		$output = '';
-
-		if ( ! self::$done_excanvas ){
-			$output .= '<!--[if lte IE 8]>';
-			$output .= '<script type="text/javascript" src="'. self::$plugin_url . 'js/excanvas' . self::$min . '.js"></script>';
-			$output .= '<![endif]-->' . PHP_EOL;
-			self::$done_excanvas = true;
-		}
 
 		$styles = apply_filters( 'coolclock_canvas_styles',  array(), $atts, $defaults );
 
@@ -270,10 +262,7 @@ class CoolClock {
 	public static function get_all_skins() {
 
 		if ( empty( self::$more_skins_config ) ) {
-
-			include COOLCLOCK_DIR . 'includes/moreskins.php';
-
-			self::$more_skins_config = $more_skins;
+			self::$more_skins_config = include COOLCLOCK_DIR . 'includes/moreskins.php';
 		}
 
 		return array_merge( self::$more_skins_config, self::$advanced_skins_config );
@@ -303,21 +292,22 @@ class CoolClock {
 		wp_add_inline_script( 'coolclock', $script );
 
 		// called late so should end up in the footer
-		wp_enqueue_style( 'coolclock', self::$plugin_url . 'css/coolclock' . self::$min . '.css' );
-	}
-
-	public static function textdomain() {
-		load_plugin_textdomain( 'coolclock', false, dirname(self::$plugin_basename).'/languages' );
+		wp_enqueue_style( 'coolclock', self::$plugin_url . 'css/coolclock' . self::$min . '.css', array(), self::$script_version );
 	}
 
 	public static function register_widget() {
 		register_widget("CoolClock_Widget");
 	}
 
-	// add links to plugin's description
-	public static function plugin_meta_links($links, $file) {
+	/**
+	 * Add links to plugin's description in the plugins list
+	 *
+	 * @param array $links Array of links to display
+	 * @param string $file Plugin file path
+	 */
+	public static function plugin_meta_links( array $links, string $file ) {
 	  $support_link = '<a target="_blank" href="https://wordpress.org/support/plugin/coolclock/">' . __('Support','coolclock') . '</a>';
-	  $rate_link = '<a target="_blank" href="https://wordpress.org/support/plugin/coolclock/reviews/?filter=5#new-post">' . __('Rate ★★★★★','coolclock') . '</a>';
+	  $rate_link = '<a target="_blank" href="https://wordpress.org/support/plugin/coolclock/reviews/">' . __('Rate this plugin','coolclock') . '</a>';
 
 	  if ( $file == self::$plugin_basename ) {
 	    $links[] = $support_link;

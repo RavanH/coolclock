@@ -37,10 +37,11 @@ class CoolClock_Widget extends WP_Widget {
 		CoolClock::$add_script = true;
 
 		// Print output
-		echo $before_widget;
+		echo wp_kses_post( $before_widget );
 
-		if ( $title )
-			echo $before_title . $title . $after_title;
+		if ( $title ) {
+			echo wp_kses_post( $before_title ) . esc_html( $title ) . wp_kses_post( $after_title );
+		}
 
 		// set skin
 		$instance['skin'] = CoolClock::parse_skin(
@@ -76,9 +77,9 @@ class CoolClock_Widget extends WP_Widget {
 		$output .= '</div>';
 
 		// Print filtered output
-		echo apply_filters( 'coolclock_widget', $output, $args, $instance );
+		echo wp_kses_post( apply_filters( 'coolclock_widget', $output, $args, $instance ) );
 
-		echo $after_widget;
+		echo wp_kses_post( $after_widget );
 	}
 
 	/** @see WP_Widget::update -- do not rename this */
@@ -153,7 +154,7 @@ class CoolClock_Widget extends WP_Widget {
 
 		// Translatable show digital options go here
 		$showdigital_names = array (
-			'' => translate('No'),
+			'' => __( 'No', 'coolclock' ),
 			'digital12' => __('time (am/pm)','coolclock'),
 			'digital24' => __('time (24h)','coolclock'),
 			'date' => __('date','coolclock'),
@@ -169,7 +170,7 @@ class CoolClock_Widget extends WP_Widget {
 
 		// Title
 		$output .= '<style type="text/css">#available-widgets [class*=clock] .widget-title:before{content:"\f469"}</style>
-			<p><label for="' . $this->get_field_id('title') . '">' . __('Title:') . '</label> ';
+			<p><label for="' . $this->get_field_id('title') . '">' . __( 'Title:', 'coolclock' ) . '</label> ';
 		$output .= '<input class="widefat" id="' . $this->get_field_id('title') . '" name="' . $this->get_field_name('title') . '" type="text" value="' . $title . '" /></p>';
 
 		// Clock settings
@@ -192,6 +193,7 @@ class CoolClock_Widget extends WP_Widget {
 		// Custom skin field
 		$output .= '<p><label for="' . $this->get_field_id('custom_skin') . '">' . __('Custom skin parameters:', 'coolclock') . '</label> ';
 		$output .= '<textarea class="widefat" id="' . $this->get_field_id('custom_skin') . '" name="' . $this->get_field_name('custom_skin') . '">' . $custom_skin . '</textarea> ';
+		/* translators: %s: link to the JSON parameters documentation */
 		$output .= '<em>' .  sprintf( __('(set Skin to Custom above, then add %s here)', 'coolclock'), '<a href="https://premium.status301.com/coolclock-custom-skin/" target="_blank">' . __('parameters in JSON format', 'coolclock') . '</a>' ) . '</em></p>';
 
 		// Radius
@@ -207,7 +209,7 @@ class CoolClock_Widget extends WP_Widget {
 		$output .= '<p><label for="' . $this->get_field_id('align') . '">' . __('Align:', 'coolclock') . '</label> ';
 		$output .= '<select class="select" id="' . $this->get_field_id('align') . '" name="' . $this->get_field_name('align') . '">';
 		$output .= '<option value="">';
-		$output .= translate('none') . '</option>';
+		$output .= __( 'none', 'coolclock' ) . '</option>';
 		$output .= '<option value="left" ' . selected( $instance['align'], 'left', false ) . '>';
 		$output .= __('left', 'coolclock') . '</option>';
 		$output .= '<option value="right" ' . selected( $instance['align'], 'right', false ) . '>';
@@ -222,7 +224,7 @@ class CoolClock_Widget extends WP_Widget {
 
 		$output .= '<div class="coolclock-advanced" style="background-color:rgba(0,0,0,.03);padding:1px 7px;border-radius:5px;margin-bottom:10px">';
 
-		$output .= '<p><strong>' . translate('Advanced') . '</strong></p>';
+		$output .= '<p><strong>' . __( 'Advanced', 'coolclock' ) . '</strong></p>';
 
 		// Use GMT offset
 		$output .= '<p><label for="' . $this->get_field_id('gmtoffset') . '">' . __('GMT offset:', 'coolclock') . '</label> ';
@@ -255,7 +257,7 @@ class CoolClock_Widget extends WP_Widget {
 		$output .= '<input id="' . $this->get_field_id('fontcolor') . '" name="' . $this->get_field_name('fontcolor') . '" type="text" value="' . $instance['fontcolor'] . '" /> <em>' . __('(use a valid HTML color code or name)', 'coolclock') . '</em></p>';
 
 		$advanced .= '<p><a href="https://premium.status301.com/downloads/coolclock-advanced/">' . __('More digital font options &raquo;', 'coolclock') . '</a></p>
-		<p><strong>' . __('Background') . '</strong></p><p><a href="https://premium.status301.com/downloads/coolclock-advanced/">' . __('Available in the Advanced extension &raquo;', 'coolclock') . '</a></p>';
+		<p><strong>' . __( 'Background', 'coolclock' ) . '</strong></p><p><a href="https://premium.status301.com/downloads/coolclock-advanced/">' . __('Available in the Advanced extension &raquo;', 'coolclock') . '</a></p>';
 
 		// Advanced filter
 		$output .= apply_filters( 'coolclock_widget_form_advanced', $advanced, $this, $instance, $defaults );
@@ -266,7 +268,6 @@ class CoolClock_Widget extends WP_Widget {
 			$output .= '<div class="update-nag"><strong>' . __('Please upgrade the CoolClock - Advanced extension.', 'coolclock') . '</strong> '. ' <a href="https://premium.status301.com/account/" target="_blank">' . __('Please log in with your account credentials here.', 'coolclock') . '</a>' . __('You can download the new version using the link in the downloads list.', 'coolclock') . '</div>';
 		}
 
-		echo $output;
+		echo wp_kses_post( $output );
 	}
-
 }

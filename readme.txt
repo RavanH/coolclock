@@ -1,11 +1,13 @@
-=== CoolClock - a Javascript Analog Clock ===
+=== CoolClock ===
 Contributors: RavanH
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ravanhagen%40gmail%2ecom&item_name=CoolClock%20for%20WordPress&item_number=1%2e3%2e4%2e9&no_shipping=0&tax=0&charset=UTF%2d8&currency_code=EUR
-Tags: clock, analog clock, coolclock, javascript, widget, shortcode, logarithmic clock
-Requires at least: 4.8.1
-Tested up to: 7.0
+Tags: clock, analog clock, javascript, widget, shortcode
+Requires at least: 5.8
+Tested up to: 7.1
 Requires PHP: 5.6
 Stable tag: 4.3.8
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Show an analog clock on your WordPress site sidebar or in post and page content.
 
@@ -159,6 +161,8 @@ Bugfix release: shortcode Stored XSS vulnerability, thanks @Artus KG
 
 = 4.3.8 =
 * Bugfix: shortcode Stored XSS vulnerability, thanks @Artus KG
+* Apply Plugin Check recommendations
+* Drop legacy IE8 excanvas support
 
 = 4.3.7 =
 * Bugfix: fatal error when shotcode has no parameters

@@ -1,4 +1,8 @@
-<?php return;
+<?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+return;
 /**
  * This file exists solely to store the plugin translation strings.
  * It is never included anywhere, used only for PO parsing.
@@ -75,9 +79,9 @@ __( 'Your license is not active for this site.', 'coolclock' );
 
 // Error messages.
 
-__( 'Too many requests. Please try again in a minute.', 'coolclock ' );
-__( 'Cannot make requests to own domain.', 'coolclock ' );
-__( 'Failed identify the product.', 'coolclock ' );
+__( 'Too many requests. Please try again in a minute.', 'coolclock' );
+__( 'Cannot make requests to own domain.', 'coolclock' );
+__( 'Failed identify the product.', 'coolclock' );
 sprintf( /* Translators: http repsonse code */
 	__( 'Unexpected response code %d.', 'coolclock' ),
 	'<code>' . $response . '</code>'
