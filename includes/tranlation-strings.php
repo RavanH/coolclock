@@ -102,7 +102,7 @@ sprintf( /* Translators: Premium Plugin name */
 );
 __( 'Your license key has reached its activation limit.', 'coolclock' );
 __( 'An error occurred, please try again.', 'coolclock' );
-__( 'An unkown error occurred. Please try again.', 'coolclock' );
+__( 'An unknown error occurred. Please try again.', 'coolclock' );
 sprintf( /* Translators: license error code, Support (linked) */
 	 __( 'Unexpected license error code %1$s. Please try again or get %2$s.', 'coolclock' ),
 	 '<code>' . $error . '</code>',
