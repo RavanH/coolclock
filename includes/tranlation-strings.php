@@ -65,7 +65,7 @@ sprintf( /* Translators: Premium Plugin name, Plugin name (linked) */
 );
 __( 'Notice: The current CoolClock plugin version is not fully compatible with your version of the Advanced extension. Some advanced options may not be functional.', 'coolclock' );
 sprintf( /* Translators: Plugin name (linked), version number */
-	__( 'Please upgrade %1$s to verion %2$s or later.', 'coolclock' ),
+	__( 'Please upgrade %1$s to version %2$s or later.', 'coolclock' ),
 	'<a href="' . esc_url( network_admin_url('plugin-install.php?tab=plugin-information&plugin=coolclock&TB_iframe=true&width=600&height=550' ) ) . '" target="_blank" class="thickbox">'.__( 'CoolClock', 'coolclock' ).'</a>',
 	self::$compat['min']
 );
@@ -81,7 +81,7 @@ __( 'Your license is not active for this site.', 'coolclock' );
 
 __( 'Too many requests. Please try again in a minute.', 'coolclock' );
 __( 'Cannot make requests to own domain.', 'coolclock' );
-__( 'Failed identify the product.', 'coolclock' );
+__( 'Failed to identify the product.', 'coolclock' );
 sprintf( /* Translators: http repsonse code */
 	__( 'Unexpected response code %d.', 'coolclock' ),
 	'<code>' . $response . '</code>'
