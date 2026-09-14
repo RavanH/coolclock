@@ -176,18 +176,13 @@ class CoolClock_Widget extends WP_Widget {
 			'text' => __('custom text','coolclock')
 		);
 
-		// Misc translations
-		$stray = array(
-			'extra_settings' => __('Extra settings for the CoolClock widget.', 'coolclock')
-		);
-
 		// Title
 		$output .= '<style type="text/css">#available-widgets [class*=clock] .widget-title:before{content:"\f469"}</style>
 			<p><label for="' . $this->get_field_id('title') . '">' . __( 'Title:', 'coolclock' ) . '</label> ';
 		$output .= '<input class="widefat" id="' . $this->get_field_id('title') . '" name="' . $this->get_field_name('title') . '" type="text" value="' . $title . '" /></p>';
 
 		// Clock settings
-		$output .= '<p><strong>' . __('Clock', 'coolclock') . '</strong></p>';
+		$output .= '<fieldset><legend>' . __('Clock', 'coolclock') . '</legend>';
 		$output .= '<p class="description"><a href="https://premium.status301.com/coolclock-widget-settings/" target="_blank">' . __('CoolClock widget instructions &raquo;', 'coolclock') . '</a></p>';
 
 		$output .= '<p><label for="' . $this->get_field_id('skin') . '">' . __('Skin:', 'coolclock') . '</label> ';
@@ -239,9 +234,9 @@ class CoolClock_Widget extends WP_Widget {
 		$output .= '<p><label for="' . $this->get_field_id('subtext') . '">' . __('Subtext:', 'coolclock') . '</label> ';
 		$output .= '<input class="widefat" id="' . $this->get_field_id('subtext') . '" name="' . $this->get_field_name('subtext') . '" type="text" value="' . $subtext . '" /> <span class="description"><em>' . __('(basic HTML allowed)', 'coolclock') . '</em></span></p>';
 
-		$output .= '<div class="coolclock-advanced" style="background-color:rgba(0,0,0,.03);padding:1px 7px;border-radius:5px;margin-bottom:10px">';
+		$output .= '</fieldset>'; //<div class="coolclock-advanced" style="background-color:rgba(0,0,0,.03);padding:1px 7px;border-radius:5px;margin-bottom:10px">';
 
-		$output .= '<p><strong>' . __( 'Advanced', 'coolclock' ) . '</strong></p>';
+		$output .= '<fieldset><legend>' . __( 'Advanced', 'coolclock' ) . '</legend>';
 
 		// Use GMT offset
 		$output .= '<p><label for="' . $this->get_field_id('gmtoffset') . '">' . __('GMT offset:', 'coolclock') . '</label> ';
@@ -251,7 +246,7 @@ class CoolClock_Widget extends WP_Widget {
 		$output .= '<p><label for="' . $this->get_field_id('scale') . '">' . __('Scale:', 'coolclock') . '</label> ';
 		$output .= '<select class="select" id="' . $this->get_field_id('scale') . '" name="' . $this->get_field_name('scale') . '">';
 		foreach ( CoolClock::$clock_types as $key => $value ) {
-			$output .= '<option value="' . $key . '" ' . selected( $key, strtolower($instance['scale']), false ) . '>';
+			$output .= '<option value="' . $key . '" ' . selected( $key, strtolower($instance['scale']), false ) . '">';
 			$output .= ( isset($type_names[$key]) ) ? $type_names[$key] : $value;
 			$output .= '</option>';
 		}
@@ -272,9 +267,10 @@ class CoolClock_Widget extends WP_Widget {
 
 		$output .= '<p><label for="' . $this->get_field_id('fontcolor') . '">' . __('Digital font color:', 'coolclock') . '</label> ';
 		$output .= '<input id="' . $this->get_field_id('fontcolor') . '" name="' . $this->get_field_name('fontcolor') . '" type="text" value="' . $instance['fontcolor'] . '" /> <span class="description"><em>' . __('(use a valid HTML color code or name)', 'coolclock') . '</em></span></p>';
+		$output .= '</fieldset>';
 
 		$advanced .= '<p class="description"><a href="https://premium.status301.com/downloads/coolclock-advanced/">' . __('More digital font options &raquo;', 'coolclock') . '</a></p>
-		<p><strong>' . __( 'Background', 'coolclock' ) . '</strong></p><p class="description"><a href="https://premium.status301.com/downloads/coolclock-advanced/">' . __('Available in the Advanced extension &raquo;', 'coolclock') . '</a></p>';
+		<fieldset><legend>' . __( 'Background', 'coolclock' ) . '</legend><p class="description"><a href="https://premium.status301.com/downloads/coolclock-advanced/">' . __('Available in the Advanced extension &raquo;', 'coolclock') . '</a></p></fieldset>';
 
 		// Advanced filter
 		$output .= apply_filters( 'coolclock_widget_form_advanced', $advanced, $this, $instance, $defaults );
