@@ -76,8 +76,21 @@ class CoolClock_Widget extends WP_Widget {
 		// end wrapper
 		$output .= '</div>';
 
-		// Print filtered output
-		echo wp_kses_post( apply_filters( 'coolclock_widget', $output, $args, $instance ) );
+		// Print filtered output. wp_kses_post() strips <canvas>, so extend its
+		// allowed tags rather than using it directly (which would silently
+		// remove the clock).
+		$allowed_html = array_merge(
+			wp_kses_allowed_html( 'post' ),
+			array(
+				'canvas' => array(
+					'class'  => true,
+					'style'  => true,
+					'width'  => true,
+					'height' => true,
+				),
+			)
+		);
+		echo wp_kses( apply_filters( 'coolclock_widget', $output, $args, $instance ), $allowed_html );
 
 		echo wp_kses_post( $after_widget );
 	}
@@ -175,7 +188,7 @@ class CoolClock_Widget extends WP_Widget {
 
 		// Clock settings
 		$output .= '<p><strong>' . __('Clock', 'coolclock') . '</strong></p>';
-		$output .= '<p><a href="https://premium.status301.com/coolclock-widget-settings/" target="_blank">' . __('CoolClock widget instructions &raquo;', 'coolclock') . '</a></p>';
+		$output .= '<p class="description"><a href="https://premium.status301.com/coolclock-widget-settings/" target="_blank">' . __('CoolClock widget instructions &raquo;', 'coolclock') . '</a></p>';
 
 		$output .= '<p><label for="' . $this->get_field_id('skin') . '">' . __('Skin:', 'coolclock') . '</label> ';
 		$output .= '<select class="select" id="' . $this->get_field_id('skin') . '" name="' . $this->get_field_name('skin') . '">';
@@ -192,9 +205,13 @@ class CoolClock_Widget extends WP_Widget {
 
 		// Custom skin field
 		$output .= '<p><label for="' . $this->get_field_id('custom_skin') . '">' . __('Custom skin parameters:', 'coolclock') . '</label> ';
-		$output .= '<textarea class="widefat" id="' . $this->get_field_id('custom_skin') . '" name="' . $this->get_field_name('custom_skin') . '">' . $custom_skin . '</textarea> ';
-		/* translators: %s: link to the JSON parameters documentation */
-		$output .= '<em>' .  sprintf( __('(set Skin to Custom above, then add %s here)', 'coolclock'), '<a href="https://premium.status301.com/coolclock-custom-skin/" target="_blank">' . __('parameters in JSON format', 'coolclock') . '</a>' ) . '</em></p>';
+		$output .= '<textarea class="widefat" id="' . $this->get_field_id('custom_skin') . '" name="' . $this->get_field_name('custom_skin') . '">' . $custom_skin . '</textarea></p>';
+
+		$output .= '<p class="description"><em>' .  sprintf(
+			/* translators: %s: link to the JSON parameters documentation */
+			__( '(set Skin to Custom above, then add %s here)', 'coolclock' ),
+			'<a href="https://premium.status301.com/coolclock-custom-skin/" target="_blank">' . __( 'parameters in JSON format', 'coolclock' ) . '</a>'
+			) . '</em></p>';
 
 		// Radius
 		$output .= '<p><label for="' . $this->get_field_id('radius') . '">' . __('Radius:', 'coolclock') . '</label> ';
@@ -220,7 +237,7 @@ class CoolClock_Widget extends WP_Widget {
 
 		// Subtext
 		$output .= '<p><label for="' . $this->get_field_id('subtext') . '">' . __('Subtext:', 'coolclock') . '</label> ';
-		$output .= '<input class="widefat" id="' . $this->get_field_id('subtext') . '" name="' . $this->get_field_name('subtext') . '" type="text" value="' . $subtext . '" /> <em>' . __('(basic HTML allowed)', 'coolclock') . '</em></p>';
+		$output .= '<input class="widefat" id="' . $this->get_field_id('subtext') . '" name="' . $this->get_field_name('subtext') . '" type="text" value="' . $subtext . '" /> <span class="description"><em>' . __('(basic HTML allowed)', 'coolclock') . '</em></span></p>';
 
 		$output .= '<div class="coolclock-advanced" style="background-color:rgba(0,0,0,.03);padding:1px 7px;border-radius:5px;margin-bottom:10px">';
 
@@ -228,7 +245,7 @@ class CoolClock_Widget extends WP_Widget {
 
 		// Use GMT offset
 		$output .= '<p><label for="' . $this->get_field_id('gmtoffset') . '">' . __('GMT offset:', 'coolclock') . '</label> ';
-		$output .= '<input class="small-text" id="' . $this->get_field_id('gmtoffset') . '" name="' . $this->get_field_name('gmtoffset') . '" type="number" step="0.5" value="' . $instance['gmtoffset'] . '" /> <em>' . __('(leave blank for visitor local time)', 'coolclock') . '</em></p>';
+		$output .= '<input class="small-text" id="' . $this->get_field_id('gmtoffset') . '" name="' . $this->get_field_name('gmtoffset') . '" type="number" step="0.5" value="' . $instance['gmtoffset'] . '" /> <span class="description"><em>' . __('(leave blank for visitor local time)', 'coolclock') . '</em></span></p>';
 
 		// Scale
 		$output .= '<p><label for="' . $this->get_field_id('scale') . '">' . __('Scale:', 'coolclock') . '</label> ';
@@ -254,10 +271,10 @@ class CoolClock_Widget extends WP_Widget {
 		$output .= '</select></p>';
 
 		$output .= '<p><label for="' . $this->get_field_id('fontcolor') . '">' . __('Digital font color:', 'coolclock') . '</label> ';
-		$output .= '<input id="' . $this->get_field_id('fontcolor') . '" name="' . $this->get_field_name('fontcolor') . '" type="text" value="' . $instance['fontcolor'] . '" /> <em>' . __('(use a valid HTML color code or name)', 'coolclock') . '</em></p>';
+		$output .= '<input id="' . $this->get_field_id('fontcolor') . '" name="' . $this->get_field_name('fontcolor') . '" type="text" value="' . $instance['fontcolor'] . '" /> <span class="description"><em>' . __('(use a valid HTML color code or name)', 'coolclock') . '</em></span></p>';
 
-		$advanced .= '<p><a href="https://premium.status301.com/downloads/coolclock-advanced/">' . __('More digital font options &raquo;', 'coolclock') . '</a></p>
-		<p><strong>' . __( 'Background', 'coolclock' ) . '</strong></p><p><a href="https://premium.status301.com/downloads/coolclock-advanced/">' . __('Available in the Advanced extension &raquo;', 'coolclock') . '</a></p>';
+		$advanced .= '<p class="description"><a href="https://premium.status301.com/downloads/coolclock-advanced/">' . __('More digital font options &raquo;', 'coolclock') . '</a></p>
+		<p><strong>' . __( 'Background', 'coolclock' ) . '</strong></p><p class="description"><a href="https://premium.status301.com/downloads/coolclock-advanced/">' . __('Available in the Advanced extension &raquo;', 'coolclock') . '</a></p>';
 
 		// Advanced filter
 		$output .= apply_filters( 'coolclock_widget_form_advanced', $advanced, $this, $instance, $defaults );
@@ -268,6 +285,39 @@ class CoolClock_Widget extends WP_Widget {
 			$output .= '<div class="update-nag"><strong>' . __('Please upgrade the CoolClock - Advanced extension.', 'coolclock') . '</strong> '. ' <a href="https://premium.status301.com/account/" target="_blank">' . __('Please log in with your account credentials here.', 'coolclock') . '</a>' . __('You can download the new version using the link in the downloads list.', 'coolclock') . '</div>';
 		}
 
-		echo wp_kses_post( $output );
+		// wp_kses_post() strips form controls (input/select/option/textarea/style),
+		// which would silently break this settings screen. Extend the allowed
+		// tags with what an admin settings form actually needs instead.
+		$allowed_html = array_merge(
+			wp_kses_allowed_html( 'post' ),
+			array(
+				'style'    => array( 'type' => true ),
+				'input'    => array(
+					'id'      => true,
+					'class'   => true,
+					'name'    => true,
+					'type'    => true,
+					'value'   => true,
+					'min'     => true,
+					'step'    => true,
+					'checked' => true,
+				),
+				'select'   => array(
+					'id'    => true,
+					'class' => true,
+					'name'  => true,
+				),
+				'option'   => array(
+					'value'    => true,
+					'selected' => true,
+				),
+				'textarea' => array(
+					'id'    => true,
+					'class' => true,
+					'name'  => true,
+				),
+			)
+		);
+		echo wp_kses( $output, $allowed_html );
 	}
 }

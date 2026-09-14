@@ -4,9 +4,8 @@ Plugin Name: CoolClock
 Plugin URI: https://status301.net/wordpress-plugins/coolclock/
 Description: An analog clock for your site.
 Text Domain: coolclock
-Domain Path: /languages
 Requires at least: 5.8
-Version: 4.3.8
+Version: 4.3.9
 Author: RavanH
 Author URI: https://status301.net/
 License: GPL-2.0-or-later
@@ -29,4 +28,4 @@ require COOLCLOCK_DIR . 'includes/class-coolclock-shortcode.php';
  *  INITIATE
  **************/
 
-new CoolClock( __FILE__, '4.3.8' );
+new CoolClock( __FILE__, '4.3.9' );

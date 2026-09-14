@@ -1,11 +1,11 @@
 === CoolClock ===
 Contributors: RavanH
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ravanhagen%40gmail%2ecom&item_name=CoolClock%20for%20WordPress&item_number=1%2e3%2e4%2e9&no_shipping=0&tax=0&charset=UTF%2d8&currency_code=EUR
+Donate link: https://www.paypal.com/donate/?hosted_button_id=5UVXZVN5HDKBS
 Tags: clock, analog clock, javascript, widget, shortcode
 Requires at least: 5.8
 Tested up to: 7.1
 Requires PHP: 5.6
-Stable tag: 4.3.8
+Stable tag: 4.3.9
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,7 +46,7 @@ Pro features come with the [CoolClock - Advanced extension](https://premium.stat
 - **Slovenian** * Adijan Dervišević - http://www.adijan.eu (version 3.2)
 - **Russian** * Наталия Завьялова - http://time-impressions.ru (version 2.9.8)
 
-Please [contact me](https://status301.net/contact-en/) to submit your translation and get mentioned here :)
+Please [contact me](https://status301.net/contact/) to submit your translation and get mentioned here :)
 
 = Privacy / GDPR =
 
@@ -56,10 +56,6 @@ This plugin does not collect any user or visitor data nor set browser cookies. U
 == Installation ==
 
 = Wordpress =
-
-Quick installation: [Install now](http://coveredwebservices.com/wp-plugin-install/?plugin=coolclock) !
-
- &hellip; OR &hellip;
 
 Search for "coolclock" and install with that slick **Plugins > Add New** back-end page.
 
@@ -154,10 +150,13 @@ Please report any other issues on the [Support page](http://wordpress.org/suppor
 
 == Upgrade Notice ==
 
-= 4.3.8 =
-Bugfix release: shortcode Stored XSS vulnerability, thanks @Artus KG and @Philipp Doblhofer
+= 4.3.9 =
+Bugfix release: too much filtering in Classic widget.
 
 == Changelog ==
+
+= 4.3.9 =
+Bugfix: too much filtering in Classic widget
 
 = 4.3.8 =
 * Bugfix: shortcode Stored XSS vulnerability, thanks @Artus KG and @Philipp Doblhofer
