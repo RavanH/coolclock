@@ -193,8 +193,12 @@ class CoolClock_Widget extends WP_Widget {
 		// Custom skin field
 		$output .= '<p><label for="' . $this->get_field_id('custom_skin') . '">' . __('Custom skin parameters:', 'coolclock') . '</label> ';
 		$output .= '<textarea class="widefat" id="' . $this->get_field_id('custom_skin') . '" name="' . $this->get_field_name('custom_skin') . '">' . $custom_skin . '</textarea> ';
-		/* translators: %s: link to the JSON parameters documentation */
-		$output .= '<em>' .  sprintf( __('(set Skin to Custom above, then add %s here)', 'coolclock'), '<a href="https://premium.status301.com/coolclock-custom-skin/" target="_blank">' . __('parameters in JSON format', 'coolclock') . '</a>' ) . '</em></p>';
+
+		$output .= '<em>' .  sprintf(
+			/* translators: %s: link to the JSON parameters documentation */
+			__( '(set Skin to Custom above, then add %s here)', 'coolclock' ),
+			'<a href="https://premium.status301.com/coolclock-custom-skin/" target="_blank">' . __( 'parameters in JSON format', 'coolclock' ) . '</a>'
+			) . '</em></p>';
 
 		// Radius
 		$output .= '<p><label for="' . $this->get_field_id('radius') . '">' . __('Radius:', 'coolclock') . '</label> ';
