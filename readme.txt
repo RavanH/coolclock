@@ -37,17 +37,6 @@ Read more on the [CoolClock homepage](https://status301.net/wordpress-plugins/co
 
 Pro features come with the [CoolClock - Advanced extension](https://premium.status301.com/downloads/coolclock-advanced/).
 
-= Translators =
-
-- **Dutch** * R.A. van Hagen https://status301.net/ (version 3.0)
-- **French** * R.A. van Hagen https://status301.net/ (version 3.0)
-- **German** * Manfred Mrak http://www.niftyfox.ch/ (version 3.2)
-- **Serbian** * Borisa Djuraskovic - WebHostingHub http://www.webhostinghub.com/ (version 2.9.4)
-- **Slovenian** * Adijan Dervišević - http://www.adijan.eu (version 3.2)
-- **Russian** * Наталия Завьялова - http://time-impressions.ru (version 2.9.8)
-
-Please [contact me](https://status301.net/contact/) to submit your translation and get mentioned here :)
-
 = Privacy / GDPR =
 
 This plugin does not collect any user or visitor data nor set browser cookies. Using this plugin should not impact your site privacy policy in any way.
