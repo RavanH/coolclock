@@ -5,7 +5,7 @@ Tags: clock, analog clock, javascript, widget, shortcode
 Requires at least: 5.8
 Tested up to: 7.1
 Requires PHP: 5.6
-Stable tag: 4.3.9
+Stable tag: 4.3.10
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,17 +36,6 @@ Read more on the [CoolClock homepage](https://status301.net/wordpress-plugins/co
 - Support on the [CoolClock Pro forum](https://premium.status301.com/support/forum/coolclock-pro/)
 
 Pro features come with the [CoolClock - Advanced extension](https://premium.status301.com/downloads/coolclock-advanced/).
-
-= Translators =
-
-- **Dutch** * R.A. van Hagen https://status301.net/ (version 3.0)
-- **French** * R.A. van Hagen https://status301.net/ (version 3.0)
-- **German** * Manfred Mrak http://www.niftyfox.ch/ (version 3.2)
-- **Serbian** * Borisa Djuraskovic - WebHostingHub http://www.webhostinghub.com/ (version 2.9.4)
-- **Slovenian** * Adijan Dervišević - http://www.adijan.eu (version 3.2)
-- **Russian** * Наталия Завьялова - http://time-impressions.ru (version 2.9.8)
-
-Please [contact me](https://status301.net/contact/) to submit your translation and get mentioned here :)
 
 = Privacy / GDPR =
 
@@ -150,13 +139,16 @@ Please report any other issues on the [Support page](http://wordpress.org/suppor
 
 == Upgrade Notice ==
 
-= 4.3.9 =
-Bugfix release: too much filtering in Classic widget.
+= 4.3.10 =
+Fixes problem in widget admin, revealed when using Classic Widgets. Thanks @ec2337
 
 == Changelog ==
 
+= 4.3.10 =
+* Bugfix: problem in widget admin, revealed when using Classic Widgets. Thanks @ec2337
+
 = 4.3.9 =
-Bugfix: too much filtering in Classic widget
+* Bugfix: too much filtering in Classic widget
 
 = 4.3.8 =
 * Bugfix: shortcode Stored XSS vulnerability, thanks @Artus KG and @Philipp Doblhofer

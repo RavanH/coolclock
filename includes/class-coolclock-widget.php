@@ -234,7 +234,7 @@ class CoolClock_Widget extends WP_Widget {
 		$output .= '<p><label for="' . $this->get_field_id('subtext') . '">' . __('Subtext:', 'coolclock') . '</label> ';
 		$output .= '<input class="widefat" id="' . $this->get_field_id('subtext') . '" name="' . $this->get_field_name('subtext') . '" type="text" value="' . $subtext . '" /> <span class="description"><em>' . __('(basic HTML allowed)', 'coolclock') . '</em></span></p>';
 
-		$output .= '</fieldset>'; //<div class="coolclock-advanced" style="background-color:rgba(0,0,0,.03);padding:1px 7px;border-radius:5px;margin-bottom:10px">';
+		$output .= '</fieldset>';
 
 		$output .= '<fieldset><legend>' . __( 'Advanced', 'coolclock' ) . '</legend>';
 
@@ -274,8 +274,6 @@ class CoolClock_Widget extends WP_Widget {
 
 		// Advanced filter
 		$output .= apply_filters( 'coolclock_widget_form_advanced', $advanced, $this, $instance, $defaults );
-
-		$output .= '</div>';
 
 		if ( class_exists( 'CoolClockAdvanced' ) && isset(CoolClockAdvanced::$plugin_version) && version_compare( CoolClockAdvanced::$plugin_version, '7.1', '<' )  ) { // add an upgrade notice
 			$output .= '<div class="update-nag"><strong>' . __('Please upgrade the CoolClock - Advanced extension.', 'coolclock') . '</strong> '. ' <a href="https://premium.status301.com/account/" target="_blank">' . __('Please log in with your account credentials here.', 'coolclock') . '</a>' . __('You can download the new version using the link in the downloads list.', 'coolclock') . '</div>';
