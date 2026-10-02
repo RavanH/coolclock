@@ -182,7 +182,7 @@ class CoolClock_Widget extends WP_Widget {
 		$output .= '<input class="widefat" id="' . $this->get_field_id('title') . '" name="' . $this->get_field_name('title') . '" type="text" value="' . $title . '" /></p>';
 
 		// Clock settings
-		$output .= '<fieldset><legend>' . __('Clock', 'coolclock') . '</legend>';
+		$output .= '<fieldset><h4>' . __('Clock', 'coolclock') . '</h4>';
 		$output .= '<p class="description"><a href="https://premium.status301.com/coolclock-widget-settings/" target="_blank">' . __('CoolClock widget instructions &raquo;', 'coolclock') . '</a></p>';
 
 		$output .= '<p><label for="' . $this->get_field_id('skin') . '">' . __('Skin:', 'coolclock') . '</label> ';
@@ -236,7 +236,7 @@ class CoolClock_Widget extends WP_Widget {
 
 		$output .= '</fieldset>';
 
-		$output .= '<fieldset><legend>' . __( 'Advanced', 'coolclock' ) . '</legend>';
+		$output .= '<fieldset><h4>' . __( 'Advanced', 'coolclock' ) . '</h4>';
 
 		// Use GMT offset
 		$output .= '<p><label for="' . $this->get_field_id('gmtoffset') . '">' . __('GMT offset:', 'coolclock') . '</label> ';
@@ -270,7 +270,7 @@ class CoolClock_Widget extends WP_Widget {
 		$output .= '</fieldset>';
 
 		$advanced .= '<p class="description"><a href="https://premium.status301.com/downloads/coolclock-advanced/">' . __('More digital font options &raquo;', 'coolclock') . '</a></p>
-		<fieldset><legend>' . __( 'Background', 'coolclock' ) . '</legend><p class="description"><a href="https://premium.status301.com/downloads/coolclock-advanced/">' . __('Available in the Advanced extension &raquo;', 'coolclock') . '</a></p></fieldset>';
+		<fieldset><h4>' . __( 'Background', 'coolclock' ) . '</h4><p class="description"><a href="https://premium.status301.com/downloads/coolclock-advanced/">' . __('Available in the Advanced extension &raquo;', 'coolclock') . '</a></p></fieldset>';
 
 		// Advanced filter
 		$output .= apply_filters( 'coolclock_widget_form_advanced', $advanced, $this, $instance, $defaults );
