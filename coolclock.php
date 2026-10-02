@@ -28,4 +28,4 @@ require COOLCLOCK_DIR . 'includes/class-coolclock-shortcode.php';
  *  INITIATE
  **************/
 
-new CoolClock( __FILE__, '4.3.9' );
+new CoolClock( __FILE__, '4.3.10' );
