@@ -5,7 +5,7 @@ Tags: clock, analog clock, javascript, widget, shortcode
 Requires at least: 5.8
 Tested up to: 7.1
 Requires PHP: 5.6
-Stable tag: 4.3.9
+Stable tag: 4.3.10
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -139,13 +139,16 @@ Please report any other issues on the [Support page](http://wordpress.org/suppor
 
 == Upgrade Notice ==
 
-= 4.3.9 =
-Bugfix release: too much filtering in Classic widget.
+= 4.3.10 =
+Fixes problem in widget admin, revealed when using Classic Widgets. Thanks @ec2337
 
 == Changelog ==
 
+= 4.3.10 =
+* Bugfix: problem in widget admin, revealed when using Classic Widgets. Thanks @ec2337
+
 = 4.3.9 =
-Bugfix: too much filtering in Classic widget
+* Bugfix: too much filtering in Classic widget
 
 = 4.3.8 =
 * Bugfix: shortcode Stored XSS vulnerability, thanks @Artus KG and @Philipp Doblhofer
